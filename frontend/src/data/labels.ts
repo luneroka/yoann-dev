@@ -8,7 +8,7 @@ import type {
 } from "./types";
 
 export const trackLabels = {
-  dev: { en: "Development", fr: "Développement" },
+  dev: { en: "Dev", fr: "Dev" },
   data: { en: "Data", fr: "Data" },
 } satisfies Record<Track, LocalizedString>;
 

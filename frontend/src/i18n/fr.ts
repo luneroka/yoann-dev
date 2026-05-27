@@ -46,7 +46,8 @@ export const fr = {
     emptyState: "Aucun élément ne correspond aux filtres.",
     filters: {
       title: "Filtres",
-      status: "Aperçu statique",
+      status: "Cliquez pour affiner",
+      all: "Tout",
       type: "Type",
       domain: "Domaine",
       company: "Entreprise",

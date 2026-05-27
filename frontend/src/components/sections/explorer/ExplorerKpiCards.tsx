@@ -1,7 +1,11 @@
+import { useEffect, useMemo, useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Boxes, Clock3, Cpu, Euro, type LucideIcon } from "lucide-react";
+import { Activity, Boxes, Clock3, Cpu, type LucideIcon } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import type { ExplorerMetricSummary } from "@/data/metrics";
+import type { ContextMetric, Locale } from "@/data/types";
+import { translate } from "@/i18n/translate";
 
 type ExplorerKpiCardProps = {
   id: string;
@@ -9,6 +13,10 @@ type ExplorerKpiCardProps = {
   value: string;
   icon: LucideIcon;
   accent?: boolean;
+};
+
+type ExplorerKpiCardsProps = {
+  metrics: ExplorerMetricSummary;
 };
 
 const kpiStackVariants: Variants = {
@@ -35,6 +43,8 @@ const kpiCardVariants: Variants = {
   },
 };
 
+const contextMetricRotationMs = 3500;
+
 function ExplorerKpiCard({ label, value, icon: Icon, accent = false }: ExplorerKpiCardProps) {
   return (
     <motion.div
@@ -43,7 +53,7 @@ function ExplorerKpiCard({ label, value, icon: Icon, accent = false }: ExplorerK
       }`}
       variants={kpiCardVariants}
     >
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex items-center justify-between gap-3">
         <div>
           <p className="font-heading text-3xl font-bold leading-none text-foreground">{value}</p>
           <p className="mt-3 font-body text-xs font-semibold text-muted-foreground">{label}</p>
@@ -61,34 +71,72 @@ function ExplorerKpiCard({ label, value, icon: Icon, accent = false }: ExplorerK
   );
 }
 
-const ExplorerKpiCards = () => {
-  const { copy } = useLanguage();
+function formatNumber(value: number, locale: Locale) {
+  return new Intl.NumberFormat(locale).format(value);
+}
+
+function formatContextMetricValue(metric: ContextMetric | undefined, locale: Locale) {
+  if (!metric) {
+    return "0";
+  }
+
+  const unit = metric.unit ? translate(metric.unit, locale) : "";
+
+  return `${formatNumber(metric.value, locale)}${unit === "%" ? "%" : unit ? ` ${unit}` : ""}`;
+}
+
+const ExplorerKpiCards = ({ metrics }: ExplorerKpiCardsProps) => {
+  const { copy, locale } = useLanguage();
   const kpis = copy.explorer.kpis;
+  const [contextMetricIndex, setContextMetricIndex] = useState(0);
+  const contextMetrics = useMemo(
+    () => metrics.contextMetrics.filter((metric) => metric.value > 0),
+    [metrics.contextMetrics],
+  );
+  const selectedContextMetric = contextMetrics[contextMetricIndex] ?? contextMetrics[0];
+
+  useEffect(() => {
+    setContextMetricIndex(0);
+  }, [contextMetrics]);
+
+  useEffect(() => {
+    if (contextMetrics.length <= 1) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setContextMetricIndex((currentIndex) => (currentIndex + 1) % contextMetrics.length);
+    }, contextMetricRotationMs);
+
+    return () => window.clearInterval(intervalId);
+  }, [contextMetrics.length]);
 
   const cards: ExplorerKpiCardProps[] = [
     {
       id: "hours-invested",
       label: kpis.hoursInvested,
-      value: "240h",
+      value: `${formatNumber(metrics.hoursInvested, locale)}h`,
       icon: Clock3,
     },
     {
       id: "systems-built",
       label: kpis.systemsBuilt,
-      value: "8",
+      value: formatNumber(metrics.systemsBuilt, locale),
       icon: Boxes,
     },
     {
       id: "technologies-used",
       label: kpis.technologiesUsed,
-      value: "14",
+      value: formatNumber(metrics.technologiesUsed, locale),
       icon: Cpu,
     },
     {
       id: "context-metric",
-      label: kpis.contextMetric,
-      value: "€450K",
-      icon: Euro,
+      label: selectedContextMetric
+        ? translate(selectedContextMetric.label, locale)
+        : kpis.contextMetric,
+      value: formatContextMetricValue(selectedContextMetric, locale),
+      icon: Activity,
       accent: true,
     },
   ];

@@ -46,7 +46,8 @@ export const en = {
     emptyState: "No profile item matches your filters.",
     filters: {
       title: "Filters",
-      status: "Static preview",
+      status: "Click to refine",
+      all: "All",
       type: "Type",
       domain: "Domain",
       company: "Company",

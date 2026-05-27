@@ -1,5 +1,7 @@
-import { BarChart3, Database, FileSpreadsheet } from "lucide-react";
+import { BarChart3, Database } from "lucide-react";
+import { DiVisualstudio } from "react-icons/di";
 import { IoLogoTableau } from "react-icons/io5";
+import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
 import {
   SiDocker,
   SiFastapi,
@@ -125,7 +127,7 @@ export const skills: Skill[] = [
   {
     id: "excel",
     label: { en: "Excel", fr: "Excel" },
-    icon: FileSpreadsheet,
+    icon: PiMicrosoftExcelLogoFill,
     category: "data",
     level: "comfortable",
     showAsFilter: true,
@@ -133,7 +135,7 @@ export const skills: Skill[] = [
   {
     id: "vba",
     label: { en: "VBA", fr: "VBA" },
-    icon: FileSpreadsheet,
+    icon: DiVisualstudio,
     category: "data",
     level: "working",
     showAsFilter: true,

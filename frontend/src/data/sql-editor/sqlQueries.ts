@@ -14,15 +14,27 @@ export function buildProjectsSqlQuery(filters: ProjectFilters = {}) {
   const conditions: string[] = [];
 
   if (filters.type && filters.type !== "all") {
-    conditions.push(`type = '${filters.type}'`);
+    conditions.push(`track = '${filters.type}'`);
+  }
+
+  if (filters.tracks && filters.tracks.length > 0) {
+    conditions.push(`track IN (${formatSqlList(filters.tracks)})`);
   }
 
   if (filters.domain && filters.domain !== "all") {
-    conditions.push(`domain = '${filters.domain}'`);
+    conditions.push(`domains CONTAINS '${filters.domain}'`);
+  }
+
+  if (filters.domains && filters.domains.length > 0) {
+    conditions.push(`domains IN (${formatSqlList(filters.domains)})`);
   }
 
   if (filters.company && filters.company !== "all") {
     conditions.push(`company = '${filters.company}'`);
+  }
+
+  if (filters.companies && filters.companies.length > 0) {
+    conditions.push(`company IN (${formatSqlList(filters.companies)})`);
   }
 
   if (filters.skills && filters.skills.length > 0) {
@@ -31,6 +43,10 @@ export function buildProjectsSqlQuery(filters: ProjectFilters = {}) {
 
   if (filters.technologies && filters.technologies.length > 0) {
     conditions.push(`technologies IN (${formatSqlList(filters.technologies)})`);
+  }
+
+  if (filters.featuredOnly) {
+    conditions.push("featured = true");
   }
 
   if (conditions.length === 0) {

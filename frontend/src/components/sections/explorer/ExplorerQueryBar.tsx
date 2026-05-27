@@ -2,7 +2,11 @@ import { Database } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
 
-const ExplorerQueryBar = () => {
+type ExplorerQueryBarProps = {
+  query: string;
+};
+
+const ExplorerQueryBar = ({ query }: ExplorerQueryBarProps) => {
   const { copy } = useLanguage();
 
   return (
@@ -16,7 +20,7 @@ const ExplorerQueryBar = () => {
 
       <div className="overflow-x-auto rounded-md border border-border bg-secondary/35 px-4 py-3">
         <code className="block min-w-max font-mono text-sm leading-6 text-foreground">
-          {copy.explorer.query.statement}
+          {query}
         </code>
       </div>
     </div>

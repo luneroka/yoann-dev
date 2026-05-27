@@ -1,9 +1,19 @@
+import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 
 import ExplorerCharts from "./ExplorerCharts";
 import ExplorerFilters from "./ExplorerFilters";
 import ExplorerKpiCards from "./ExplorerKpiCards";
 import ExplorerQueryBar from "./ExplorerQueryBar";
+
+import { getExplorerMetricSummary, type ExplorerMetricSummary } from "@/data/metrics";
+import { buildProjectsSqlQuery } from "@/data/sql-editor/sqlQueries";
+import { useLanguage } from "@/context/LanguageContext";
+import {
+  queryProjects,
+  type EnrichedProject,
+  type ProjectFilters,
+} from "@/lib/queryProjects";
 
 const dashboardVariants: Variants = {
   hidden: {
@@ -20,17 +30,39 @@ const dashboardVariants: Variants = {
   },
 };
 
-function ExplorerMain() {
+type ExplorerMainProps = {
+  projects: EnrichedProject[];
+  metrics: ExplorerMetricSummary;
+  sqlQuery: string;
+};
+
+function ExplorerMain({ projects, metrics, sqlQuery }: ExplorerMainProps) {
+  const { copy } = useLanguage();
+
   return (
     <div className="min-w-0 space-y-6 p-4 sm:p-6">
-      <ExplorerQueryBar />
-      <ExplorerKpiCards />
-      <ExplorerCharts />
+      <ExplorerQueryBar query={sqlQuery} />
+      <ExplorerKpiCards metrics={metrics} />
+      {projects.length > 0 ? (
+        <ExplorerCharts projects={projects} />
+      ) : (
+        <div className="rounded-lg border border-border bg-background p-8 text-center shadow-soft">
+          <p className="font-body text-sm font-semibold text-muted-foreground">
+            {copy.explorer.emptyState}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
 
 const ExplorerDashboard = () => {
+  const [filters, setFilters] = useState<ProjectFilters>({});
+  const allProjects = queryProjects({}, "date-desc");
+  const projects = queryProjects(filters, "date-desc");
+  const metrics = getExplorerMetricSummary(projects);
+  const sqlQuery = buildProjectsSqlQuery(filters);
+
   return (
     <motion.div
       className="mt-12 grid overflow-hidden rounded-lg border border-border bg-card/90 shadow-soft backdrop-blur lg:grid-cols-[220px_minmax(0,1fr)]"
@@ -39,8 +71,8 @@ const ExplorerDashboard = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={dashboardVariants}
     >
-      <ExplorerFilters />
-      <ExplorerMain />
+      <ExplorerFilters projects={allProjects} filters={filters} onFiltersChange={setFilters} />
+      <ExplorerMain projects={projects} metrics={metrics} sqlQuery={sqlQuery} />
     </motion.div>
   );
 };
