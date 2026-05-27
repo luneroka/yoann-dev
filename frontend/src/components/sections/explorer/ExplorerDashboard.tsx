@@ -33,15 +33,13 @@ const dashboardVariants: Variants = {
 type ExplorerMainProps = {
   projects: EnrichedProject[];
   metrics: ExplorerMetricSummary;
-  sqlQuery: string;
 };
 
-function ExplorerMain({ projects, metrics, sqlQuery }: ExplorerMainProps) {
+function ExplorerMain({ projects, metrics }: ExplorerMainProps) {
   const { copy } = useLanguage();
 
   return (
     <div className="min-w-0 space-y-6 p-4 sm:p-6">
-      <ExplorerQueryBar query={sqlQuery} />
       <ExplorerKpiCards metrics={metrics} />
       {projects.length > 0 ? (
         <ExplorerCharts projects={projects} />
@@ -72,7 +70,10 @@ const ExplorerDashboard = () => {
       variants={dashboardVariants}
     >
       <ExplorerFilters projects={allProjects} filters={filters} onFiltersChange={setFilters} />
-      <ExplorerMain projects={projects} metrics={metrics} sqlQuery={sqlQuery} />
+      <div className="min-w-0">
+        <ExplorerQueryBar query={sqlQuery} />
+        <ExplorerMain projects={projects} metrics={metrics} />
+      </div>
     </motion.div>
   );
 };

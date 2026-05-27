@@ -29,8 +29,8 @@ export const budgetConstruction = {
       },
       value: 4,
       unit: {
-        en: "users",
-        fr: "utilisateurs",
+        en: "",
+        fr: "",
       },
     },
   },

@@ -138,9 +138,9 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                   />
                 </div>
 
-                <div className="flex h-52 w-full items-end rounded-lg bg-primary/10 px-1.5 py-1.5">
+                <div className="flex h-52 w-full items-end  px-1.5 py-1.5">
                   <div
-                    className={`w-full rounded-lg ${barColor}`}
+                    className={`w-full rounded-t-md ${barColor}`}
                     style={{ height: `${height}%` }}
                   />
                 </div>

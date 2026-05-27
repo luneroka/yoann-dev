@@ -10,16 +10,17 @@ const ExplorerQueryBar = ({ query }: ExplorerQueryBarProps) => {
   const { copy } = useLanguage();
 
   return (
-    <div className="rounded-lg border border-border bg-background p-4 shadow-soft">
-      <div className="mb-3 flex items-center gap-2">
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+    <div className="border-b border-border bg-secondary/25 px-4 py-3 sm:px-6">
+      <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center">
+        <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
           <Database className="h-4 w-4" aria-hidden="true" />
         </span>
-        <p className="font-body text-sm font-bold text-foreground">{copy.explorer.query.label}</p>
-      </div>
 
-      <div className="overflow-x-auto rounded-md border border-border bg-secondary/35 px-4 py-3">
-        <code className="block min-w-max font-mono text-sm leading-6 text-foreground">
+        <p className="shrink-0 font-body text-xs font-bold uppercase tracking-wide text-muted-foreground">
+          {copy.explorer.query.label}
+        </p>
+
+        <code className="min-w-0 overflow-x-auto rounded-md border border-border bg-background px-3 py-2 font-mono text-xs leading-5 text-foreground sm:flex-1">
           {query}
         </code>
       </div>

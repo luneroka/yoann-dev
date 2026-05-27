@@ -29,11 +29,11 @@ export function buildProjectsSqlQuery(filters: ProjectFilters = {}) {
   }
 
   if (filters.domain && filters.domain !== "all") {
-    conditions.push(`domains CONTAINS '${filters.domain}'`);
+    conditions.push(`domain = '${filters.domain}'`);
   }
 
   if (filters.domains && filters.domains.length > 0) {
-    conditions.push(`domains IN (${formatSqlList(filters.domains)})`);
+    conditions.push(`domain IN (${formatSqlList(filters.domains)})`);
   }
 
   if (filters.company && filters.company !== "all") {
