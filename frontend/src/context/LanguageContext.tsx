@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useState, type ReactNode } from "react";
 
 import type { Locale } from "@/data/types";
 import { content, type Content } from "@/i18n";
@@ -16,16 +17,18 @@ type LanguageProviderProps = {
   children: ReactNode;
 };
 
+function getInitialLocale(): Locale {
+  const savedLocale = localStorage.getItem("locale");
+
+  if (savedLocale === "en" || savedLocale === "fr") {
+    return savedLocale;
+  }
+
+  return "en";
+}
+
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-
-  useEffect(() => {
-    const savedLocale = localStorage.getItem("locale");
-
-    if (savedLocale === "en" || savedLocale === "fr") {
-      setLocaleState(savedLocale);
-    }
-  }, []);
+  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
 
   function setLocale(nextLocale: Locale) {
     setLocaleState(nextLocale);
