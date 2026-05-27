@@ -1,4 +1,34 @@
 export const fr = {
+  hero: {
+    eyebrow: "DÉVELOPPEUR FULL-STACK | DATA ANALYST",
+    name: "Yoann Robert",
+    title: "Création d’outils pilotés par la donnée avec les technologies web modernes.",
+    subtitle:
+      "Ancien professionnel des opérations en transition vers le développement logiciel et la data, avec une approche centrée sur les usages métiers réels.",
+    ctaPrimary: "Explorer les projets",
+    ctaSecondary: "Contactez-moi",
+    linkedinLabel: "Voir le profil LinkedIn de Yoann Robert",
+    githubLabel: "Voir le profil GitHub de Yoann Robert",
+    highlightCards: [
+      {
+        value: "+7",
+        label: "Années en environnements opérationnels",
+      },
+      {
+        value: "3",
+        label: "Domaines d'application explorés",
+      },
+      {
+        value: "SQL + Python",
+        label: "Stack analytique principale",
+      },
+      {
+        value: "React + FastAPI",
+        label: "Architecture full-stack",
+      },
+    ],
+  },
+
   nav: {
     home: "Accueil",
     explorer: "Explorateur",

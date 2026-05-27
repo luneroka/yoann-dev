@@ -132,7 +132,7 @@ export default function Navbar() {
             className="inline-flex h-10 min-w-10 cursor-pointer items-center justify-center rounded-full px-3 font-body text-sm font-semibold text-foreground transition-smooth hover:bg-muted"
             aria-label={`Switch language to ${locale === "fr" ? "English" : "French"}`}
           >
-            {locale === "fr" ? "EN 🇺🇸" : "FR 🇫🇷"}
+            {locale === "fr" ? "🇺🇸" : "🇫🇷"}
           </button>
 
           <button

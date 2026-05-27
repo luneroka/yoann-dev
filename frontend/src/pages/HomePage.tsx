@@ -1,15 +1,16 @@
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import Hero from "@/components/sections/Hero";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <main id="top" className="min-h-screen px-4 pt-28">
-        <div className="mx-auto max-w-6xl">HomePage</div>
+      <main id="top">
+        <Hero />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
