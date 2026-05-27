@@ -249,3 +249,43 @@
 .shadow-large {
   box-shadow: var(--shadow-large);
 }
+
+.date-range-input {
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+.date-range-input::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  background: transparent;
+}
+
+.date-range-input::-webkit-slider-thumb {
+  appearance: none;
+  pointer-events: auto;
+  width: 1rem;
+  height: 1rem;
+  margin-top: -0.25rem;
+  border: 2px solid hsl(var(--background));
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+
+.date-range-input::-moz-range-track {
+  height: 0.5rem;
+  background: transparent;
+}
+
+.date-range-input::-moz-range-thumb {
+  pointer-events: auto;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid hsl(var(--background));
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}

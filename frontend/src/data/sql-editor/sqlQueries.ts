@@ -10,6 +10,13 @@ function formatSqlList(values: string[]) {
   return values.map((value) => `'${value}'`).join(", ");
 }
 
+function formatMonthSerial(value: number) {
+  const year = Math.floor(value / 12);
+  const month = (value % 12) + 1;
+
+  return `${year}-${String(month).padStart(2, "0")}`;
+}
+
 export function buildProjectsSqlQuery(filters: ProjectFilters = {}) {
   const conditions: string[] = [];
 
@@ -43,6 +50,14 @@ export function buildProjectsSqlQuery(filters: ProjectFilters = {}) {
 
   if (filters.technologies && filters.technologies.length > 0) {
     conditions.push(`technologies IN (${formatSqlList(filters.technologies)})`);
+  }
+
+  if (filters.dateFrom !== undefined) {
+    conditions.push(`period_end >= '${formatMonthSerial(filters.dateFrom)}'`);
+  }
+
+  if (filters.dateTo !== undefined) {
+    conditions.push(`period_start <= '${formatMonthSerial(filters.dateTo)}'`);
   }
 
   if (filters.featuredOnly) {

@@ -18,6 +18,8 @@ export type ProjectFilters = {
   companies?: Company[];
   skills?: SkillId[];
   technologies?: string[];
+  dateFrom?: number;
+  dateTo?: number;
   featuredOnly?: boolean;
 };
 
@@ -27,6 +29,90 @@ export type EnrichedProject = Project & {
   systemsBuiltCount: number;
   technologiesCount: number;
 };
+
+export type ProjectDateRange = {
+  start: number;
+  end: number;
+};
+
+const monthIndexByName: Record<string, number> = {
+  january: 0,
+  february: 1,
+  march: 2,
+  april: 3,
+  may: 4,
+  june: 5,
+  july: 6,
+  august: 7,
+  september: 8,
+  october: 9,
+  november: 10,
+  december: 11,
+};
+
+function toMonthSerial(year: number, monthIndex: number) {
+  return year * 12 + monthIndex;
+}
+
+function getCurrentMonthSerial() {
+  const currentDate = new Date();
+
+  return toMonthSerial(currentDate.getFullYear(), currentDate.getMonth());
+}
+
+function parseMonthYear(value: string) {
+  const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const [, monthName, yearValue] = match;
+  const monthIndex = monthIndexByName[monthName.toLowerCase()];
+  const year = Number(yearValue);
+
+  if (monthIndex === undefined || Number.isNaN(year)) {
+    return null;
+  }
+
+  return toMonthSerial(year, monthIndex);
+}
+
+export function getProjectDateRange(project: Project): ProjectDateRange | null {
+  const [startValue, endValue] = project.period.en.split(/\s+—\s+|\s+-\s+/);
+  const start = startValue ? parseMonthYear(startValue) : null;
+
+  if (start === null) {
+    return null;
+  }
+
+  const end =
+    endValue && endValue.toLowerCase() !== "ongoing"
+      ? parseMonthYear(endValue)
+      : getCurrentMonthSerial();
+
+  return {
+    start,
+    end: Math.max(end ?? start, start),
+  };
+}
+
+function matchesDateRangeFilter(project: Project, filters: ProjectFilters) {
+  if (filters.dateFrom === undefined && filters.dateTo === undefined) {
+    return true;
+  }
+
+  const projectDateRange = getProjectDateRange(project);
+
+  if (!projectDateRange) {
+    return false;
+  }
+
+  const dateFrom = filters.dateFrom ?? Number.NEGATIVE_INFINITY;
+  const dateTo = filters.dateTo ?? Number.POSITIVE_INFINITY;
+
+  return projectDateRange.end >= dateFrom && projectDateRange.start <= dateTo;
+}
 
 function matchesSingleValueFilter<T extends string>(
   values: readonly T[],
@@ -84,6 +170,7 @@ export function filterProjects(
       matchesMultiValueFilter(getCompanyValues(project), filters.companies) &&
       matchesMultiValueFilter(project.skills, filters.skills) &&
       matchesMultiValueFilter(project.technologies, filters.technologies) &&
+      matchesDateRangeFilter(project, filters) &&
       (filters.featuredOnly ? project.featured === true : true)
     );
   });
@@ -102,14 +189,14 @@ export function sortProjects(
       return projectB.systemsBuilt.length - projectA.systemsBuilt.length;
     }
 
-    const dateA = projectA.period.en;
-    const dateB = projectB.period.en;
+    const dateA = getProjectDateRange(projectA)?.end ?? 0;
+    const dateB = getProjectDateRange(projectB)?.end ?? 0;
 
     if (sortKey === "date-asc") {
-      return dateA.localeCompare(dateB);
+      return dateA - dateB;
     }
 
-    return dateB.localeCompare(dateA);
+    return dateB - dateA;
   });
 }
 

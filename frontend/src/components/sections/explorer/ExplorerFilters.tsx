@@ -2,7 +2,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { companyLabels, domainLabels, skillLabels, trackLabels } from "@/data/labels";
 import type { Company, Domain, Project, SkillId, Track } from "@/data/types";
 import { translate } from "@/i18n/translate";
-import type { ProjectFilters } from "@/lib/queryProjects";
+import { getProjectDateRange, type ProjectFilters } from "@/lib/queryProjects";
 
 type FilterItem<T extends string> = {
   value: T;
@@ -27,6 +27,39 @@ type ExplorerFiltersProps = {
 
 function getUniqueValues<T extends string>(values: T[]): T[] {
   return Array.from(new Set(values)).sort();
+}
+
+function getDateBounds(projects: Project[]) {
+  const ranges = projects
+    .map((project) => getProjectDateRange(project))
+    .filter((range) => range !== null);
+
+  if (ranges.length === 0) {
+    return null;
+  }
+
+  return {
+    min: Math.min(...ranges.map((range) => range.start)),
+    max: Math.max(...ranges.map((range) => range.end)),
+  };
+}
+
+function formatMonthSerial(value: number, locale: string) {
+  const year = Math.floor(value / 12);
+  const monthIndex = value % 12;
+
+  return new Intl.DateTimeFormat(locale, {
+    month: "short",
+    year: "numeric",
+  }).format(new Date(year, monthIndex, 1));
+}
+
+function getRangePercent(value: number, min: number, max: number) {
+  if (max === min) {
+    return 0;
+  }
+
+  return ((value - min) / (max - min)) * 100;
 }
 
 function isSelected<T extends string>(selectedValues: readonly T[] | undefined, value: T) {
@@ -72,8 +105,27 @@ function hasActiveFilters(filters: ProjectFilters) {
     filters.tracks?.length ||
       filters.domains?.length ||
       filters.companies?.length ||
-      filters.skills?.length,
+      filters.skills?.length ||
+      filters.dateFrom !== undefined ||
+      filters.dateTo !== undefined,
   );
+}
+
+function updateDateFilter(filters: ProjectFilters, dateFrom: number, dateTo: number) {
+  return {
+    ...filters,
+    dateFrom,
+    dateTo,
+  };
+}
+
+function resetDateFilter(filters: ProjectFilters) {
+  const nextFilters = { ...filters };
+
+  delete nextFilters.dateFrom;
+  delete nextFilters.dateTo;
+
+  return nextFilters;
 }
 
 function FilterGroup<T extends string>({
@@ -137,6 +189,16 @@ const ExplorerFilters = ({
     projects.flatMap((project) => (project.company ? [project.company] : [])),
   );
   const skillOptions = getUniqueValues(projects.flatMap((project) => project.skills));
+  const dateBounds = getDateBounds(projects);
+  const dateFrom = activeFilters.dateFrom ?? dateBounds?.min;
+  const dateTo = activeFilters.dateTo ?? dateBounds?.max;
+  const dateFromPercent =
+    dateBounds && dateFrom !== undefined ? getRangePercent(dateFrom, dateBounds.min, dateBounds.max) : 0;
+  const dateToPercent =
+    dateBounds && dateTo !== undefined ? getRangePercent(dateTo, dateBounds.min, dateBounds.max) : 100;
+  const isDateFiltered =
+    dateBounds !== null &&
+    (activeFilters.dateFrom !== undefined || activeFilters.dateTo !== undefined);
   const explorerFiltersCopy = copy.explorer.filters;
 
   function toggleTrack(track: Track) {
@@ -199,6 +261,30 @@ const ExplorerFilters = ({
     );
   }
 
+  function updateDateFrom(value: number) {
+    if (!dateBounds || dateTo === undefined) {
+      return;
+    }
+
+    onFiltersChange(updateDateFilter(activeFilters, Math.min(value, dateTo), dateTo));
+  }
+
+  function updateDateTo(value: number) {
+    if (!dateBounds || dateFrom === undefined) {
+      return;
+    }
+
+    onFiltersChange(updateDateFilter(activeFilters, dateFrom, Math.max(value, dateFrom)));
+  }
+
+  function toggleAllDates() {
+    if (!dateBounds || !isDateFiltered) {
+      return;
+    }
+
+    onFiltersChange(resetDateFilter(activeFilters));
+  }
+
   return (
     <aside className="border-b border-border bg-secondary/30 p-4 lg:border-b-0 lg:border-r">
       <div className="mb-5">
@@ -213,6 +299,64 @@ const ExplorerFilters = ({
       </div>
 
       <div className="space-y-5">
+        {dateBounds && dateFrom !== undefined && dateTo !== undefined ? (
+          <div>
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="font-body text-[0.68rem] font-bold uppercase tracking-wide text-muted-foreground">
+                {explorerFiltersCopy.date}
+              </h3>
+              <button
+                type="button"
+                onClick={toggleAllDates}
+                aria-pressed={!isDateFiltered}
+                className={`inline-flex min-h-7 cursor-pointer items-center rounded-full border px-2.5 py-1 font-body text-xs font-semibold transition-smooth ${
+                  !isDateFiltered
+                    ? "border-primary/40 bg-primary/10 text-primary"
+                    : "border-border bg-background text-muted-foreground hover:border-primary/35 hover:text-primary"
+                }`}
+              >
+                {explorerFiltersCopy.all}
+              </button>
+            </div>
+
+            <div className="mt-3 space-y-2">
+              <div className="flex items-center justify-between gap-3 font-body text-xs font-semibold text-foreground">
+                <span>{formatMonthSerial(dateFrom, locale)}</span>
+                <span>{formatMonthSerial(dateTo, locale)}</span>
+              </div>
+
+              <div className="relative h-7">
+                <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-primary/10" />
+                <div
+                  className="absolute top-1/2 h-2 -translate-y-1/2 rounded-full bg-primary"
+                  style={{
+                    left: `${dateFromPercent}%`,
+                    right: `${100 - dateToPercent}%`,
+                  }}
+                />
+                <input
+                  type="range"
+                  min={dateBounds.min}
+                  max={dateBounds.max}
+                  value={dateFrom}
+                  onChange={(event) => updateDateFrom(Number(event.target.value))}
+                  className="date-range-input absolute inset-x-0 top-1/2 z-20 h-7 w-full -translate-y-1/2"
+                  aria-label={explorerFiltersCopy.dateFrom}
+                />
+                <input
+                  type="range"
+                  min={dateBounds.min}
+                  max={dateBounds.max}
+                  value={dateTo}
+                  onChange={(event) => updateDateTo(Number(event.target.value))}
+                  className="date-range-input absolute inset-x-0 top-1/2 z-30 h-7 w-full -translate-y-1/2"
+                  aria-label={explorerFiltersCopy.dateTo}
+                />
+              </div>
+            </div>
+          </div>
+        ) : null}
+
         <FilterGroup
           allLabel={explorerFiltersCopy.all}
           title={explorerFiltersCopy.type}
