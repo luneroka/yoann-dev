@@ -24,7 +24,7 @@ export const projects = [
 
     summary: {
       en: "Full-stack web application to track quotes, invoices, DIY estimates and actual construction expenses.",
-      fr: "Application web full-stack pour suivre devis, factures, estimations DIY et dépenses réelles de construction.",
+      fr: "Application web full-stack pour suivre devis, factures, estimations DIY et dépenses réelles de construction ou rénovation immobilière.",
     },
 
     problem: {
@@ -34,13 +34,13 @@ export const projects = [
 
     solution: {
       en: "Designed a FastAPI backend with PostgreSQL, structured around project items, transactions and budget candidates.",
-      fr: "Conception d'un backend FastAPI avec PostgreSQL, structuré autour des postes projet, transactions et budgets candidats.",
+      fr: "Conception d'un backend FastAPI avec PostgreSQL, structuré autour des postes projet, transactions et budgets.",
     },
 
     impact: [
       {
         en: "Turned a complex spreadsheet workflow into a scalable web architecture.",
-        fr: "Transformation d'un workflow Excel complexe en architecture web scalable.",
+        fr: "Transformation d'un workflow Excel complexe en architecture web évolutive.",
       },
 
       {
