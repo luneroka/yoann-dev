@@ -1,5 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import Explorer from "@/components/sections/explorer/Explorer";
 import Hero from "@/components/sections/Hero";
 
 const HomePage = () => {
@@ -8,6 +9,7 @@ const HomePage = () => {
       <Navbar />
       <main id="top">
         <Hero />
+        <Explorer />
       </main>
       <Footer />
     </div>
