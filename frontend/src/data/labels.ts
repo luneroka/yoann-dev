@@ -5,21 +5,13 @@ import type {
   MetricCategory,
   MetricConfidence,
   MetricUnit,
-  ProfileItemType,
   SkillId,
   Track,
 } from "./types";
 
-export const typeLabels = {
-  project: { en: "Project", fr: "Projet" },
-  experience: { en: "Experience", fr: "Expérience" },
-} satisfies Record<ProfileItemType, LocalizedString>;
-
 export const trackLabels = {
   dev: { en: "Development", fr: "Développement" },
   data: { en: "Data", fr: "Data" },
-  fullstack: { en: "Full-stack", fr: "Full-stack" },
-  analytics: { en: "Analytics", fr: "Analytics" },
 } satisfies Record<Track, LocalizedString>;
 
 export const domainLabels = {
