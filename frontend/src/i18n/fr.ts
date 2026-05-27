@@ -2,12 +2,13 @@ export const fr = {
   nav: {
     home: "Accueil",
     explorer: "Explorateur",
-    projects: "Projets",
-    experience: "Expérience",
+    "case-studies": "Cas d'étude",
+    skills: "Compétences",
+    contact: "Contact",
   },
 
   explorer: {
-    title: "Explorateur de profil interactif",
+    title: "Explorateur de projets interactif",
     subtitle: "Explorez mes projets, compétences et expériences comme un jeu de données.",
     emptyState: "Aucun élément ne correspond aux filtres.",
   },
@@ -28,5 +29,12 @@ export const fr = {
     impact: "Impact",
     metrics: "Métriques",
     skills: "Compétences",
+  },
+
+  footer: {
+    name: "Yoann Robert",
+    copyright: "Tous droits réservés.",
+    linkedinLabel: "Voir le profil LinkedIn de Yoann Robert",
+    githubLabel: "Voir le profil GitHub de Yoann Robert",
   },
 } as const;
