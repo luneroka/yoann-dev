@@ -3,7 +3,6 @@ import type { ProfileItem } from "./types";
 export const projects = [
   {
     id: "budget-construction",
-    type: "project",
 
     title: {
       en: "Construction Budget Platform",
@@ -11,8 +10,12 @@ export const projects = [
     },
 
     company: "Solo",
+    role: {
+      en: "Freelance",
+      fr: "Freelance",
+    },
 
-    track: ["dev", "data", "fullstack"],
+    track: ["dev"],
     domains: ["construction", "internal-tools"],
 
     skills: ["python", "fastapi", "postgresql", "sql", "docker"],

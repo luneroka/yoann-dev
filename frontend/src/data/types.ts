@@ -10,9 +10,7 @@ export type Locale = "en" | "fr";
 
 export type LocalizedString = Record<Locale, string>;
 
-export type ProfileItemType = "project" | "experience";
-
-export type Track = "dev" | "data" | "fullstack" | "analytics";
+export type Track = "dev" | "data";
 
 export type Domain = "logistics" | "retail" | "construction" | "saas" | "internal-tools";
 
@@ -87,10 +85,10 @@ export interface Metric {
 
 export interface ProfileItem {
   id: string;
-  type: ProfileItemType;
 
   title: LocalizedString;
   company?: Company;
+  role?: LocalizedString | null;
 
   track: Track[];
   domains: Domain[];
@@ -116,8 +114,6 @@ export interface ProfileItem {
 */
 
 export interface ExplorerFilters {
-  type?: ProfileItemType;
-
   tracks?: Track[];
   domains?: Domain[];
 
