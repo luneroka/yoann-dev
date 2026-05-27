@@ -1,6 +1,6 @@
-import type { Locale } from '@/data/types';
-import { en } from './en';
-import { fr } from './fr';
+import type { Locale } from "@/data/types";
+import { en } from "./en";
+import { fr } from "./fr";
 
 type ContentSchema<T> = {
   readonly [Key in keyof T]: T[Key] extends string ? string : ContentSchema<T[Key]>;

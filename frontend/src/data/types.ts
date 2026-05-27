@@ -1,4 +1,4 @@
-import type { ElementType } from 'react';
+import type { ElementType } from "react";
 
 /*
 |--------------------------------------------------------------------------
@@ -6,52 +6,42 @@ import type { ElementType } from 'react';
 |--------------------------------------------------------------------------
 */
 
-export type Locale = 'en' | 'fr';
+export type Locale = "en" | "fr";
 
 export type LocalizedString = Record<Locale, string>;
 
-export type ProfileItemType = 'project' | 'experience';
+export type ProfileItemType = "project" | "experience";
 
-export type Track = 'dev' | 'data' | 'fullstack' | 'analytics';
+export type Track = "dev" | "data" | "fullstack" | "analytics";
 
-export type Domain =
-  | 'logistics'
-  | 'retail'
-  | 'construction'
-  | 'saas'
-  | 'internal-tools';
+export type Domain = "logistics" | "retail" | "construction" | "saas" | "internal-tools";
 
-export type Company = 'Amazon' | 'Lidl' | 'Solo';
+export type Company = "Amazon" | "Lidl" | "Solo";
 
 export type SkillId =
-  | 'javascript'
-  | 'typescript'
-  | 'react'
-  | 'tailwindcss'
-  | 'nodejs'
-  | 'nextjs'
-  | 'python'
-  | 'fastapi'
-  | 'flask'
-  | 'mongodb'
-  | 'postgresql'
-  | 'sql'
-  | 'excel'
-  | 'vba'
-  | 'power-query'
-  | 'tableau'
-  | 'power-bi'
-  | 'git'
-  | 'docker';
+  | "javascript"
+  | "typescript"
+  | "react"
+  | "tailwindcss"
+  | "nodejs"
+  | "nextjs"
+  | "python"
+  | "fastapi"
+  | "flask"
+  | "mongodb"
+  | "postgresql"
+  | "sql"
+  | "excel"
+  | "vba"
+  | "power-query"
+  | "tableau"
+  | "power-bi"
+  | "git"
+  | "docker";
 
-export type SkillCategory =
-  | 'frontend'
-  | 'backend'
-  | 'data'
-  | 'database'
-  | 'tooling';
+export type SkillCategory = "frontend" | "backend" | "data" | "database" | "tooling";
 
-export type SkillLevel = 'comfortable' | 'working' | 'learning';
+export type SkillLevel = "comfortable" | "working" | "learning";
 
 /*
 |--------------------------------------------------------------------------
@@ -59,16 +49,11 @@ export type SkillLevel = 'comfortable' | 'working' | 'learning';
 |--------------------------------------------------------------------------
 */
 
-export type MetricUnit = 'hours' | '€' | '%' | 'x' | 'items' | 'projects';
+export type MetricUnit = "hours" | "€" | "%" | "x" | "items" | "projects";
 
-export type MetricCategory =
-  | 'time'
-  | 'budget'
-  | 'performance'
-  | 'scope'
-  | 'impact';
+export type MetricCategory = "time" | "budget" | "performance" | "scope" | "impact";
 
-export type MetricConfidence = 'measured' | 'estimated' | 'qualitative';
+export type MetricConfidence = "measured" | "estimated" | "qualitative";
 
 /*
 |--------------------------------------------------------------------------

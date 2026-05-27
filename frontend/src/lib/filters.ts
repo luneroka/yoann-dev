@@ -1,9 +1,6 @@
-import type { ExplorerFilters, ProfileItem } from '@/data/types';
+import type { ExplorerFilters, ProfileItem } from "@/data/types";
 
-export function filterProfileItems(
-  items: ProfileItem[],
-  filters: ExplorerFilters,
-): ProfileItem[] {
+export function filterProfileItems(items: ProfileItem[], filters: ExplorerFilters): ProfileItem[] {
   return items.filter((item) => {
     const matchesType = filters.type ? item.type === filters.type : true;
 
@@ -29,9 +26,7 @@ export function filterProfileItems(
         ? filters.skills.some((skill) => item.skills.includes(skill))
         : true;
 
-    const matchesFeatured = filters.featuredOnly
-      ? item.featured === true
-      : true;
+    const matchesFeatured = filters.featuredOnly ? item.featured === true : true;
 
     return (
       matchesType &&
