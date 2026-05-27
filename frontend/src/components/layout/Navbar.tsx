@@ -38,7 +38,7 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleScroll() {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 0);
     }
 
     handleScroll();
@@ -75,12 +75,19 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -96 }}
       animate={{ y: 0 }}
-      className={`fixed inset-x-0 top-0 z-50 transition-smooth ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-smooth ${
         isScrolled
-          ? "border-b border-border bg-background/85 shadow-soft backdrop-blur-lg"
-          : "bg-transparent"
+          ? "border-border bg-background/85 shadow-soft backdrop-blur-lg"
+          : "border-transparent bg-transparent shadow-none"
       }`}
     >
+      <span
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-primary/30 to-transparent ${
+          isScrolled ? "opacity-0" : "opacity-100"
+        }`}
+        aria-hidden="true"
+      />
+
       <div className="container flex items-center justify-between px-4 py-4">
         <div className="flex items-center gap-3">
           <button
