@@ -38,9 +38,35 @@ export const en = {
   },
 
   explorer: {
+    eyebrow: "PROJECT EXPLORER",
     title: "Interactive Projects Explorer",
     subtitle: "Explore my projects, skills and experience like a dataset.",
+    description:
+      "A static dashboard view of the systems I have built, the tools behind them, and the business context they were designed for.",
     emptyState: "No profile item matches your filters.",
+    filters: {
+      title: "Filters",
+      status: "Static preview",
+      type: "Type",
+      domain: "Domain",
+      company: "Company",
+      skills: "Skills",
+    },
+    query: {
+      label: "SQL preview",
+      statement: "SELECT * FROM projects WHERE focus IN ('Dev', 'Data');",
+    },
+    kpis: {
+      hoursInvested: "Hours Invested",
+      systemsBuilt: "Systems Built",
+      technologiesUsed: "Technologies Used",
+      contextMetric: "Context Metric",
+    },
+    charts: {
+      impactOverview: "Project impact overview",
+      skillCoverage: "Skill coverage",
+      timeline: "Project timeline",
+    },
   },
 
   filters: {

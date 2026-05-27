@@ -38,9 +38,35 @@ export const fr = {
   },
 
   explorer: {
+    eyebrow: "EXPLORATEUR DE PROJETS",
     title: "Explorateur de projets interactif",
     subtitle: "Explorez mes projets, compétences et expériences comme un jeu de données.",
+    description:
+      "Une vue tableau de bord statique des systèmes construits, des outils utilisés et du contexte métier auquel ils répondent.",
     emptyState: "Aucun élément ne correspond aux filtres.",
+    filters: {
+      title: "Filtres",
+      status: "Aperçu statique",
+      type: "Type",
+      domain: "Domaine",
+      company: "Entreprise",
+      skills: "Compétences",
+    },
+    query: {
+      label: "Aperçu SQL",
+      statement: "SELECT * FROM projects WHERE focus IN ('Dev', 'Data');",
+    },
+    kpis: {
+      hoursInvested: "Heures investies",
+      systemsBuilt: "Systèmes conçus",
+      technologiesUsed: "Techno utilisées",
+      contextMetric: "Métrique contexte",
+    },
+    charts: {
+      impactOverview: "Vue d'ensemble de l'impact",
+      skillCoverage: "Couverture des compétences",
+      timeline: "Chronologie des projets",
+    },
   },
 
   filters: {
