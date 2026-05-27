@@ -47,11 +47,25 @@ export type SkillLevel = "comfortable" | "working" | "learning";
 |--------------------------------------------------------------------------
 */
 
-export type MetricUnit = "hours" | "€" | "%" | "x" | "items" | "projects";
+export type ContextMetricType =
+  | "budget_managed"
+  | "records_analyzed"
+  | "reports_built"
+  | "users_impacted"
+  | "performance_gain"
+  | "other";
 
-export type MetricCategory = "time" | "budget" | "performance" | "scope" | "impact";
+export interface ContextMetric {
+  type: ContextMetricType;
+  label: LocalizedString;
+  value: number;
+  unit?: LocalizedString;
+}
 
-export type MetricConfidence = "measured" | "estimated" | "qualitative";
+export interface ProjectMetrics {
+  hoursInvested: number;
+  context: ContextMetric;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -69,20 +83,6 @@ export interface Skill {
   showAsFilter?: boolean;
 }
 
-export interface Metric {
-  id: string;
-  itemId: string;
-
-  label: LocalizedString;
-  value: number;
-
-  unit: MetricUnit;
-  category: MetricCategory;
-
-  display: LocalizedString;
-  confidence: MetricConfidence;
-}
-
 export interface Project {
   id: string;
 
@@ -94,7 +94,10 @@ export interface Project {
   domains: Domain[];
 
   skills: SkillId[];
-  metricIds: string[];
+
+  metrics: ProjectMetrics;
+  systemsBuilt: LocalizedString[];
+  technologies: string[];
 
   summary: LocalizedString;
   problem?: LocalizedString;

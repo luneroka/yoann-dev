@@ -20,7 +20,42 @@ export const projects = [
 
     skills: ["python", "fastapi", "postgresql", "sql", "docker"],
 
-    metricIds: ["budget-construction-hours", "budget-construction-scope"],
+    metrics: {
+      hoursInvested: 160,
+      context: {
+        type: "users_impacted",
+        label: {
+          en: "Users Impacted",
+          fr: "Utilisateurs Impactés",
+        },
+        value: 4,
+        unit: {
+          en: "users",
+          fr: "utilisateurs",
+        },
+      },
+    },
+
+    systemsBuilt: [
+      {
+        en: "FastAPI backend for construction budget tracking",
+        fr: "Backend FastAPI pour le suivi budgétaire de construction",
+      },
+      {
+        en: "PostgreSQL data model for items, transactions and budget candidates",
+        fr: "Modèle de données PostgreSQL pour produits, transactions et suivi budget",
+      },
+      {
+        en: "Quote, invoice and DIY estimate tracking workflow",
+        fr: "Workflow de suivi des devis, factures et estimations DIY",
+      },
+      {
+        en: "Dockerized application runtime",
+        fr: "Environnement d'exécution applicatif Dockerisé",
+      },
+    ],
+
+    technologies: ["Python", "FastAPI", "PostgreSQL", "SQL", "Docker"],
 
     summary: {
       en: "Full-stack web application to track quotes, invoices, DIY estimates and actual construction expenses.",
@@ -75,7 +110,46 @@ export const projects = [
 
     skills: ["excel", "vba", "power-query"],
 
-    metricIds: ["budget-construction-excel-hours", "budget-construction-excel-scope"],
+    metrics: {
+      hoursInvested: 80,
+      context: {
+        type: "performance_gain",
+        label: {
+          en: "Performance Gained",
+          fr: "Gain de Performance",
+        },
+        value: 50,
+        unit: {
+          en: "%",
+          fr: "%",
+        },
+      },
+    },
+
+    systemsBuilt: [
+      {
+        en: "Structured Excel budget workbook",
+        fr: "Classeur Excel structuré pour le suivi budgétaire",
+      },
+      {
+        en: "Power Query import and consolidation flow",
+        fr: "Flux d'import et de consolidation Power Query",
+      },
+      {
+        en: "VBA reporting automation",
+        fr: "Automatisation du reporting en VBA",
+      },
+      {
+        en: "File import system with Google Apps Script",
+        fr: "Système d'import de fichiers Drive avec Google Apps Script",
+      },
+      {
+        en: "Cash flow and remaining-cost tracking views",
+        fr: "Vues de suivi de trésorerie et des coûts restants",
+      },
+    ],
+
+    technologies: ["Excel", "VBA", "Power Query"],
 
     summary: {
       en: "Excel-based budget tracking system built to manage construction costs, quotes, invoices and cash flow during a real house-building project.",

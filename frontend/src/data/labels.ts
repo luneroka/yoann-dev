@@ -1,10 +1,8 @@
 import type {
   Company,
+  ContextMetricType,
   Domain,
   LocalizedString,
-  MetricCategory,
-  MetricConfidence,
-  MetricUnit,
   SkillId,
   Track,
 } from "./types";
@@ -50,25 +48,11 @@ export const skillLabels = {
   docker: { en: "Docker", fr: "Docker" },
 } satisfies Record<SkillId, LocalizedString>;
 
-export const metricUnitLabels = {
-  hours: { en: "hours", fr: "heures" },
-  "€": { en: "€", fr: "€" },
-  "%": { en: "%", fr: "%" },
-  x: { en: "x", fr: "x" },
-  items: { en: "items", fr: "éléments" },
-  projects: { en: "projects", fr: "projets" },
-} satisfies Record<MetricUnit, LocalizedString>;
-
-export const metricCategoryLabels = {
-  time: { en: "Time", fr: "Temps" },
-  budget: { en: "Budget", fr: "Budget" },
-  performance: { en: "Performance", fr: "Performance" },
-  scope: { en: "Scope", fr: "Périmètre" },
-  impact: { en: "Impact", fr: "Impact" },
-} satisfies Record<MetricCategory, LocalizedString>;
-
-export const metricConfidenceLabels = {
-  measured: { en: "Measured", fr: "Mesuré" },
-  estimated: { en: "Estimated", fr: "Estimé" },
-  qualitative: { en: "Qualitative", fr: "Qualitatif" },
-} satisfies Record<MetricConfidence, LocalizedString>;
+export const contextMetricTypeLabels = {
+  budget_managed: { en: "Budget managed", fr: "Budget géré" },
+  records_analyzed: { en: "Records analyzed", fr: "Enregistrements analysés" },
+  reports_built: { en: "Reports built", fr: "Rapports créés" },
+  users_impacted: { en: "Users impacted", fr: "Utilisateurs impactés" },
+  performance_gain: { en: "Performance gain", fr: "Gain de performance" },
+  other: { en: "Other", fr: "Autre" },
+} satisfies Record<ContextMetricType, LocalizedString>;

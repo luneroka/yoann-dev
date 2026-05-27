@@ -1,38 +1,44 @@
-import type { Metric } from "./types";
+import { projects as allProjects } from "./projects";
+import type { ContextMetric, Project } from "./types";
 
-const budgetConstructionItemId = "budget-construction";
+export interface ExplorerMetricSummary {
+  hoursInvested: number;
+  systemsBuilt: number;
+  technologiesUsed: number;
+  technologies: string[];
+  contextMetrics: ContextMetric[];
+}
 
-export const metrics = [
-  {
-    id: "budget-construction-hours",
-    itemId: budgetConstructionItemId,
-    label: {
-      en: "Build time invested",
-      fr: "Temps de construction investi",
-    },
-    value: 120,
-    unit: "hours",
-    category: "time",
-    display: {
-      en: "120 h",
-      fr: "120 h",
-    },
-    confidence: "estimated",
-  },
-  {
-    id: "budget-construction-scope",
-    itemId: budgetConstructionItemId,
-    label: {
-      en: "Budget items modeled",
-      fr: "Postes budgétaires modélisés",
-    },
-    value: 149,
-    unit: "items",
-    category: "scope",
-    display: {
-      en: "149 items",
-      fr: "149 postes",
-    },
-    confidence: "estimated",
-  },
-] satisfies Metric[];
+export function getTotalHours(projects: Project[]): number {
+  return projects.reduce((sum, project) => sum + project.metrics.hoursInvested, 0);
+}
+
+export function getTotalSystemsBuilt(projects: Project[]): number {
+  return projects.reduce((sum, project) => sum + project.systemsBuilt.length, 0);
+}
+
+export function getUniqueTechnologies(projects: Project[]): string[] {
+  return Array.from(new Set(projects.flatMap((project) => project.technologies))).sort();
+}
+
+export function getTotalTechnologiesUsed(projects: Project[]): number {
+  return getUniqueTechnologies(projects).length;
+}
+
+export function getContextMetrics(projects: Project[]): ContextMetric[] {
+  return projects.map((project) => project.metrics.context);
+}
+
+export function getExplorerMetricSummary(projects: Project[]): ExplorerMetricSummary {
+  const technologies = getUniqueTechnologies(projects);
+
+  return {
+    hoursInvested: getTotalHours(projects),
+    systemsBuilt: getTotalSystemsBuilt(projects),
+    technologiesUsed: technologies.length,
+    technologies,
+    contextMetrics: getContextMetrics(projects),
+  };
+}
+
+export const explorerMetricSummary = getExplorerMetricSummary(allProjects);
