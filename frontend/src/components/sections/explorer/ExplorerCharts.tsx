@@ -48,6 +48,16 @@ function getImpactBarColor(index: number, totalBars: number) {
   return `hsl(var(--primary) / ${opacity.toFixed(2)})`;
 }
 
+function getTrackBadgeClassName(track: Track) {
+  return track === "data"
+    ? "border-accent/25 bg-accent/10 text-accent"
+    : "border-primary/25 bg-primary/10 text-primary";
+}
+
+function getProjectTrackPillClassName(project: EnrichedProject) {
+  return project.track.includes("data") ? "bg-accent" : "bg-primary";
+}
+
 function getTechnologyGroupsByTrack(projects: EnrichedProject[]) {
   const technologyTrackCounts = projects.reduce(
     (counts, project) => {
@@ -251,7 +261,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
               aria-hidden="true"
             />
             <div className="grid gap-4 sm:grid-cols-2">
-              {latestTimelineProjects.map((project, index) => (
+              {latestTimelineProjects.map((project) => (
                 <button
                   type="button"
                   key={project.id}
@@ -259,9 +269,9 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                   className="relative cursor-pointer rounded-lg border border-border bg-card p-4 text-left transition-smooth hover:border-primary/40 hover:shadow-soft focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
                   <span
-                    className={`absolute -top-1 left-4 h-2 w-12 rounded-full ${
-                      index === 0 ? "bg-primary" : "bg-accent"
-                    }`}
+                    className={`absolute -top-1 left-4 h-2 w-12 rounded-full ${getProjectTrackPillClassName(
+                      project,
+                    )}`}
                     aria-hidden="true"
                   />
                   <p className="font-body text-sm font-bold text-foreground">
@@ -274,7 +284,9 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                     {project.track.map((track) => (
                       <span
                         key={track}
-                        className="rounded-full border border-primary/25 bg-primary/10 px-2.5 py-1 font-body text-xs font-bold text-primary"
+                        className={`rounded-full border px-2.5 py-1 font-body text-xs font-bold ${getTrackBadgeClassName(
+                          track,
+                        )}`}
                       >
                         {translate(trackLabels[track], locale)}
                       </span>
