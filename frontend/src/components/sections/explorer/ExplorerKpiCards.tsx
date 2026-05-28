@@ -96,10 +96,6 @@ const ExplorerKpiCards = ({ metrics }: ExplorerKpiCardsProps) => {
   const selectedContextMetric = contextMetrics[contextMetricIndex] ?? contextMetrics[0];
 
   useEffect(() => {
-    setContextMetricIndex(0);
-  }, [contextMetrics]);
-
-  useEffect(() => {
     if (contextMetrics.length <= 1) {
       return;
     }

@@ -7,6 +7,8 @@ import type { SkillId, Track } from "@/data/types";
 import { translate } from "@/i18n/translate";
 import type { EnrichedProject } from "@/lib/queryProjects";
 
+import ProjectDetailsModal from "./ProjectDetailsModal";
+
 type ChartPanelProps = {
   title: string;
   children: ReactNode;
@@ -89,6 +91,7 @@ function ChartPanel({ title, children, compact = false, wide = false }: ChartPan
 const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
   const { copy, locale } = useLanguage();
   const [skillTrackIndex, setSkillTrackIndex] = useState(0);
+  const [selectedProject, setSelectedProject] = useState<EnrichedProject | null>(null);
   const chartTitles = copy.explorer.charts;
   const maxHours = Math.max(...projects.map((project) => project.metrics.hoursInvested), 1);
   const trackCoverage = getTrackCoverage(projects);
@@ -97,10 +100,6 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
   const sortedProjectsByHours = projects.toSorted(
     (projectA, projectB) => projectB.metrics.hoursInvested - projectA.metrics.hoursInvested,
   );
-
-  useEffect(() => {
-    setSkillTrackIndex(0);
-  }, [skillGroups]);
 
   useEffect(() => {
     if (skillGroups.length <= 1) {
@@ -124,11 +123,12 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
             const projectTitle = translate(project.title, locale);
 
             return (
-              <div
+              <button
+                type="button"
                 key={project.id}
-                className="group relative flex min-w-0 flex-1 flex-col items-center gap-3 outline-none"
+                onClick={() => setSelectedProject(project)}
+                className="group relative flex min-w-0 flex-1 cursor-pointer flex-col items-center gap-3 rounded-md outline-none transition-smooth hover:bg-primary/5 focus-visible:bg-primary/5 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
                 aria-label={projectTitle}
-                tabIndex={0}
               >
                 <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-3 w-max max-w-56 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-center font-body text-xs font-semibold leading-4 text-popover-foreground opacity-0 shadow-medium transition-smooth group-hover:opacity-100 group-focus-visible:opacity-100">
                   {projectTitle}
@@ -147,7 +147,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                 <span className="font-body text-xs font-semibold text-foreground">
                   {project.metrics.hoursInvested}h
                 </span>
-              </div>
+              </button>
             );
           })}
         </div>
@@ -226,9 +226,11 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
           />
           <div className="grid gap-4 sm:grid-cols-2">
             {projects.map((project, index) => (
-              <div
+              <button
+                type="button"
                 key={project.id}
-                className="relative rounded-lg border border-border bg-card p-4"
+                onClick={() => setSelectedProject(project)}
+                className="relative cursor-pointer rounded-lg border border-border bg-card p-4 text-left transition-smooth hover:border-primary/40 hover:shadow-soft focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 <span
                   className={`absolute -top-1 left-4 h-2 w-12 rounded-full ${
@@ -252,11 +254,19 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
       </ChartPanel>
+
+      {selectedProject ? (
+        <ProjectDetailsModal
+          key={selectedProject.id}
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      ) : null}
     </div>
   );
 };
