@@ -14,6 +14,7 @@ import {
 import { useLanguage } from "@/context/LanguageContext";
 import { companyLabels, trackLabels } from "@/data/labels";
 import { skills } from "@/data/skills";
+import { technologies } from "@/data/technologies";
 import type { Locale, LocalizedString } from "@/data/types";
 import { translate, translateIndustry, translateProductType } from "@/i18n/translate";
 import type { EnrichedProject } from "@/lib/queryProjects";
@@ -45,7 +46,7 @@ const modalCopy = {
     period: "Period",
     domain: "Domain",
     metrics: "Metrics",
-    skills: "Skills",
+    skillsUsed: "Skills used",
     hours: "Hours",
     systems: "Systems",
     technologies: "Technologies",
@@ -69,7 +70,7 @@ const modalCopy = {
     period: "Période",
     domain: "Domaine",
     metrics: "Métriques",
-    skills: "Compétences",
+    skillsUsed: "Compétences utilisées",
     hours: "Heures",
     systems: "Systèmes",
     technologies: "Technologies",
@@ -81,12 +82,8 @@ const modalCopy = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
-const technologyIconByName = new Map(
-  skills.flatMap((skill) => [
-    [skill.label.en.toLowerCase(), skill.icon],
-    [skill.label.fr.toLowerCase(), skill.icon],
-  ]),
-);
+const skillLabelById = new Map(skills.map((skill) => [skill.id, skill.label]));
+const technologyById = new Map(technologies.map((technology) => [technology.id, technology]));
 
 function formatNumber(value: number, locale: Locale) {
   return new Intl.NumberFormat(locale).format(value);
@@ -414,24 +411,42 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
                   </div>
                 </Section>
 
+                <Section title={copy.skillsUsed}>
+                  <div className="flex flex-wrap gap-2">
+                    {project.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-border bg-background px-3 py-1.5 font-body text-xs font-bold text-muted-foreground"
+                      >
+                        {translate(skillLabelById.get(skill), locale, skill)}
+                      </span>
+                    ))}
+                  </div>
+                </Section>
+
                 <Section title={copy.technologies}>
                   <div className="grid grid-cols-3 gap-3">
                     {project.technologies.map((technology) => {
-                      const TechnologyIcon =
-                        technologyIconByName.get(technology.toLowerCase()) ?? Cpu;
+                      const technologyItem = technologyById.get(technology);
+                      const TechnologyIcon = technologyItem?.icon ?? Cpu;
+                      const technologyLabel = translate(
+                        technologyItem?.label,
+                        locale,
+                        technology,
+                      );
 
                       return (
                         <div
                           key={technology}
                           className="rounded-md bg-muted p-3 text-center"
-                          title={technology}
+                          title={technologyLabel}
                         >
                           <TechnologyIcon
                             className="mx-auto h-6 w-6 text-primary"
                             aria-hidden="true"
                           />
                           <p className="mt-2 truncate font-body text-[11px] font-bold text-muted-foreground">
-                            {technology}
+                            {technologyLabel}
                           </p>
                         </div>
                       );

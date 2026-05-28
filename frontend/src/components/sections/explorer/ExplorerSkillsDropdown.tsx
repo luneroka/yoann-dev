@@ -1,27 +1,25 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-import type { SkillId } from "@/data/types";
-
 import type { FilterItem } from "./helpers/explorerFilters";
 
-type ExplorerSkillsDropdownProps = {
+type ExplorerSkillsDropdownProps<T extends string> = {
   allLabel: string;
   title: string;
-  items: FilterItem<SkillId>[];
+  items: FilterItem<T>[];
   allActive: boolean;
   onToggleAll: () => void;
-  onToggle: (value: SkillId) => void;
+  onToggle: (value: T) => void;
 };
 
-const ExplorerSkillsDropdown = ({
+const ExplorerSkillsDropdown = <T extends string,>({
   allLabel,
   title,
   items,
   allActive,
   onToggleAll,
   onToggle,
-}: ExplorerSkillsDropdownProps) => {
+}: ExplorerSkillsDropdownProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectedItems = items.filter((item) => item.active);
   const buttonLabel =

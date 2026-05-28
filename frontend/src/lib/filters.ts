@@ -29,6 +29,11 @@ export function filterProfileItems(items: Project[], filters: ExplorerFilters): 
         ? filters.skills.some((skill) => item.skills.includes(skill))
         : true;
 
+    const matchesTechnologies =
+      filters.technologies.length > 0
+        ? filters.technologies.some((technology) => item.technologies.includes(technology))
+        : true;
+
     const matchesFeatured = filters.featuredOnly ? item.featured === true : true;
 
     return (
@@ -36,6 +41,7 @@ export function filterProfileItems(items: Project[], filters: ExplorerFilters): 
       matchesIndustries &&
       matchesProductTypes &&
       matchesCompanies &&
+      matchesTechnologies &&
       matchesSkills &&
       matchesFeatured
     );

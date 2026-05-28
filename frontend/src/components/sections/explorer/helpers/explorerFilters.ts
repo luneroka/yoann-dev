@@ -78,7 +78,13 @@ export function toggleAllValues<T extends string>(
 }
 
 export function updateArrayFilter<
-  K extends "tracks" | "industries" | "productTypes" | "companies" | "skills",
+  K extends
+    | "tracks"
+    | "industries"
+    | "productTypes"
+    | "companies"
+    | "technologies"
+    | "skills",
 >(
   filters: ProjectFilters,
   key: K,
@@ -104,6 +110,7 @@ export function hasActiveFilters(filters: ProjectFilters) {
       filters.industries?.length ||
       filters.productTypes?.length ||
       filters.companies?.length ||
+      filters.technologies?.length ||
       filters.skills?.length ||
       filters.dateFrom !== undefined ||
       filters.dateTo !== undefined,

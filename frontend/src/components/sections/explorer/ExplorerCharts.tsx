@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { skillLabels, trackLabels } from "@/data/labels";
-import { skills } from "@/data/skills";
-import type { SkillId, Track } from "@/data/types";
+import { trackLabels } from "@/data/labels";
+import type { TechnologyId, Track } from "@/data/types";
 import { translate } from "@/i18n/translate";
 import type { EnrichedProject } from "@/lib/queryProjects";
 
@@ -27,8 +26,6 @@ type ImpactTooltip = {
   left: number;
 };
 
-const skillIconById = new Map(skills.map((skill) => [skill.id, skill.icon]));
-const skillTrackRotationMs = 3500;
 const impactBarMinOpacity = 0.35;
 
 function getPercentage(value: number, total: number) {
@@ -50,27 +47,27 @@ function getImpactBarColor(index: number, totalBars: number) {
   return `hsl(var(--primary) / ${opacity.toFixed(2)})`;
 }
 
-function getSkillGroupsByTrack(projects: EnrichedProject[]) {
-  const skillGroups = projects.reduce<Record<Track, Set<SkillId>>>(
+function getTechnologyGroupsByTrack(projects: EnrichedProject[]) {
+  const technologyGroups = projects.reduce<Record<Track, Set<TechnologyId>>>(
     (groups, project) => {
       project.track.forEach((track) => {
-        project.skills.forEach((skill) => groups[track].add(skill));
+        project.technologies.forEach((technology) => groups[track].add(technology));
       });
 
       return groups;
     },
     {
-      dev: new Set<SkillId>(),
-      data: new Set<SkillId>(),
+      dev: new Set<TechnologyId>(),
+      data: new Set<TechnologyId>(),
     },
   );
 
-  return (Object.entries(skillGroups) as Array<[Track, Set<SkillId>]>)
-    .map(([track, skillSet]) => ({
+  return (Object.entries(technologyGroups) as Array<[Track, Set<TechnologyId>]>)
+    .map(([track, technologySet]) => ({
       track,
-      skills: Array.from(skillSet).sort(),
+      technologies: Array.from(technologySet).sort(),
     }))
-    .filter((group) => group.skills.length > 0);
+    .filter((group) => group.technologies.length > 0);
 }
 
 function ChartPanel({ title, children, compact = false, wide = false }: ChartPanelProps) {
@@ -85,16 +82,19 @@ function ChartPanel({ title, children, compact = false, wide = false }: ChartPan
   );
 }
 
-function getDonutGradient(skillGroups: ReturnType<typeof getSkillGroupsByTrack>) {
-  const totalSkills = skillGroups.reduce((sum, group) => sum + group.skills.length, 0);
+function getDonutGradient(technologyGroups: ReturnType<typeof getTechnologyGroupsByTrack>) {
+  const totalTechnologies = technologyGroups.reduce(
+    (sum, group) => sum + group.technologies.length,
+    0,
+  );
 
-  if (totalSkills === 0) {
+  if (totalTechnologies === 0) {
     return "conic-gradient(hsl(var(--muted)) 0deg 360deg)";
   }
 
   let currentDegrees = 0;
-  const segments = skillGroups.map((group) => {
-    const segmentDegrees = (group.skills.length / totalSkills) * 360;
+  const segments = technologyGroups.map((group) => {
+    const segmentDegrees = (group.technologies.length / totalTechnologies) * 360;
     const startDegrees = currentDegrees;
     const endDegrees = currentDegrees + segmentDegrees;
     const color = group.track === "data" ? "hsl(var(--accent))" : "hsl(var(--primary))";
@@ -108,31 +108,20 @@ function getDonutGradient(skillGroups: ReturnType<typeof getSkillGroupsByTrack>)
 
 const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
   const { copy, locale } = useLanguage();
-  const [skillTrackIndex, setSkillTrackIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState<EnrichedProject | null>(null);
   const [impactTooltip, setImpactTooltip] = useState<ImpactTooltip | null>(null);
   const chartTitles = copy.explorer.charts;
   const maxHours = Math.max(...projects.map((project) => project.metrics.hoursInvested), 1);
-  const skillGroups = useMemo(() => getSkillGroupsByTrack(projects), [projects]);
-  const activeSkillGroup = skillGroups[skillTrackIndex] ?? skillGroups[0];
-  const totalTrackedSkills = skillGroups.reduce((sum, group) => sum + group.skills.length, 0);
-  const skillDonutGradient = getDonutGradient(skillGroups);
+  const technologyGroups = useMemo(() => getTechnologyGroupsByTrack(projects), [projects]);
+  const totalTrackedTechnologies = technologyGroups.reduce(
+    (sum, group) => sum + group.technologies.length,
+    0,
+  );
+  const technologyDonutGradient = getDonutGradient(technologyGroups);
   const sortedProjectsByHours = projects.toSorted(
     (projectA, projectB) => projectB.metrics.hoursInvested - projectA.metrics.hoursInvested,
   );
   const latestTimelineProjects = projects.slice(0, 2);
-
-  useEffect(() => {
-    if (skillGroups.length <= 1) {
-      return;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setSkillTrackIndex((currentIndex) => (currentIndex + 1) % skillGroups.length);
-    }, skillTrackRotationMs);
-
-    return () => window.clearInterval(intervalId);
-  }, [skillGroups.length]);
 
   function showImpactTooltip(projectTitle: string, element: HTMLElement) {
     const rect = element.getBoundingClientRect();
@@ -150,7 +139,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
         <ChartPanel title={chartTitles.impactOverview} compact>
           <div className="flex h-64 items-center overflow-visible">
             <div
-              className="max-h-full w-full space-y-3 overflow-x-visible overflow-y-auto pr-2"
+              className="flex max-h-full w-full flex-col overflow-x-visible overflow-y-auto"
               onScroll={() => setImpactTooltip(null)}
             >
               {sortedProjectsByHours.map((project, index) => {
@@ -163,7 +152,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                     type="button"
                     key={project.id}
                     onClick={() => setSelectedProject(project)}
-                    className="group relative grid w-full cursor-pointer grid-cols-[38px_minmax(0,1fr)] items-center gap-2 py-2 text-left outline-none transition-smooth focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    className="group relative grid h-7 w-full shrink-0 cursor-pointer grid-cols-[38px_minmax(0,1fr)] items-center gap-2 text-left outline-none transition-smooth focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
                     aria-label={projectTitle}
                     onMouseEnter={(event) => showImpactTooltip(projectTitle, event.currentTarget)}
                     onMouseLeave={() => setImpactTooltip(null)}
@@ -186,26 +175,26 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
           </div>
         </ChartPanel>
 
-        <ChartPanel title={chartTitles.skillCoverage} compact>
+        <ChartPanel title={chartTitles.technologiesCovered} compact>
           <div className="flex h-64 items-center gap-6 rounded-md p-4">
             <div
               className="relative h-40 w-40 shrink-0 rounded-full"
-              style={{ background: skillDonutGradient }}
-              aria-label={chartTitles.skillCoverage}
+              style={{ background: technologyDonutGradient }}
+              aria-label={chartTitles.technologiesCovered}
             >
               <div className="absolute inset-5 flex flex-col items-center justify-center rounded-full bg-card text-center">
                 <span className="font-heading text-3xl font-bold leading-none text-foreground">
-                  {totalTrackedSkills}
+                  {totalTrackedTechnologies}
                 </span>
                 <span className="mt-1 font-body text-xs font-bold text-muted-foreground">
-                  {copy.sections.skills}
+                  {copy.explorer.filters.technologies}
                 </span>
               </div>
             </div>
 
             <div className="min-w-0 flex-1 space-y-3">
-              {skillGroups.map((group) => {
-                const value = getPercentage(group.skills.length, totalTrackedSkills);
+              {technologyGroups.map((group) => {
+                const value = getPercentage(group.technologies.length, totalTrackedTechnologies);
 
                 return (
                   <div
@@ -230,55 +219,12 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                 );
               })}
 
-              {skillGroups.length === 0 ? (
+              {technologyGroups.length === 0 ? (
                 <div className="rounded-md bg-muted px-3 py-2">
                   <span className="font-body text-sm font-semibold text-muted-foreground">0%</span>
                 </div>
               ) : null}
             </div>
-
-            {/* SKILLS ARE HIDDEN FOR NOW UNTIL A BETTER INTEGRATION IDEA IS FOUND - 28/05/2026 */}
-            {activeSkillGroup ? (
-              <div className="pt-2" hidden>
-                <p
-                  className={`mb-3 font-body text-xs font-bold ${
-                    activeSkillGroup.track === "data" ? "text-accent" : "text-primary"
-                  }`}
-                >
-                  {translate(trackLabels[activeSkillGroup.track], locale)}
-                </p>
-
-                <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
-                  {activeSkillGroup.skills.map((skill) => {
-                    const SkillIcon = skillIconById.get(skill);
-                    const skillLabel = translate(skillLabels[skill], locale);
-
-                    if (!SkillIcon) {
-                      return null;
-                    }
-
-                    return (
-                      <div
-                        key={skill}
-                        className="text-center"
-                        aria-label={skillLabel}
-                        title={skillLabel}
-                      >
-                        <div
-                          className={`mx-auto flex h-12 w-12 items-center justify-center rounded-md ${
-                            activeSkillGroup.track === "data"
-                              ? "bg-accent/10 text-accent"
-                              : "bg-primary/10 text-primary"
-                          }`}
-                        >
-                          <SkillIcon className="h-6 w-6" aria-hidden="true" />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ) : null}
           </div>
         </ChartPanel>
 

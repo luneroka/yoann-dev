@@ -18,7 +18,8 @@ export const eCommerceDataAnalysis = {
   industry: "retail",
   productType: "dashboard",
 
-  skills: ["sql", "python", "tableau", "data-modeling", "etl"],
+  technologies: ["python", "postgresql", "sql", "tableau"],
+  skills: ["data-analysis", "data-modeling", "etl", "dashboarding", "process-optimization"],
 
   metrics: {
     hoursInvested: 90,
@@ -58,8 +59,6 @@ export const eCommerceDataAnalysis = {
       fr: "Dashboard Tableau interactif pour explorer la performance des ventes",
     },
   ],
-
-  technologies: ["SQL", "Python", "Tableau", "PostgreSQL"],
 
   summary: {
     en: "End-to-end e-commerce analytics project combining Python ingestion, SQL modeling and Tableau visualization to identify revenue drivers, catalog risks and operational inefficiencies.",

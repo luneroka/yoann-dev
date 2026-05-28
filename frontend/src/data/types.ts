@@ -18,7 +18,7 @@ export type ProductType = "saas" | "internal-tool" | "platform" | "dashboard" | 
 
 export type Company = "Amazon" | "Lidl" | "Solo";
 
-export type SkillId =
+export type TechnologyId =
   | "javascript"
   | "typescript"
   | "react"
@@ -34,16 +34,27 @@ export type SkillId =
   | "excel"
   | "vba"
   | "power-query"
-  | "etl"
-  | "data-modeling"
   | "tableau"
   | "power-bi"
   | "git"
   | "docker";
 
-export type SkillCategory = "frontend" | "backend" | "data" | "database" | "tooling";
+export type SkillId =
+  | "data-analysis"
+  | "data-modeling"
+  | "etl"
+  | "dashboarding"
+  | "api-design"
+  | "backend-architecture"
+  | "database-modeling"
+  | "process-optimization"
+  | "budget-workflow-modeling";
 
-export type SkillLevel = "comfortable" | "working" | "learning";
+export type TechnologyCategory = "frontend" | "backend" | "data" | "database" | "tooling";
+
+export type SkillCategory = "data" | "backend" | "business-analysis" | "operations";
+
+export type ProficiencyLevel = "comfortable" | "working" | "learning";
 
 /*
 |--------------------------------------------------------------------------
@@ -89,12 +100,21 @@ export type ProjectScreenshot = {
 |--------------------------------------------------------------------------
 */
 
+export interface Technology {
+  id: TechnologyId;
+  label: LocalizedString;
+  icon: ElementType<{ className?: string }>;
+  category: TechnologyCategory;
+  level: ProficiencyLevel;
+  featured?: boolean;
+  showAsFilter?: boolean;
+}
+
 export interface Skill {
   id: SkillId;
   label: LocalizedString;
-  icon: ElementType<{ className?: string }>;
   category: SkillCategory;
-  level: SkillLevel;
+  level: ProficiencyLevel;
   featured?: boolean;
   showAsFilter?: boolean;
 }
@@ -110,11 +130,11 @@ export interface Project {
   industry: Industry;
   productType: ProductType;
 
+  technologies: TechnologyId[];
   skills: SkillId[];
 
   metrics: ProjectMetrics;
   systemsBuilt: LocalizedString[];
-  technologies: string[];
 
   summary: LocalizedString;
   problem?: LocalizedString;
@@ -141,6 +161,7 @@ export interface ExplorerFilters {
 
   companies?: Company[];
 
+  technologies: TechnologyId[];
   skills: SkillId[];
 
   featuredOnly?: boolean;

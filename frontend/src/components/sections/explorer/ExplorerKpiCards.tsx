@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Activity, Boxes, Clock3, Cpu, type LucideIcon } from "lucide-react";
+import { Activity, Boxes, Brain, Clock3, type LucideIcon } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import type { ExplorerMetricSummary } from "@/data/metrics";
@@ -12,6 +12,7 @@ type ExplorerKpiCardProps = {
   label: string;
   value: string;
   icon: LucideIcon;
+  title?: string;
   accent?: boolean;
 };
 
@@ -45,13 +46,20 @@ const kpiCardVariants: Variants = {
 
 const contextMetricRotationMs = 3500;
 
-function ExplorerKpiCard({ label, value, icon: Icon, accent = false }: ExplorerKpiCardProps) {
+function ExplorerKpiCard({
+  label,
+  value,
+  icon: Icon,
+  title,
+  accent = false,
+}: ExplorerKpiCardProps) {
   return (
     <motion.div
       className={`rounded-lg border bg-background p-4 shadow-soft ${
         accent ? "border-accent/35" : "border-border"
       }`}
       variants={kpiCardVariants}
+      title={title}
     >
       <div className="flex items-center justify-between gap-3">
         <div>
@@ -121,10 +129,11 @@ const ExplorerKpiCards = ({ metrics }: ExplorerKpiCardsProps) => {
       icon: Boxes,
     },
     {
-      id: "technologies-used",
-      label: kpis.technologiesUsed,
-      value: formatNumber(metrics.technologiesUsed, locale),
-      icon: Cpu,
+      id: "skills-demonstrated",
+      label: kpis.skillsDemonstrated,
+      value: formatNumber(metrics.skillsDemonstrated, locale),
+      icon: Brain,
+      title: kpis.skillsDemonstratedHelper,
     },
     {
       id: "context-metric",

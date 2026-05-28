@@ -1,11 +1,11 @@
 import { projects as allProjects } from "./projects";
-import type { ContextMetric, Project } from "./types";
+import type { ContextMetric, Project, SkillId } from "./types";
 
 export interface ExplorerMetricSummary {
   hoursInvested: number;
   systemsBuilt: number;
-  technologiesUsed: number;
-  technologies: string[];
+  skillsDemonstrated: number;
+  skills: SkillId[];
   contextMetrics: ContextMetric[];
 }
 
@@ -17,12 +17,12 @@ export function getTotalSystemsBuilt(projects: Project[]): number {
   return projects.reduce((sum, project) => sum + project.systemsBuilt.length, 0);
 }
 
-export function getUniqueTechnologies(projects: Project[]): string[] {
-  return Array.from(new Set(projects.flatMap((project) => project.technologies))).sort();
+export function getUniqueSkills(projects: Project[]): SkillId[] {
+  return Array.from(new Set(projects.flatMap((project) => project.skills))).sort();
 }
 
-export function getTotalTechnologiesUsed(projects: Project[]): number {
-  return getUniqueTechnologies(projects).length;
+export function getTotalSkillsDemonstrated(projects: Project[]): number {
+  return getUniqueSkills(projects).length;
 }
 
 export function getContextMetrics(projects: Project[]): ContextMetric[] {
@@ -30,13 +30,13 @@ export function getContextMetrics(projects: Project[]): ContextMetric[] {
 }
 
 export function getExplorerMetricSummary(projects: Project[]): ExplorerMetricSummary {
-  const technologies = getUniqueTechnologies(projects);
+  const skills = getUniqueSkills(projects);
 
   return {
     hoursInvested: getTotalHours(projects),
     systemsBuilt: getTotalSystemsBuilt(projects),
-    technologiesUsed: technologies.length,
-    technologies,
+    skillsDemonstrated: skills.length,
+    skills,
     contextMetrics: getContextMetrics(projects),
   };
 }

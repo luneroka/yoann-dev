@@ -23,7 +23,19 @@ export const staffpicks = {
   industry: "retail",
   productType: "saas",
 
-  skills: ["typescript", "react", "nodejs", "nextjs", "postgresql", "mongodb", "docker"],
+  technologies: [
+    "javascript",
+    "typescript",
+    "react",
+    "tailwindcss",
+    "nodejs",
+    "nextjs",
+    "postgresql",
+    "mongodb",
+    "git",
+    "docker",
+  ],
+  skills: ["api-design", "backend-architecture", "database-modeling"],
 
   metrics: {
     hoursInvested: 400,
@@ -63,8 +75,6 @@ export const staffpicks = {
       fr: "Dashboard analytique permettant aux responsables magasin de suivre les performances des recommandations et l'engagement client",
     },
   ],
-
-  technologies: ["React", "NodeJS", "NextJS", "MongoDB", "Docker"],
 
   summary: {
     en: "B2B2C platform designed to bring librarian recommendations into a modern in-store digital experience.",

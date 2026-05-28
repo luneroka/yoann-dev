@@ -10,7 +10,7 @@ export const budgetConstructionExcel = {
 
   title: {
     en: "Construction Budget Tool",
-    fr: "Outil de suivi budgétaire pour construction immobilière",
+    fr: "Budget Construction (Excel)",
   },
 
   company: "Solo",
@@ -23,7 +23,8 @@ export const budgetConstructionExcel = {
   industry: "construction",
   productType: "internal-tool",
 
-  skills: ["excel", "vba", "power-query"],
+  technologies: ["excel", "vba", "power-query"],
+  skills: ["data-analysis", "data-modeling", "dashboarding", "process-optimization"],
 
   metrics: {
     hoursInvested: 80,
@@ -63,8 +64,6 @@ export const budgetConstructionExcel = {
       fr: "Vues de suivi de trésorerie et des coûts restants",
     },
   ],
-
-  technologies: ["Excel", "VBA", "Power Query"],
 
   summary: {
     en: "Excel-based budget tracking system built to manage construction costs, quotes, invoices and cash flow during a real house-building project.",

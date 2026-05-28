@@ -5,7 +5,7 @@ export const budgetConstruction = {
 
   title: {
     en: "Construction Budget Platform",
-    fr: "Plateforme de suivi budgétaire pour construction immobilière",
+    fr: "Budget Construction (Web)",
   },
 
   company: "Solo",
@@ -18,7 +18,8 @@ export const budgetConstruction = {
   industry: "construction",
   productType: "platform",
 
-  skills: ["python", "fastapi", "postgresql", "sql", "docker"],
+  technologies: ["python", "fastapi", "postgresql", "sql", "docker"],
+  skills: ["api-design", "backend-architecture", "database-modeling", "budget-workflow-modeling"],
 
   metrics: {
     hoursInvested: 160,
@@ -54,8 +55,6 @@ export const budgetConstruction = {
       fr: "Environnement d'exécution applicatif Dockerisé",
     },
   ],
-
-  technologies: ["Python", "FastAPI", "PostgreSQL", "SQL", "Docker"],
 
   summary: {
     en: "Full-stack web application to track quotes, invoices, DIY estimates and actual construction expenses.",

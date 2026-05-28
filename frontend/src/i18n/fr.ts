@@ -55,6 +55,7 @@ export const fr = {
       industry: "Secteur",
       productType: "Type de produit",
       company: "Entreprise",
+      technologies: "Technologies",
       skills: "Compétences",
     },
     query: {
@@ -64,12 +65,13 @@ export const fr = {
     kpis: {
       hoursInvested: "Heures investies",
       systemsBuilt: "Systèmes conçus",
-      technologiesUsed: "Techno utilisées",
+      skillsDemonstrated: "Compétences démontrées",
+      skillsDemonstratedHelper: "Compétences uniques démontrées dans les projets sélectionnés",
       contextMetric: "Métrique contexte",
     },
     charts: {
       impactOverview: "Projets par heures investies",
-      skillCoverage: "Couverture des compétences",
+      technologiesCovered: "Technologies couvertes",
       timeline: "Derniers projets",
     },
   },
@@ -80,6 +82,7 @@ export const fr = {
     industries: "Secteurs",
     productTypes: "Types de produit",
     companies: "Entreprises",
+    technologies: "Technologies",
     skills: "Compétences",
     featuredOnly: "Mis en avant uniquement",
     reset: "Réinitialiser les filtres",

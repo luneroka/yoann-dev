@@ -5,6 +5,7 @@ import type {
   LocalizedString,
   ProductType,
   SkillId,
+  TechnologyId,
   Track,
 } from "./types";
 
@@ -34,7 +35,7 @@ export const companyLabels = {
   Solo: { en: "Solo projects", fr: "Projets solo" },
 } satisfies Record<Company, LocalizedString>;
 
-export const skillLabels = {
+export const technologyLabels = {
   javascript: { en: "JavaScript", fr: "JavaScript" },
   typescript: { en: "TypeScript", fr: "TypeScript" },
   react: { en: "React", fr: "React" },
@@ -50,12 +51,28 @@ export const skillLabels = {
   excel: { en: "Excel", fr: "Excel" },
   vba: { en: "VBA", fr: "VBA" },
   "power-query": { en: "Power Query", fr: "Power Query" },
-  etl: { en: "ETL", fr: "ETL" },
-  "data-modeling": { en: "Data Modeling", fr: "Modélisation de données" },
   tableau: { en: "Tableau", fr: "Tableau" },
   "power-bi": { en: "Power BI", fr: "Power BI" },
   git: { en: "Git", fr: "Git" },
   docker: { en: "Docker", fr: "Docker" },
+} satisfies Record<TechnologyId, LocalizedString>;
+
+export const skillLabels = {
+  "data-analysis": { en: "Data analysis", fr: "Analyse de données" },
+  "data-modeling": { en: "Data modeling", fr: "Modélisation de données" },
+  etl: { en: "ETL", fr: "ETL" },
+  dashboarding: { en: "Dashboarding", fr: "Création de dashboards" },
+  "api-design": { en: "API design", fr: "Conception d'API" },
+  "backend-architecture": { en: "Backend architecture", fr: "Architecture backend" },
+  "database-modeling": {
+    en: "Database modeling",
+    fr: "Modélisation de base de données",
+  },
+  "process-optimization": { en: "Process optimization", fr: "Optimisation de processus" },
+  "budget-workflow-modeling": {
+    en: "Budget workflow modeling",
+    fr: "Modélisation de workflows budgétaires",
+  },
 } satisfies Record<SkillId, LocalizedString>;
 
 export const contextMetricTypeLabels = {

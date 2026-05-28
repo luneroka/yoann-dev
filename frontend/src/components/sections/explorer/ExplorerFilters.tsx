@@ -1,10 +1,16 @@
 import { useLanguage } from "@/context/LanguageContext";
-import {
-  companyLabels,
-  skillLabels,
-  trackLabels,
-} from "@/data/labels";
-import type { Company, Industry, ProductType, Project, SkillId, Track } from "@/data/types";
+import { companyLabels, trackLabels } from "@/data/labels";
+import { skills } from "@/data/skills";
+import { technologies } from "@/data/technologies";
+import type {
+  Company,
+  Industry,
+  ProductType,
+  Project,
+  SkillId,
+  TechnologyId,
+  Track,
+} from "@/data/types";
 import { translate, translateIndustry, translateProductType } from "@/i18n/translate";
 import type { ProjectFilters } from "@/lib/queryProjects";
 
@@ -22,6 +28,11 @@ import {
   updateArrayFilter,
   updateDateFilter,
 } from "./helpers/explorerFilters";
+
+const technologyLabelById = new Map(
+  technologies.map((technology) => [technology.id, technology.label]),
+);
+const skillLabelById = new Map(skills.map((skill) => [skill.id, skill.label]));
 
 type ExplorerFiltersProps = {
   projects: Project[];
@@ -42,6 +53,7 @@ const ExplorerFilters = ({
   const companyOptions = getUniqueValues(
     projects.flatMap((project) => (project.company ? [project.company] : [])),
   );
+  const technologyOptions = getUniqueValues(projects.flatMap((project) => project.technologies));
   const skillOptions = getUniqueValues(projects.flatMap((project) => project.skills));
   const dateBounds = getDateBounds(projects);
   const dateFrom = activeFilters.dateFrom ?? dateBounds?.min;
@@ -123,6 +135,26 @@ const ExplorerFilters = ({
         activeFilters,
         "companies",
         toggleAllValues(activeFilters.companies, companyOptions),
+      ),
+    );
+  }
+
+  function toggleTechnology(technology: TechnologyId) {
+    onFiltersChange(
+      updateArrayFilter(
+        activeFilters,
+        "technologies",
+        toggleArrayValue(activeFilters.technologies, technology),
+      ),
+    );
+  }
+
+  function toggleAllTechnologies() {
+    onFiltersChange(
+      updateArrayFilter(
+        activeFilters,
+        "technologies",
+        toggleAllValues(activeFilters.technologies, technologyOptions),
       ),
     );
   }
@@ -250,12 +282,26 @@ const ExplorerFilters = ({
         />
         <ExplorerSkillsDropdown
           allLabel={explorerFiltersCopy.all}
+          title={explorerFiltersCopy.technologies}
+          allActive={technologyOptions.every((technology) =>
+            activeFilters.technologies?.includes(technology),
+          )}
+          onToggleAll={toggleAllTechnologies}
+          items={technologyOptions.map((technology) => ({
+            value: technology,
+            label: translate(technologyLabelById.get(technology), locale, technology),
+            active: isSelected(activeFilters.technologies, technology),
+          }))}
+          onToggle={toggleTechnology}
+        />
+        <ExplorerSkillsDropdown
+          allLabel={explorerFiltersCopy.all}
           title={explorerFiltersCopy.skills}
           allActive={skillOptions.every((skill) => activeFilters.skills?.includes(skill))}
           onToggleAll={toggleAllSkills}
           items={skillOptions.map((skill) => ({
             value: skill,
-            label: translate(skillLabels[skill], locale),
+            label: translate(skillLabelById.get(skill), locale, skill),
             active: isSelected(activeFilters.skills, skill),
           }))}
           onToggle={toggleSkill}

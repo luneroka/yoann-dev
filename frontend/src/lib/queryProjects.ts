@@ -5,7 +5,15 @@
 */
 
 import { projects } from "@/data/projects";
-import type { Company, Industry, ProductType, Project, SkillId, Track } from "@/data/types";
+import type {
+  Company,
+  Industry,
+  ProductType,
+  Project,
+  SkillId,
+  TechnologyId,
+  Track,
+} from "@/data/types";
 
 type SingleFilterValue<T extends string> = T | "all";
 
@@ -19,7 +27,7 @@ export type ProjectFilters = {
   company?: SingleFilterValue<Company>;
   companies?: Company[];
   skills?: SkillId[];
-  technologies?: string[];
+  technologies?: TechnologyId[];
   dateFrom?: number;
   dateTo?: number;
   featuredOnly?: boolean;

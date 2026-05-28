@@ -55,6 +55,7 @@ export const en = {
       industry: "Industry",
       productType: "Product type",
       company: "Company",
+      technologies: "Technologies",
       skills: "Skills",
     },
     query: {
@@ -64,12 +65,13 @@ export const en = {
     kpis: {
       hoursInvested: "Hours Invested",
       systemsBuilt: "Systems Built",
-      technologiesUsed: "Technologies Used",
+      skillsDemonstrated: "Skills demonstrated",
+      skillsDemonstratedHelper: "Unique skills demonstrated across selected projects",
       contextMetric: "Context Metric",
     },
     charts: {
       impactOverview: "Projects by hours invested",
-      skillCoverage: "Skill coverage",
+      technologiesCovered: "Technologies covered",
       timeline: "Latest projects",
     },
   },
@@ -80,6 +82,7 @@ export const en = {
     industries: "Industries",
     productTypes: "Product types",
     companies: "Companies",
+    technologies: "Technologies",
     skills: "Skills",
     featuredOnly: "Featured only",
     reset: "Reset filters",
