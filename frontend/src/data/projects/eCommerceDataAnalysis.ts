@@ -1,5 +1,7 @@
 import type { Project } from "../types";
 
+import tableauDashbord from "@/assets/projects/ecommerce-data-analysis/ecommerce_dap.png";
+
 export const eCommerceDataAnalysis = {
   id: "e-commerce-data-analysis",
 
@@ -22,7 +24,7 @@ export const eCommerceDataAnalysis = {
   skills: ["data-analysis", "data-modeling", "etl", "dashboarding", "process-optimization"],
 
   metrics: {
-    hoursInvested: 90,
+    hoursInvested: 20,
     context: {
       type: "budget_managed",
       label: {
@@ -94,7 +96,15 @@ export const eCommerceDataAnalysis = {
     },
   ],
 
-  screenshots: [],
+  screenshots: [
+    {
+      src: tableauDashbord,
+      alt: {
+        en: "Tableau interactive dashboard",
+        fr: "Dashboard interactif Tableau",
+      },
+    },
+  ],
 
   period: {
     en: "April 2026",
