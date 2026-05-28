@@ -31,6 +31,8 @@ export type SkillId =
   | "sql"
   | "excel"
   | "vba"
+  | "etl"
+  | "data-modeling"
   | "power-query"
   | "tableau"
   | "power-bi"
