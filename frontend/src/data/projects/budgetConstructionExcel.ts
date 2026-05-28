@@ -1,9 +1,9 @@
 import type { Project } from "../types";
 
-import dashboardScreenshot from "@/assets/projects/budget-construction-excel/dashboard.webp";
-import fournisseursScreenshot from "@/assets/projects/budget-construction-excel/fournisseurs.webp";
-import inputScreenshot from "@/assets/projects/budget-construction-excel/input_form.webp";
-import rechercheScreenshot from "@/assets/projects/budget-construction-excel/recherche.webp";
+import dashboardScreenshot from "@/assets/projects/budget-construction-excel/dashboard.png";
+import fournisseursScreenshot from "@/assets/projects/budget-construction-excel/fournisseurs.png";
+import inputScreenshot from "@/assets/projects/budget-construction-excel/input_form_full.png";
+import rechercheScreenshot from "@/assets/projects/budget-construction-excel/recherche.png";
 
 export const budgetConstructionExcel = {
   id: "budget-construction-excel",
