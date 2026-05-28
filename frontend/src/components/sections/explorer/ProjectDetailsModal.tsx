@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { companyLabels, domainLabels, skillLabels, trackLabels } from "@/data/labels";
+import { companyLabels, domainLabels, trackLabels } from "@/data/labels";
 import { skills } from "@/data/skills";
 import type { Locale, LocalizedString } from "@/data/types";
 import { translate } from "@/i18n/translate";
@@ -81,7 +81,12 @@ const modalCopy = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
-const skillIconById = new Map(skills.map((skill) => [skill.id, skill.icon]));
+const technologyIconByName = new Map(
+  skills.flatMap((skill) => [
+    [skill.label.en.toLowerCase(), skill.icon],
+    [skill.label.fr.toLowerCase(), skill.icon],
+  ]),
+);
 
 function formatNumber(value: number, locale: Locale) {
   return new Intl.NumberFormat(locale).format(value);
@@ -102,13 +107,13 @@ function DetailStat({ label, value, icon: Icon, accent = false }: DetailStatProp
   return (
     <div
       className={`rounded-md border p-2.5 ${
-        accent ? "border-accent/35 bg-accent/5" : "border-border bg-background"
+        accent ? "border-accent/35 bg-transparent" : "border-border bg-background"
       }`}
     >
       <div className="flex items-start gap-2.5">
         <span
           className={`mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md ${
-            accent ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"
+            accent ? "bg-transparent text-accent" : "bg-primary/10 text-primary"
           }`}
         >
           <Icon className="h-4 w-4" aria-hidden="true" />
@@ -117,7 +122,11 @@ function DetailStat({ label, value, icon: Icon, accent = false }: DetailStatProp
           <p className="font-body text-[11px] font-bold uppercase tracking-normal text-muted-foreground">
             {label}
           </p>
-          <p className="mt-0.5 wrap-break-words font-body text-sm font-bold leading-5 text-foreground">
+          <p
+            className={`mt-0.5 wrap-break-words font-body text-sm font-bold leading-5 ${
+              accent ? "text-accent" : "text-foreground"
+            }`}
+          >
             {value}
           </p>
         </div>
@@ -378,60 +387,59 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
                   </div>
                 </Section>
 
-                <Section title={copy.technologies}>
-                  <div className="grid grid-cols-3 gap-3">
-                    {project.skills.map((skill) => {
-                      const SkillIcon = skillIconById.get(skill);
+              <Section title={copy.metrics}>
+                <div className="grid grid-cols-1 gap-3">
+                  <DetailStat
+                    label={copy.hours}
+                    value={`${formatNumber(project.metrics.hoursInvested, locale)}h`}
+                    icon={Clock3}
+                    accent
+                  />
+                  <DetailStat
+                    label={copy.systems}
+                    value={formatNumber(project.systemsBuiltCount, locale)}
+                    icon={Boxes}
+                    accent
+                  />
+                  <DetailStat
+                    label={copy.technologies}
+                    value={formatNumber(project.technologiesCount, locale)}
+                    icon={Cpu}
+                    accent
+                  />
+                  <DetailStat
+                    label={translate(project.metrics.context.label, locale)}
+                    value={formatContextMetric(project, locale)}
+                    icon={Activity}
+                    accent
+                  />
+                </div>
+              </Section>
 
-                      if (!SkillIcon) {
-                        return null;
-                      }
+              <Section title={copy.technologies}>
+                <div className="grid grid-cols-3 gap-3">
+                  {project.technologies.map((technology) => {
+                    const TechnologyIcon = technologyIconByName.get(technology.toLowerCase()) ?? Cpu;
 
-                      return (
-                        <div
-                          key={skill}
-                          className="rounded-md bg-muted p-3 text-center"
-                          title={translate(skillLabels[skill], locale)}
-                        >
-                          <SkillIcon className="mx-auto h-6 w-6 text-primary" aria-hidden="true" />
-                          <p className="mt-2 truncate font-body text-[11px] font-bold text-muted-foreground">
-                            {translate(skillLabels[skill], locale)}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </Section>
-
-                <Section title={copy.metrics}>
-                  <div className="grid grid-cols-1 gap-3">
-                    <DetailStat
-                      label={copy.hours}
-                      value={`${formatNumber(project.metrics.hoursInvested, locale)}h`}
-                      icon={Clock3}
-                      accent
-                    />
-                    <DetailStat
-                      label={copy.systems}
-                      value={formatNumber(project.systemsBuiltCount, locale)}
-                      icon={Boxes}
-                      accent
-                    />
-                    <DetailStat
-                      label={copy.technologies}
-                      value={formatNumber(project.technologiesCount, locale)}
-                      icon={Cpu}
-                      accent
-                    />
-                    <DetailStat
-                      label={translate(project.metrics.context.label, locale)}
-                      value={formatContextMetric(project, locale)}
-                      icon={Activity}
-                      accent
-                    />
-                  </div>
-                </Section>
-              </aside>
+                    return (
+                      <div
+                        key={technology}
+                        className="rounded-md bg-muted p-3 text-center"
+                        title={technology}
+                      >
+                        <TechnologyIcon
+                          className="mx-auto h-6 w-6 text-primary"
+                          aria-hidden="true"
+                        />
+                        <p className="mt-2 truncate font-body text-[11px] font-bold text-muted-foreground">
+                          {technology}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Section>
+            </aside>
             </div>
           </div>
         </div>
