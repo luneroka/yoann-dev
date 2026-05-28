@@ -100,6 +100,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
   const sortedProjectsByHours = projects.toSorted(
     (projectA, projectB) => projectB.metrics.hoursInvested - projectA.metrics.hoursInvested,
   );
+  const latestTimelineProjects = projects.slice(0, 2);
 
   useEffect(() => {
     if (skillGroups.length <= 1) {
@@ -225,7 +226,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
             aria-hidden="true"
           />
           <div className="grid gap-4 sm:grid-cols-2">
-            {projects.map((project, index) => (
+            {latestTimelineProjects.map((project, index) => (
               <button
                 type="button"
                 key={project.id}

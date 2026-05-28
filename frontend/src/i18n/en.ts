@@ -69,7 +69,7 @@ export const en = {
     charts: {
       impactOverview: "Project impact overview",
       skillCoverage: "Skill coverage",
-      timeline: "Project timeline",
+      timeline: "Latest projects",
     },
   },
 

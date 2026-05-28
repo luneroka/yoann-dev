@@ -69,7 +69,7 @@ export const fr = {
     charts: {
       impactOverview: "Vue d'ensemble de l'impact",
       skillCoverage: "Couverture des compétences",
-      timeline: "Chronologie des projets",
+      timeline: "Derniers projets",
     },
   },
 
