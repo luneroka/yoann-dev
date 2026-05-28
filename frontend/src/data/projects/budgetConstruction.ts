@@ -1,5 +1,7 @@
 import type { Project } from "../types";
 
+// import dashboardScreenshot from "@/assets/projects/budget-construction-excel/dashboard.webp";
+
 export const budgetConstructionExcel = {
   id: "budget-construction-excel",
 
@@ -90,6 +92,16 @@ export const budgetConstructionExcel = {
       en: "Automated reporting and reduced manual reconciliation work across multiple budget sources.",
       fr: "Automatisation du reporting et réduction du travail manuel de rapprochement entre plusieurs sources budgétaires.",
     },
+  ],
+
+  screenshots: [
+    // {
+    //   src: dashboardScreenshot,
+    //   alt: {
+    //     en: "Construction budget tool dashboard",
+    //     fr: "Tableau de bord de l'outil de suivi budgétaire",
+    //   },
+    // },
   ],
 
   period: {

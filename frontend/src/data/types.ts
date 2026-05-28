@@ -67,6 +67,18 @@ export interface ProjectMetrics {
   context: ContextMetric;
 }
 
+export type ProjectScreenshot = {
+  src: string;
+  alt: {
+    en: string;
+    fr: string;
+  };
+  caption?: {
+    en: string;
+    fr: string;
+  };
+};
+
 /*
 |--------------------------------------------------------------------------
 | Shared Interfaces
@@ -104,6 +116,7 @@ export interface Project {
   solution?: LocalizedString;
 
   impact: LocalizedString[];
+  screenshots?: ProjectScreenshot[];
 
   period: LocalizedString;
 

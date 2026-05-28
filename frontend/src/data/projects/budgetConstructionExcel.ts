@@ -1,5 +1,7 @@
 import type { Project } from "../types";
 
+// import dashboardScreenshot from "@/assets/projects/budget-construction/dashboard.webp";
+
 export const budgetConstruction = {
   id: "budget-construction",
 
@@ -81,6 +83,16 @@ export const budgetConstruction = {
       en: "Clarified the distinction between planned budget, quotes, DIY estimates and actual invoices.",
       fr: "Clarification entre budget prévu, devis, estimations DIY et factures réelles.",
     },
+  ],
+
+  screenshots: [
+    // {
+    //   src: dashboardScreenshot,
+    //   alt: {
+    //     en: "Construction budget platform dashboard",
+    //     fr: "Tableau de bord de la plateforme de suivi budgétaire",
+    //   },
+    // },
   ],
 
   period: {
