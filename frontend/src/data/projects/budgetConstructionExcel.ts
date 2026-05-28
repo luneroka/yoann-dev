@@ -1,6 +1,9 @@
 import type { Project } from "../types";
 
-// import dashboardScreenshot from "@/assets/projects/budget-construction/dashboard.webp";
+import dashboardScreenshot from "@/assets/projects/budget-construction-excel/dashboard.webp";
+import fournisseursScreenshot from "@/assets/projects/budget-construction-excel/fournisseurs.webp";
+import inputScreenshot from "@/assets/projects/budget-construction-excel/input_form.webp";
+import rechercheScreenshot from "@/assets/projects/budget-construction-excel/recherche.webp";
 
 export const budgetConstruction = {
   id: "budget-construction",
@@ -86,13 +89,34 @@ export const budgetConstruction = {
   ],
 
   screenshots: [
-    // {
-    //   src: dashboardScreenshot,
-    //   alt: {
-    //     en: "Construction budget platform dashboard",
-    //     fr: "Tableau de bord de la plateforme de suivi budgétaire",
-    //   },
-    // },
+    {
+      src: dashboardScreenshot,
+      alt: {
+        en: "Construction budget platform dashboard",
+        fr: "Tableau de bord de la plateforme de suivi budgétaire",
+      },
+    },
+    {
+      src: inputScreenshot,
+      alt: {
+        en: "Automated input form allowing user to record transactions",
+        fr: "Formulaire de saisie automatisé pour enregistrer les transactions",
+      },
+    },
+    {
+      src: fournisseursScreenshot,
+      alt: {
+        en: "Supplier table with VBA modal for adding new ones",
+        fr: "Table de gestion des fournisseurs avec ajout simplifié via modal VBA",
+      },
+    },
+    {
+      src: rechercheScreenshot,
+      alt: {
+        en: "Search sheet with filters and transaction deletion capability",
+        fr: "Feuille de recherche de transactions avec filtres et fonction de suppression",
+      },
+    },
   ],
 
   period: {
