@@ -5,15 +5,17 @@
 */
 
 import { projects } from "@/data/projects";
-import type { Company, Domain, Project, SkillId, Track } from "@/data/types";
+import type { Company, Industry, ProductType, Project, SkillId, Track } from "@/data/types";
 
 type SingleFilterValue<T extends string> = T | "all";
 
 export type ProjectFilters = {
   type?: SingleFilterValue<Track>;
   tracks?: Track[];
-  domain?: SingleFilterValue<Domain>;
-  domains?: Domain[];
+  industry?: SingleFilterValue<Industry>;
+  industries?: Industry[];
+  productType?: SingleFilterValue<ProductType>;
+  productTypes?: ProductType[];
   company?: SingleFilterValue<Company>;
   companies?: Company[];
   skills?: SkillId[];
@@ -164,8 +166,10 @@ export function filterProjects(
     return (
       matchesSingleValueFilter(project.track, filters.type) &&
       matchesMultiValueFilter(project.track, filters.tracks) &&
-      matchesSingleValueFilter(project.domains, filters.domain) &&
-      matchesMultiValueFilter(project.domains, filters.domains) &&
+      matchesSingleValueFilter([project.industry], filters.industry) &&
+      matchesMultiValueFilter([project.industry], filters.industries) &&
+      matchesSingleValueFilter([project.productType], filters.productType) &&
+      matchesMultiValueFilter([project.productType], filters.productTypes) &&
       matchesSingleValueFilter(getCompanyValues(project), filters.company) &&
       matchesMultiValueFilter(getCompanyValues(project), filters.companies) &&
       matchesMultiValueFilter(project.skills, filters.skills) &&

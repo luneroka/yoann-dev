@@ -16,7 +16,7 @@ export const en = {
       },
       {
         value: "3",
-        label: "Business domains explored",
+        label: "Business industries explored",
       },
       {
         value: "SQL + Python",
@@ -52,7 +52,8 @@ export const en = {
       dateFrom: "Start date",
       dateTo: "End date",
       type: "Type",
-      domain: "Domain",
+      industry: "Industry",
+      productType: "Product type",
       company: "Company",
       skills: "Skills",
     },
@@ -76,7 +77,8 @@ export const en = {
   filters: {
     type: "Type",
     tracks: "Tracks",
-    domains: "Domains",
+    industries: "Industries",
+    productTypes: "Product types",
     companies: "Companies",
     skills: "Skills",
     featuredOnly: "Featured only",

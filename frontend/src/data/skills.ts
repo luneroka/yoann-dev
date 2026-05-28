@@ -149,6 +149,22 @@ export const skills: Skill[] = [
     showAsFilter: true,
   },
   {
+    id: "etl",
+    label: { en: "ETL", fr: "ETL" },
+    icon: Database,
+    category: "data",
+    level: "working",
+    showAsFilter: true,
+  },
+  {
+    id: "data-modeling",
+    label: { en: "Data Modeling", fr: "Modélisation de données" },
+    icon: Database,
+    category: "data",
+    level: "working",
+    showAsFilter: true,
+  },
+  {
     id: "tableau",
     label: { en: "Tableau", fr: "Tableau" },
     icon: IoLogoTableau,

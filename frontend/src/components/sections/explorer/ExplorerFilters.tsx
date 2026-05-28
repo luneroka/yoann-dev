@@ -1,7 +1,11 @@
 import { useLanguage } from "@/context/LanguageContext";
-import { companyLabels, domainLabels, skillLabels, trackLabels } from "@/data/labels";
-import type { Company, Domain, Project, SkillId, Track } from "@/data/types";
-import { translate } from "@/i18n/translate";
+import {
+  companyLabels,
+  skillLabels,
+  trackLabels,
+} from "@/data/labels";
+import type { Company, Industry, ProductType, Project, SkillId, Track } from "@/data/types";
+import { translate, translateIndustry, translateProductType } from "@/i18n/translate";
 import type { ProjectFilters } from "@/lib/queryProjects";
 
 import ExplorerDateRangeSlider from "./ExplorerDateRangeSlider";
@@ -33,7 +37,8 @@ const ExplorerFilters = ({
   const { copy, locale } = useLanguage();
 
   const trackOptions = getUniqueValues(projects.flatMap((project) => project.track));
-  const domainOptions = getUniqueValues(projects.flatMap((project) => project.domains));
+  const industryOptions = getUniqueValues(projects.map((project) => project.industry));
+  const productTypeOptions = getUniqueValues(projects.map((project) => project.productType));
   const companyOptions = getUniqueValues(
     projects.flatMap((project) => (project.company ? [project.company] : [])),
   );
@@ -62,18 +67,42 @@ const ExplorerFilters = ({
     );
   }
 
-  function toggleDomain(domain: Domain) {
-    onFiltersChange(
-      updateArrayFilter(activeFilters, "domains", toggleArrayValue(activeFilters.domains, domain)),
-    );
-  }
-
-  function toggleAllDomains() {
+  function toggleIndustry(industry: Industry) {
     onFiltersChange(
       updateArrayFilter(
         activeFilters,
-        "domains",
-        toggleAllValues(activeFilters.domains, domainOptions),
+        "industries",
+        toggleArrayValue(activeFilters.industries, industry),
+      ),
+    );
+  }
+
+  function toggleAllIndustries() {
+    onFiltersChange(
+      updateArrayFilter(
+        activeFilters,
+        "industries",
+        toggleAllValues(activeFilters.industries, industryOptions),
+      ),
+    );
+  }
+
+  function toggleProductType(productType: ProductType) {
+    onFiltersChange(
+      updateArrayFilter(
+        activeFilters,
+        "productTypes",
+        toggleArrayValue(activeFilters.productTypes, productType),
+      ),
+    );
+  }
+
+  function toggleAllProductTypes() {
+    onFiltersChange(
+      updateArrayFilter(
+        activeFilters,
+        "productTypes",
+        toggleAllValues(activeFilters.productTypes, productTypeOptions),
       ),
     );
   }
@@ -181,15 +210,31 @@ const ExplorerFilters = ({
         />
         <ExplorerFilterGroup
           allLabel={explorerFiltersCopy.all}
-          title={explorerFiltersCopy.domain}
-          allActive={domainOptions.every((domain) => activeFilters.domains?.includes(domain))}
-          onToggleAll={toggleAllDomains}
-          items={domainOptions.map((domain) => ({
-            value: domain,
-            label: translate(domainLabels[domain], locale),
-            active: isSelected(activeFilters.domains, domain),
+          title={explorerFiltersCopy.industry}
+          allActive={industryOptions.every((industry) =>
+            activeFilters.industries?.includes(industry),
+          )}
+          onToggleAll={toggleAllIndustries}
+          items={industryOptions.map((industry) => ({
+            value: industry,
+            label: translateIndustry(industry, locale),
+            active: isSelected(activeFilters.industries, industry),
           }))}
-          onToggle={toggleDomain}
+          onToggle={toggleIndustry}
+        />
+        <ExplorerFilterGroup
+          allLabel={explorerFiltersCopy.all}
+          title={explorerFiltersCopy.productType}
+          allActive={productTypeOptions.every((productType) =>
+            activeFilters.productTypes?.includes(productType),
+          )}
+          onToggleAll={toggleAllProductTypes}
+          items={productTypeOptions.map((productType) => ({
+            value: productType,
+            label: translateProductType(productType, locale),
+            active: isSelected(activeFilters.productTypes, productType),
+          }))}
+          onToggle={toggleProductType}
         />
         <ExplorerFilterGroup
           allLabel={explorerFiltersCopy.all}

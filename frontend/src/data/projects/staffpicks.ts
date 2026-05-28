@@ -20,7 +20,8 @@ export const staffpicks = {
   },
 
   track: ["dev"],
-  domains: ["retail", "saas"],
+  industry: "retail",
+  productType: "saas",
 
   skills: ["typescript", "react", "nodejs", "nextjs", "postgresql", "mongodb", "docker"],
 

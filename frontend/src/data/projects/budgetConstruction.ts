@@ -15,7 +15,8 @@ export const budgetConstruction = {
   },
 
   track: ["dev"],
-  domains: ["construction", "internal-tools"],
+  industry: "construction",
+  productType: "platform",
 
   skills: ["python", "fastapi", "postgresql", "sql", "docker"],
 

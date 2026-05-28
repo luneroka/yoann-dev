@@ -28,12 +28,20 @@ export function buildProjectsSqlQuery(filters: ProjectFilters = {}) {
     conditions.push(`track IN (${formatSqlList(filters.tracks)})`);
   }
 
-  if (filters.domain && filters.domain !== "all") {
-    conditions.push(`domain = '${filters.domain}'`);
+  if (filters.industry && filters.industry !== "all") {
+    conditions.push(`industry = '${filters.industry}'`);
   }
 
-  if (filters.domains && filters.domains.length > 0) {
-    conditions.push(`domain IN (${formatSqlList(filters.domains)})`);
+  if (filters.industries && filters.industries.length > 0) {
+    conditions.push(`industry IN (${formatSqlList(filters.industries)})`);
+  }
+
+  if (filters.productType && filters.productType !== "all") {
+    conditions.push(`product_type = '${filters.productType}'`);
+  }
+
+  if (filters.productTypes && filters.productTypes.length > 0) {
+    conditions.push(`product_type IN (${formatSqlList(filters.productTypes)})`);
   }
 
   if (filters.company && filters.company !== "all") {

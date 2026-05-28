@@ -12,7 +12,9 @@ export type LocalizedString = Record<Locale, string>;
 
 export type Track = "dev" | "data";
 
-export type Domain = "logistics" | "retail" | "construction" | "saas" | "internal-tools";
+export type Industry = "logistics" | "retail" | "construction" | "technology";
+
+export type ProductType = "saas" | "internal-tool" | "platform" | "dashboard" | "web-app";
 
 export type Company = "Amazon" | "Lidl" | "Solo";
 
@@ -31,9 +33,9 @@ export type SkillId =
   | "sql"
   | "excel"
   | "vba"
+  | "power-query"
   | "etl"
   | "data-modeling"
-  | "power-query"
   | "tableau"
   | "power-bi"
   | "git"
@@ -105,7 +107,8 @@ export interface Project {
   role?: LocalizedString | null;
 
   track: Track[];
-  domains: Domain[];
+  industry: Industry;
+  productType: ProductType;
 
   skills: SkillId[];
 
@@ -133,7 +136,8 @@ export interface Project {
 
 export interface ExplorerFilters {
   tracks?: Track[];
-  domains?: Domain[];
+  industries?: Industry[];
+  productTypes?: ProductType[];
 
   companies?: Company[];
 

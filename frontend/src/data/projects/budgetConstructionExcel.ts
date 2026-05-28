@@ -20,7 +20,8 @@ export const budgetConstructionExcel = {
   },
 
   track: ["data"],
-  domains: ["construction", "internal-tools"],
+  industry: "construction",
+  productType: "internal-tool",
 
   skills: ["excel", "vba", "power-query"],
 

@@ -77,7 +77,9 @@ export function toggleAllValues<T extends string>(
   return allSelected ? undefined : [...options];
 }
 
-export function updateArrayFilter<K extends "tracks" | "domains" | "companies" | "skills">(
+export function updateArrayFilter<
+  K extends "tracks" | "industries" | "productTypes" | "companies" | "skills",
+>(
   filters: ProjectFilters,
   key: K,
   values: ProjectFilters[K],
@@ -99,7 +101,8 @@ export function updateArrayFilter<K extends "tracks" | "domains" | "companies" |
 export function hasActiveFilters(filters: ProjectFilters) {
   return Boolean(
     filters.tracks?.length ||
-      filters.domains?.length ||
+      filters.industries?.length ||
+      filters.productTypes?.length ||
       filters.companies?.length ||
       filters.skills?.length ||
       filters.dateFrom !== undefined ||

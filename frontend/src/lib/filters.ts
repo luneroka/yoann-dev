@@ -7,9 +7,14 @@ export function filterProfileItems(items: Project[], filters: ExplorerFilters): 
         ? filters.tracks.some((track) => item.track.includes(track))
         : true;
 
-    const matchesDomains =
-      filters.domains && filters.domains.length > 0
-        ? filters.domains.some((domain) => item.domains.includes(domain))
+    const matchesIndustries =
+      filters.industries && filters.industries.length > 0
+        ? filters.industries.includes(item.industry)
+        : true;
+
+    const matchesProductTypes =
+      filters.productTypes && filters.productTypes.length > 0
+        ? filters.productTypes.includes(item.productType)
         : true;
 
     const matchesCompanies =
@@ -26,6 +31,13 @@ export function filterProfileItems(items: Project[], filters: ExplorerFilters): 
 
     const matchesFeatured = filters.featuredOnly ? item.featured === true : true;
 
-    return matchesTracks && matchesDomains && matchesCompanies && matchesSkills && matchesFeatured;
+    return (
+      matchesTracks &&
+      matchesIndustries &&
+      matchesProductTypes &&
+      matchesCompanies &&
+      matchesSkills &&
+      matchesFeatured
+    );
   });
 }

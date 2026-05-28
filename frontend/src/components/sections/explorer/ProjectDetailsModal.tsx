@@ -12,10 +12,10 @@ import {
 } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { companyLabels, domainLabels, trackLabels } from "@/data/labels";
+import { companyLabels, trackLabels } from "@/data/labels";
 import { skills } from "@/data/skills";
 import type { Locale, LocalizedString } from "@/data/types";
-import { translate } from "@/i18n/translate";
+import { translate, translateIndustry, translateProductType } from "@/i18n/translate";
 import type { EnrichedProject } from "@/lib/queryProjects";
 
 type ProjectDetailsModalProps = {
@@ -43,7 +43,7 @@ const modalCopy = {
     company: "Company",
     role: "Role",
     period: "Period",
-    domains: "Domains",
+    domain: "Domain",
     metrics: "Metrics",
     skills: "Skills",
     hours: "Hours",
@@ -67,7 +67,7 @@ const modalCopy = {
     company: "Entreprise",
     role: "Rôle",
     period: "Période",
-    domains: "Domaines",
+    domain: "Domaine",
     metrics: "Métriques",
     skills: "Compétences",
     hours: "Heures",
@@ -374,72 +374,71 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
               </div>
 
               <aside className="space-y-6">
-                <Section title={copy.domains}>
+                <Section title={copy.domain}>
                   <div className="flex flex-wrap gap-2">
-                    {project.domains.map((domain) => (
-                      <span
-                        key={domain}
-                        className="rounded-full border border-border bg-background px-3 py-1.5 font-body text-xs font-bold text-muted-foreground"
-                      >
-                        {translate(domainLabels[domain], locale)}
-                      </span>
-                    ))}
+                    <span className="rounded-full border border-border bg-background px-3 py-1.5 font-body text-xs font-bold text-muted-foreground">
+                      {translateIndustry(project.industry, locale)}
+                    </span>
+                    <span className="rounded-full border border-border bg-background px-3 py-1.5 font-body text-xs font-bold text-muted-foreground">
+                      {translateProductType(project.productType, locale)}
+                    </span>
                   </div>
                 </Section>
 
-              <Section title={copy.metrics}>
-                <div className="grid grid-cols-1 gap-3">
-                  <DetailStat
-                    label={copy.hours}
-                    value={`${formatNumber(project.metrics.hoursInvested, locale)}h`}
-                    icon={Clock3}
-                    accent
-                  />
-                  <DetailStat
-                    label={copy.systems}
-                    value={formatNumber(project.systemsBuiltCount, locale)}
-                    icon={Boxes}
-                    accent
-                  />
-                  <DetailStat
-                    label={copy.technologies}
-                    value={formatNumber(project.technologiesCount, locale)}
-                    icon={Cpu}
-                    accent
-                  />
-                  <DetailStat
-                    label={translate(project.metrics.context.label, locale)}
-                    value={formatContextMetric(project, locale)}
-                    icon={Activity}
-                    accent
-                  />
-                </div>
-              </Section>
+                <Section title={copy.metrics}>
+                  <div className="grid grid-cols-1 gap-3">
+                    <DetailStat
+                      label={copy.hours}
+                      value={`${formatNumber(project.metrics.hoursInvested, locale)}h`}
+                      icon={Clock3}
+                      accent
+                    />
+                    <DetailStat
+                      label={copy.systems}
+                      value={formatNumber(project.systemsBuiltCount, locale)}
+                      icon={Boxes}
+                      accent
+                    />
+                    <DetailStat
+                      label={copy.technologies}
+                      value={formatNumber(project.technologiesCount, locale)}
+                      icon={Cpu}
+                      accent
+                    />
+                    <DetailStat
+                      label={translate(project.metrics.context.label, locale)}
+                      value={formatContextMetric(project, locale)}
+                      icon={Activity}
+                      accent
+                    />
+                  </div>
+                </Section>
 
-              <Section title={copy.technologies}>
-                <div className="grid grid-cols-3 gap-3">
-                  {project.technologies.map((technology) => {
-                    const TechnologyIcon = technologyIconByName.get(technology.toLowerCase()) ?? Cpu;
+                <Section title={copy.technologies}>
+                  <div className="grid grid-cols-3 gap-3">
+                    {project.technologies.map((technology) => {
+                      const TechnologyIcon =
+                        technologyIconByName.get(technology.toLowerCase()) ?? Cpu;
 
-                    return (
-                      <div
-                        key={technology}
-                        className="rounded-md bg-muted p-3 text-center"
-                        title={technology}
-                      >
-                        <TechnologyIcon
-                          className="mx-auto h-6 w-6 text-primary"
-                          aria-hidden="true"
-                        />
-                        <p className="mt-2 truncate font-body text-[11px] font-bold text-muted-foreground">
-                          {technology}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </Section>
-            </aside>
+                      return (
+                        <div
+                          key={technology}
+                          className="rounded-md bg-muted p-3 text-center"
+                          title={technology}
+                        >
+                          <TechnologyIcon
+                            className="mx-auto h-6 w-6 text-primary"
+                            aria-hidden="true"
+                          />
+                          <p className="mt-2 truncate font-body text-[11px] font-bold text-muted-foreground">
+                            {technology}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </Section>
+              </aside>
             </div>
           </div>
         </div>

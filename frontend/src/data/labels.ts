@@ -1,8 +1,9 @@
 import type {
   Company,
   ContextMetricType,
-  Domain,
+  Industry,
   LocalizedString,
+  ProductType,
   SkillId,
   Track,
 } from "./types";
@@ -12,13 +13,20 @@ export const trackLabels = {
   data: { en: "Data", fr: "Data" },
 } satisfies Record<Track, LocalizedString>;
 
-export const domainLabels = {
+export const industryLabels = {
   logistics: { en: "Logistics", fr: "Logistique" },
   retail: { en: "Retail", fr: "Retail" },
   construction: { en: "Construction", fr: "Construction" },
+  technology: { en: "Technology", fr: "Technologie" },
+} satisfies Record<Industry, LocalizedString>;
+
+export const productTypeLabels = {
   saas: { en: "SaaS", fr: "SaaS" },
-  "internal-tools": { en: "Internal tools", fr: "Outils internes" },
-} satisfies Record<Domain, LocalizedString>;
+  "internal-tool": { en: "Internal tool", fr: "Outil interne" },
+  platform: { en: "Platform", fr: "Plateforme" },
+  dashboard: { en: "Dashboard", fr: "Dashboard" },
+  "web-app": { en: "Web app", fr: "Application web" },
+} satisfies Record<ProductType, LocalizedString>;
 
 export const companyLabels = {
   Amazon: { en: "Amazon", fr: "Amazon" },
@@ -42,6 +50,8 @@ export const skillLabels = {
   excel: { en: "Excel", fr: "Excel" },
   vba: { en: "VBA", fr: "VBA" },
   "power-query": { en: "Power Query", fr: "Power Query" },
+  etl: { en: "ETL", fr: "ETL" },
+  "data-modeling": { en: "Data Modeling", fr: "Modélisation de données" },
   tableau: { en: "Tableau", fr: "Tableau" },
   "power-bi": { en: "Power BI", fr: "Power BI" },
   git: { en: "Git", fr: "Git" },
