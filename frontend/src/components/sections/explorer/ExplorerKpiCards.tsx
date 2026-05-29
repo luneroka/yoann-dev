@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import { Activity, Boxes, Brain, Clock3, type LucideIcon } from "lucide-react";
 
@@ -45,6 +45,81 @@ const kpiCardVariants: Variants = {
 };
 
 const contextMetricRotationMs = 3500;
+const maxLabelFontSize = 12;
+const minLabelFontSize = 9;
+
+function FittedKpiLabel({ label }: { label: string }) {
+  const containerRef = useRef<HTMLParagraphElement>(null);
+  const measureRef = useRef<HTMLSpanElement>(null);
+  const [fontSize, setFontSize] = useState(maxLabelFontSize);
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const measure = measureRef.current;
+
+    if (!container || !measure) {
+      return;
+    }
+
+    let animationFrameId = 0;
+
+    function updateFontSize() {
+      window.cancelAnimationFrame(animationFrameId);
+
+      animationFrameId = window.requestAnimationFrame(() => {
+        const currentContainer = containerRef.current;
+        const currentMeasure = measureRef.current;
+
+        if (!currentContainer || !currentMeasure) {
+          return;
+        }
+
+        const availableWidth = currentContainer.clientWidth;
+        const measuredWidth = currentMeasure.scrollWidth;
+
+        if (availableWidth <= 0 || measuredWidth <= 0) {
+          return;
+        }
+
+        const fittedSize = Math.min(
+          maxLabelFontSize,
+          Math.max(minLabelFontSize, (availableWidth / measuredWidth) * maxLabelFontSize),
+        );
+
+        setFontSize(Number(fittedSize.toFixed(1)));
+      });
+    }
+
+    updateFontSize();
+
+    const resizeObserver = new ResizeObserver(updateFontSize);
+    resizeObserver.observe(container);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      resizeObserver.disconnect();
+    };
+  }, [label]);
+
+  return (
+    <p
+      ref={containerRef}
+      className="relative mt-3 overflow-hidden font-body font-semibold leading-tight text-muted-foreground"
+      title={label}
+    >
+      <span
+        ref={measureRef}
+        className="pointer-events-none absolute left-0 top-0 whitespace-nowrap font-body text-xs font-semibold opacity-0"
+        aria-hidden="true"
+      >
+        {label}
+      </span>
+      <span className="block whitespace-nowrap" style={{ fontSize: `${fontSize}px` }}>
+        {label}
+      </span>
+    </p>
+  );
+}
 
 function ExplorerKpiCard({
   label,
@@ -55,25 +130,27 @@ function ExplorerKpiCard({
 }: ExplorerKpiCardProps) {
   return (
     <motion.div
-      className={`rounded-lg border bg-background p-4 shadow-soft ${
+      className={`relative h-24 rounded-lg border bg-background p-4 shadow-soft ${
         accent ? "border-accent/35" : "border-border"
       }`}
       variants={kpiCardVariants}
       title={title}
     >
-      <div className="flex items-center justify-between gap-3">
-        <div>
-          <p className="font-heading text-3xl font-bold leading-none text-foreground">{value}</p>
-          <p className="mt-3 font-body text-xs font-semibold text-muted-foreground">{label}</p>
-        </div>
+      <span
+        className={`absolute right-3 top-3 inline-flex h-7 w-7 items-center justify-center rounded-full ${
+          accent ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"
+        }`}
+      >
+        <Icon className="h-4 w-4" aria-hidden="true" />
+      </span>
 
-        <span
-          className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
-            accent ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"
-          }`}
-        >
-          <Icon className="h-5 w-5" aria-hidden="true" />
-        </span>
+      <div className="flex h-full items-center">
+        <div className="min-w-0 pr-8">
+          <p className="whitespace-nowrap font-heading text-2xl font-bold leading-none text-foreground">
+            {value}
+          </p>
+          <FittedKpiLabel label={label} />
+        </div>
       </div>
     </motion.div>
   );
@@ -119,7 +196,7 @@ const ExplorerKpiCards = ({ metrics }: ExplorerKpiCardsProps) => {
     {
       id: "hours-invested",
       label: kpis.hoursInvested,
-      value: `${formatNumber(metrics.hoursInvested, locale)}h`,
+      value: formatNumber(metrics.hoursInvested, locale),
       icon: Clock3,
     },
     {

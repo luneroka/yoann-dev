@@ -15,7 +15,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { companyLabels, trackLabels } from "@/data/labels";
 import { skills } from "@/data/skills";
 import { technologies } from "@/data/technologies";
-import type { Locale, LocalizedString } from "@/data/types";
+import type { Locale, LocalizedString, Track } from "@/data/types";
 import { translate, translateIndustry, translateProductType } from "@/i18n/translate";
 import type { EnrichedProject } from "@/lib/queryProjects";
 
@@ -84,6 +84,10 @@ const modalCopy = {
 
 const skillLabelById = new Map(skills.map((skill) => [skill.id, skill.label]));
 const technologyById = new Map(technologies.map((technology) => [technology.id, technology]));
+const trackBadgeClasses: Record<Track, string> = {
+  dev: "border-primary/25 bg-primary/10 text-primary",
+  data: "border-orange-500/30 bg-orange-500/10 text-orange-600",
+};
 
 function formatNumber(value: number, locale: Locale) {
   return new Intl.NumberFormat(locale).format(value);
@@ -220,7 +224,7 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
               {project.track.map((track) => (
                 <span
                   key={track}
-                  className="rounded-full border border-primary/25 bg-primary/10 px-2.5 py-1 font-body text-xs font-bold text-primary"
+                  className={`rounded-full border px-2.5 py-1 font-body text-xs font-bold ${trackBadgeClasses[track]}`}
                 >
                   {translate(trackLabels[track], locale)}
                 </span>
