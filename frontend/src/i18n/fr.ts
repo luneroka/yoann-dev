@@ -11,12 +11,12 @@ export const fr = {
     githubLabel: "Voir le profil GitHub de Yoann Robert",
     highlightCards: [
       {
-        value: "+7",
+        value: "7+",
         label: "Années en environnements opérationnels",
       },
       {
         value: "3",
-        label: "Secteurs d'activité explorés",
+        label: "Industries explorées",
       },
       {
         value: "SQL + Python",

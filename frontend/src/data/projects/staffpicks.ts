@@ -47,7 +47,7 @@ export const staffpicks = {
   ],
 
   metrics: {
-    hoursInvested: 400,
+    hoursInvested: 720,
     context: {
       type: "users_impacted",
       label: {
