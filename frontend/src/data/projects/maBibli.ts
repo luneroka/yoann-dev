@@ -152,6 +152,11 @@ export const maBibli = {
     },
   ],
 
+  links: {
+    github: "https://github.com/luneroka/ma-bibli",
+    demo: "https://www.ma-bibli.com",
+  },
+
   period: {
     en: "February 2025 - August 2025",
     fr: "Février 2025 - Août 2025",

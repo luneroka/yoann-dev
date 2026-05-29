@@ -106,6 +106,10 @@ export const eCommerceDataAnalysis = {
     },
   ],
 
+  links: {
+    github: "https://github.com/luneroka/sql_dap_ecommerce",
+  },
+
   period: {
     en: "April 2026",
     fr: "Avril 2026",

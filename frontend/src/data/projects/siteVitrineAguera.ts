@@ -141,6 +141,11 @@ export const siteVitrineAguera = {
     },
   ],
 
+  links: {
+    github: "https://github.com/luneroka/aguera-renov",
+    demo: "https://aguera-renov.com",
+  },
+
   period: {
     en: "November 2025",
     fr: "Novembre 2025",

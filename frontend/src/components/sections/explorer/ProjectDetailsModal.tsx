@@ -9,7 +9,9 @@ import {
   ChevronRight,
   Clock3,
   Cpu,
+  ExternalLink,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 import { useLanguage } from "@/context/LanguageContext";
 import { companyLabels, trackLabels } from "@/data/labels";
@@ -55,6 +57,8 @@ const modalCopy = {
     impact: "Impact",
     systemsBuilt: "Systems built",
     noImages: "No screenshots available for this project yet.",
+    liveDemo: "Live Demo",
+    github: "GitHub",
   },
   fr: {
     close: "Fermer les détails du projet",
@@ -79,6 +83,8 @@ const modalCopy = {
     impact: "Impact",
     systemsBuilt: "Systèmes conçus",
     noImages: "Aucune capture disponible pour ce projet pour le moment.",
+    liveDemo: "Live Demo",
+    github: "GitHub",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -215,6 +221,33 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
               >
                 {title}
               </h2>
+              {project.links ? (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.links.demo ? (
+                    <a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-primary/25 bg-primary px-4 font-body text-sm font-bold text-primary-foreground transition-smooth hover:bg-primary-dark focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    >
+                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                      {copy.liveDemo}
+                    </a>
+                  ) : null}
+
+                  {project.links.github ? (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-primary/40 bg-background px-4 font-body text-sm font-bold text-primary transition-smooth hover:bg-primary hover:text-primary-foreground focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    >
+                      <FaGithub className="h-4 w-4" aria-hidden="true" />
+                      {copy.github}
+                    </a>
+                  ) : null}
+                </div>
+              ) : null}
               <p className="mt-3 max-w-3xl font-body text-sm leading-6 text-muted-foreground">
                 {summary}
               </p>

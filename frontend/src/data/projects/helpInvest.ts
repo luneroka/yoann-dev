@@ -140,6 +140,10 @@ export const helpInvest = {
     },
   ],
 
+  links: {
+    github: "https://github.com/luneroka/help-invest",
+  },
+
   period: {
     en: "November 2024 - December 2024",
     fr: "Novembre 2024 - Décembre 2024",

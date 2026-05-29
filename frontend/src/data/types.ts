@@ -146,6 +146,10 @@ export interface Project {
 
   impact: LocalizedString[];
   screenshots?: ProjectScreenshot[];
+  links?: {
+    github: string;
+    demo?: string;
+  };
 
   period: LocalizedString;
 

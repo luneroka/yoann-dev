@@ -146,6 +146,11 @@ export const staffpicks = {
     },
   ],
 
+  links: {
+    github: "https://github.com/luneroka/staffpicks-public",
+    demo: "https://staffpicks.app",
+  },
+
   period: {
     en: "August 2025 — February 2026",
     fr: "Août 2025 — Février 2026",

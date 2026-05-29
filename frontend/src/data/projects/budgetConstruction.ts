@@ -93,6 +93,10 @@ export const budgetConstruction = {
     // },
   ],
 
+  links: {
+    github: "https://github.com/luneroka/budget_construction",
+  },
+
   period: {
     en: "May 2026 — ongoing",
     fr: "Mai 2026 — en cours",

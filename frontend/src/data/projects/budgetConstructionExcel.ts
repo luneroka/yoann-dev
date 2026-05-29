@@ -128,6 +128,10 @@ export const budgetConstructionExcel = {
     },
   ],
 
+  links: {
+    github: "https://github.com/luneroka/budget_construction_excel",
+  },
+
   period: {
     en: "January 2026 — May 2026",
     fr: "Janvier 2026 — Mai 2026",
