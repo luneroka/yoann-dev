@@ -48,7 +48,8 @@ export type SkillId =
   | "backend-architecture"
   | "database-modeling"
   | "process-optimization"
-  | "budget-workflow-modeling";
+  | "budget-workflow-modeling"
+  | "communication";
 
 export type TechnologyCategory = "frontend" | "backend" | "data" | "database" | "tooling";
 

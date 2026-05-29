@@ -88,7 +88,7 @@ export const eCommerceDataAnalysis = {
     },
     {
       en: "Highlighted $90K in cancellation-related revenue leakage and a 36% higher cancellation risk on merchant-fulfilled orders.",
-      fr: "Mise en évidence de 90 K$ de chiffre d'affaires perdu lié aux annulations et d'un risque d'annulation 36% plus élevé sur les commandes gérées par les marchands.",
+      fr: "Mise en évidence de 90 K$ de chiffre d'affaires perdu lié aux annulations et d'un risque d'annulation 36% plus élevé sur les commandes gérées par les vendeurs tiers.",
     },
     {
       en: "Built a Tableau dashboard to explore sales trends, product mix, fulfillment performance and cancellation impact.",

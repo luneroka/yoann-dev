@@ -73,6 +73,7 @@ export const skillLabels = {
     en: "Budget workflow modeling",
     fr: "Modélisation de workflows budgétaires",
   },
+  communication: { en: "Communication", fr: "Communication" },
 } satisfies Record<SkillId, LocalizedString>;
 
 export const contextMetricTypeLabels = {

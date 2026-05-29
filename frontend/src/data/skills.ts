@@ -71,4 +71,11 @@ export const skills: Skill[] = [
     level: "working",
     showAsFilter: true,
   },
+  {
+    id: "communication",
+    label: { en: "Communication", fr: "Communication" },
+    category: "operations",
+    level: "comfortable",
+    showAsFilter: true,
+  },
 ];
