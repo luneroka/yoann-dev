@@ -7,6 +7,7 @@ import { eCommerceDataAnalysis } from "./eCommerceDataAnalysis";
 import { siteVitrineAguera } from "./siteVitrineAguera";
 import { maBibli } from "./maBibli";
 import { helpInvest } from "./helpInvest";
+import { portfolioRevamp } from "./portfolioRevamp";
 
 export const projects = [
   budgetConstruction,
@@ -16,4 +17,5 @@ export const projects = [
   siteVitrineAguera,
   maBibli,
   helpInvest,
+  portfolioRevamp,
 ] satisfies Project[];

@@ -27,7 +27,7 @@ export const siteVitrineAguera = {
   skills: ["process-optimization", "communication", "ux-ui-design", "product-discovery"],
 
   metrics: {
-    hoursInvested: 45,
+    hoursInvested: 50,
     context: {
       type: "performance_gain",
       label: {

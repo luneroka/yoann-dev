@@ -101,7 +101,7 @@ export default function Hero() {
               </motion.a>
 
               <motion.a
-                href="#case-studies"
+                href="#contact"
                 className="inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-primary bg-background px-6 py-3 font-body text-sm font-bold text-primary shadow-soft transition-smooth hover:bg-primary hover:text-primary-foreground hover:shadow-medium"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -155,26 +155,26 @@ export default function Hero() {
               const isAccentCard = index < 2;
 
               return (
-              <motion.div
-                key={card.value}
-                className={`min-h-28 rounded-lg border border-border bg-card/90 p-5 shadow-soft backdrop-blur transition-colors duration-100 ease-linear hover:shadow-medium ${
-                  isAccentCard ? "hover:border-accent/60" : "hover:border-primary/60"
-                }`}
-                variants={cardVariants}
-                whileHover={{ y: -4 }}
-                transition={{ type: "tween", duration: 0.1, ease: "linear" }}
-              >
-                <p
-                  className={`font-heading text-xl font-bold leading-tight ${
-                    isAccentCard ? "text-accent" : "text-primary"
+                <motion.div
+                  key={card.value}
+                  className={`min-h-28 rounded-lg border border-border bg-card/90 p-5 shadow-soft backdrop-blur transition-colors duration-100 ease-linear hover:shadow-medium ${
+                    isAccentCard ? "hover:border-accent/60" : "hover:border-primary/60"
                   }`}
+                  variants={cardVariants}
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "tween", duration: 0.1, ease: "linear" }}
                 >
-                  {card.value}
-                </p>
-                <p className="mt-2 font-body text-sm font-semibold leading-5 text-muted-foreground">
-                  {card.label}
-                </p>
-              </motion.div>
+                  <p
+                    className={`font-heading text-xl font-bold leading-tight ${
+                      isAccentCard ? "text-accent" : "text-primary"
+                    }`}
+                  >
+                    {card.value}
+                  </p>
+                  <p className="mt-2 font-body text-sm font-semibold leading-5 text-muted-foreground">
+                    {card.label}
+                  </p>
+                </motion.div>
               );
             })}
           </motion.div>
