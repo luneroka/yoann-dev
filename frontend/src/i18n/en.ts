@@ -36,6 +36,14 @@ export const en = {
     contact: "Contact",
   },
 
+  contact: {
+    title: "Let's connect",
+    phrase: "Open to web developer and data opportunities.",
+    emailLabel: "Email Yoann Robert",
+    linkedinLabel: "Visit Yoann Robert on LinkedIn",
+    githubLabel: "Visit Yoann Robert on GitHub",
+  },
+
   explorer: {
     eyebrow: "PROJECT EXPLORER",
     title: "Interactive Projects Explorer",

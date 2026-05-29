@@ -167,7 +167,7 @@ export default function SkillsExpertise() {
     <>
       <section id="skills" className="relative px-4 py-24 sm:py-28">
         <div className="container relative mx-auto max-w-6xl">
-          <div className="mb-10 max-w-3xl">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
             <h2 className="font-heading text-3xl font-bold leading-tight text-foreground sm:text-4xl">
               {copy.skillsExpertise.title}
             </h2>

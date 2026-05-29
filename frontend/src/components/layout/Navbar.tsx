@@ -16,7 +16,7 @@ const navLinks: NavLink[] = [
   { key: "home", href: "#top" },
   { key: "explorer", href: "#explorer" },
   { key: "skills", href: "#skills" },
-  { key: "contact", href: "contact" },
+  { key: "contact", href: "#contact" },
 ];
 
 function scrollToSection(href: string) {

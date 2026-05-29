@@ -7,7 +7,7 @@ const ExplorerHeader = () => {
 
   return (
     <motion.div
-      className="mx-auto max-w-3xl text-center"
+      className="mx-auto mb-10 max-w-3xl text-center"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
@@ -17,11 +17,11 @@ const ExplorerHeader = () => {
         {copy.explorer.eyebrow}
       </p> */}
 
-      <h2 className="font-heading text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+      <h2 className="font-heading text-3xl font-bold leading-tight text-foreground sm:text-4xl">
         {copy.explorer.title}
       </h2>
 
-      <p className="mx-auto mt-5 max-w-2xl font-body text-lg leading-8 text-muted-foreground">
+      <p className="mx-auto mt-4 max-w-2xl font-body text-base leading-7 text-muted-foreground sm:text-lg">
         {copy.explorer.description}
       </p>
     </motion.div>
