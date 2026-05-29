@@ -24,7 +24,7 @@ export const siteVitrineAguera = {
   productType: "web-app",
 
   technologies: ["typescript", "react", "nextjs", "tailwindcss", "git"],
-  skills: ["process-optimization", "communication"],
+  skills: ["process-optimization", "communication", "ux-ui-design", "product-discovery"],
 
   metrics: {
     hoursInvested: 45,

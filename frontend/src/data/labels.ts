@@ -24,7 +24,6 @@ export const industryLabels = {
 export const productTypeLabels = {
   saas: { en: "SaaS", fr: "SaaS" },
   "internal-tool": { en: "Internal tool", fr: "Outil interne" },
-  platform: { en: "Platform", fr: "Plateforme" },
   dashboard: { en: "Dashboard", fr: "Dashboard" },
   "web-app": { en: "Web app", fr: "Application web" },
 } satisfies Record<ProductType, LocalizedString>;
@@ -68,11 +67,23 @@ export const skillLabels = {
     en: "Database modeling",
     fr: "Modélisation de base de données",
   },
-  "process-optimization": { en: "Process optimization", fr: "Optimisation de processus" },
-  "budget-workflow-modeling": {
-    en: "Budget workflow modeling",
-    fr: "Modélisation de workflows budgétaires",
+  "frontend-architecture": {
+    en: "Frontend architecture",
+    fr: "Architecture frontend",
   },
+  "ux-ui-design": {
+    en: "UX/UI design",
+    fr: "UX/UI design",
+  },
+  "product-discovery": {
+    en: "Product discovery",
+    fr: "Découverte produit",
+  },
+  "stakeholder-management": {
+    en: "Stakeholder management",
+    fr: "Gestion des parties prenantes",
+  },
+  "process-optimization": { en: "Process optimization", fr: "Optimisation de processus" },
   communication: { en: "Communication", fr: "Communication" },
 } satisfies Record<SkillId, LocalizedString>;
 

@@ -14,7 +14,7 @@ export type Track = "dev" | "data";
 
 export type Industry = "logistics" | "retail" | "construction" | "technology";
 
-export type ProductType = "saas" | "internal-tool" | "platform" | "dashboard" | "web-app";
+export type ProductType = "saas" | "internal-tool" | "dashboard" | "web-app";
 
 export type Company = "Amazon" | "Lidl" | "Solo";
 
@@ -48,12 +48,15 @@ export type SkillId =
   | "backend-architecture"
   | "database-modeling"
   | "process-optimization"
-  | "budget-workflow-modeling"
-  | "communication";
+  | "communication"
+  | "frontend-architecture"
+  | "ux-ui-design"
+  | "product-discovery"
+  | "stakeholder-management";
 
 export type TechnologyCategory = "frontend" | "backend" | "data" | "database" | "tooling";
 
-export type SkillCategory = "data" | "backend" | "business-analysis" | "operations";
+export type SkillCategory = "data" | "backend" | "frontend" | "business-analysis" | "operations";
 
 export type ProficiencyLevel = "comfortable" | "working" | "learning";
 

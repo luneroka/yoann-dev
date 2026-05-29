@@ -35,7 +35,16 @@ export const staffpicks = {
     "git",
     "docker",
   ],
-  skills: ["api-design", "backend-architecture", "database-modeling"],
+  skills: [
+    "api-design",
+    "backend-architecture",
+    "database-modeling",
+    "frontend-architecture",
+    "ux-ui-design",
+    "product-discovery",
+    "stakeholder-management",
+    "communication",
+  ],
 
   metrics: {
     hoursInvested: 400,
