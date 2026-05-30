@@ -8,6 +8,7 @@ import { siteVitrineAguera } from "./siteVitrineAguera";
 import { maBibli } from "./maBibli";
 import { helpInvest } from "./helpInvest";
 import { portfolioRevamp } from "./portfolioRevamp";
+import { amazonAttendanceTool } from "./amazonAttendanceTool";
 
 export const projects = [
   budgetConstruction,
@@ -18,4 +19,5 @@ export const projects = [
   maBibli,
   helpInvest,
   portfolioRevamp,
+  amazonAttendanceTool,
 ] satisfies Project[];
