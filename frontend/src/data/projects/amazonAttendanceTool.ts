@@ -99,8 +99,8 @@ export const amazonAttendanceTool = {
       fr: "Réduction des conversations critiques de suivi d'absentéisme manquées, de trois par semaine à une par mois.",
     },
     {
-      en: "Improved daily visibility for Area Managers, Senior Operations Managers and HR teams on absence trends by shift.",
-      fr: "Amélioration de la visibilité quotidienne des Area Managers, Senior Operations Managers et équipes RH sur les tendances d'absentéisme par shift.",
+      en: "Improved daily visibility for Operations, Senior Managers and HR teams on absence trends by shift.",
+      fr: "Amélioration de la visibilité quotidienne des managers Opérations et équipes RH sur les tendances d'absentéisme par shift.",
     },
     {
       en: "Secured adoption by training HR users with different Excel proficiency levels and transferring ownership of the reporting process.",

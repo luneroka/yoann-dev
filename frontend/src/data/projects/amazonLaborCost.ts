@@ -79,8 +79,8 @@ export const amazonLaborCost = {
   },
 
   solution: {
-    en: "Mapped the initiative within Asana, collaborated with Finance and Operations stakeholders to define the methodology, built a new workforce utilization KPI, developed a Python script to extract site-level hours and performance data, fed the data into Excel Power Query transformations, automated weekly reporting, and facilitated recurring performance reviews with senior operations leaders across the UK & Ireland network.",
-    fr: "Structuration du projet dans Asana, collaboration avec les équipes Finance et Operations pour définir la méthodologie, création d'un nouvel indicateur de suivi de l'utilisation des effectifs, développement d'un script Python pour extraire les données de performance et d'heures par site, alimentation des transformations Power Query dans Excel, automatisation du reporting hebdomadaire et animation de revues de performance régulières avec les responsables opérationnels du réseau.",
+    en: "Built a workforce utilization KPI and automated reporting pipeline that surfaced site-level overtime drivers, prioritized savings opportunities, and equipped senior Operations leaders with a weekly decision rhythm across the UK & Ireland network.",
+    fr: "Création d'un indicateur d'utilisation des effectifs et d'un pipeline de reporting automatisé pour révéler les facteurs d'heures supplémentaires par site, prioriser les économies et donner aux responsables Operations un rythme de décision hebdomadaire sur le réseau UK & Irlande.",
   },
 
   impact: [

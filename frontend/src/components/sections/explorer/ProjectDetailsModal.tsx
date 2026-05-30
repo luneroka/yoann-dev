@@ -5,6 +5,7 @@ import {
   Boxes,
   Building2,
   CalendarDays,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   Clock3,
@@ -56,6 +57,7 @@ const modalCopy = {
     solution: "Solution",
     impact: "Impact",
     systemsBuilt: "Systems built",
+    viewSystemsBuilt: "View project deliverables",
     noImages: "No screenshots available for this project yet.",
     liveDemo: "Live Demo",
     github: "GitHub",
@@ -81,7 +83,8 @@ const modalCopy = {
     problem: "Problème",
     solution: "Solution",
     impact: "Impact",
-    systemsBuilt: "Systèmes conçus",
+    systemsBuilt: "Solutions développées",
+    viewSystemsBuilt: "Voir les livrables du projet",
     noImages: "Aucune capture disponible pour ce projet pour le moment.",
     liveDemo: "Live Demo",
     github: "GitHub",
@@ -393,18 +396,28 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
                   </ul>
                 </Section>
 
-                <Section title={copy.systemsBuilt}>
-                  <ul className="space-y-2">
-                    {systemsBuilt.map((system) => (
-                      <li
-                        key={system}
-                        className="rounded-md bg-muted px-3 py-2 font-body text-sm leading-5 text-muted-foreground"
-                      >
-                        {system}
-                      </li>
-                    ))}
-                  </ul>
-                </Section>
+                <details className="group rounded-md border border-border bg-background">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3 py-3 font-heading text-base font-bold text-foreground focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
+                    <span>{copy.viewSystemsBuilt}</span>
+                    <ChevronDown
+                      className="h-4 w-4 shrink-0 text-primary transition-transform group-open:rotate-180"
+                      aria-hidden="true"
+                    />
+                  </summary>
+                  <div className="border-t border-border px-3 py-3">
+                    <p className="sr-only">{copy.systemsBuilt}</p>
+                    <ul className="space-y-2">
+                      {systemsBuilt.map((system) => (
+                        <li
+                          key={system}
+                          className="rounded-md bg-muted px-3 py-2 font-body text-sm leading-5 text-muted-foreground"
+                        >
+                          {system}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
               </div>
 
               <aside className="space-y-6">
@@ -462,27 +475,23 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
                 </Section>
 
                 <Section title={copy.technologies}>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-4 gap-2">
                     {project.technologies.map((technology) => {
                       const technologyItem = technologyById.get(technology);
                       const TechnologyIcon = technologyItem?.icon ?? Cpu;
-                      const technologyLabel = translate(
-                        technologyItem?.label,
-                        locale,
-                        technology,
-                      );
+                      const technologyLabel = translate(technologyItem?.label, locale, technology);
 
                       return (
                         <div
                           key={technology}
-                          className="rounded-md bg-muted p-3 text-center"
+                          className="rounded-md bg-muted p-2 text-center"
                           title={technologyLabel}
                         >
                           <TechnologyIcon
-                            className="mx-auto h-6 w-6 text-primary"
+                            className="mx-auto h-5 w-5 text-primary"
                             aria-hidden="true"
                           />
-                          <p className="mt-2 truncate font-body text-[11px] font-bold text-muted-foreground">
+                          <p className="mt-1.5 truncate font-body text-[10px] font-bold text-muted-foreground">
                             {technologyLabel}
                           </p>
                         </div>

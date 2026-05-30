@@ -16,7 +16,7 @@ export type Industry = "logistics" | "retail" | "construction" | "technology";
 
 export type ProductType = "saas" | "internal-tool" | "web-app" | "analysis";
 
-export type Company = "Amazon" | "Lidl" | "Solo";
+export type Company = "Amazon" | "Solo";
 
 export type TechnologyId =
   | "javascript"

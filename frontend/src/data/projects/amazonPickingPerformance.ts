@@ -66,18 +66,18 @@ export const amazonPickingPerformance = {
   ],
 
   summary: {
-    en: "Designed and analyzed a field experiment to evaluate whether a new picking procedure could improve productivity, using statistical testing and population segmentation to turn operational observations into an evidence-based recommendation.",
-    fr: "Conception et analyse d'une expérimentation terrain visant à évaluer l'impact d'une nouvelle procédure de picking sur la productivité, avec tests statistiques et segmentation des populations pour transformer des observations opérationnelles en recommandation fondée sur les données.",
+    en: "Ran a controlled field study to validate a new picking procedure, quantify its productivity impact, and turn mixed performance signals into a clear deployment recommendation.",
+    fr: "Pilotage d'une étude terrain contrôlée pour valider une nouvelle procédure de picking, quantifier son impact sur la productivité et transformer des signaux de performance contrastés en recommandation de déploiement.",
   },
 
   problem: {
-    en: "A proposed picking procedure appeared to improve productivity and reduce associate fatigue, but the operational team needed evidence to determine whether the observed gains were statistically meaningful and safe to recommend at scale.",
-    fr: "Une nouvelle procédure de picking semblait améliorer la productivité et réduire la fatigue des opérateurs, mais l'équipe opérationnelle avait besoin d'éléments factuels pour déterminer si les gains observés étaient statistiquement significatifs et suffisamment sûrs pour être recommandés à plus grande échelle.",
+    en: "The operation saw early productivity gains from a new picking method, but needed to know where it actually helped, whether the uplift was reliable, and how to roll it out without slowing top performers.",
+    fr: "Plusieurs opérateurs observaient des gains de performance avec une nouvelle méthode de picking. Le besoin était de quantifier précisément la création de valeur, si l'amélioration était fiable et comment la déployer sans ralentir les meilleurs performeurs.",
   },
 
   solution: {
-    en: "Built a test protocol, collected productivity data across 106 observations, validated the distribution with Minitab normality checks, ran one-sample t-tests at different confidence levels, segmented results by performance groups, and translated the findings into a practical deployment recommendation.",
-    fr: "Création d'un protocole de test, collecte de données de productivité sur 106 observations, validation de la distribution via des tests de normalité sous Minitab, réalisation de tests t à un échantillon à différents niveaux de confiance, segmentation des résultats par groupes de performance et traduction des conclusions en recommandation de déploiement opérationnel.",
+    en: "Built the test protocol, analyzed 106 observations in Minitab, segmented the impact by associate performance level, and recommended the procedure as optional guidance: high upside for lower performers, limited disruption for top performers.",
+    fr: "Construction du protocole de test, analyse de 106 observations dans Minitab, segmentation de l'impact par niveau de performance et recommandation d'une adoption optionnelle : fort potentiel pour les opérateurs en difficulté, faible perturbation pour les meilleurs performeurs.",
   },
 
   impact: [

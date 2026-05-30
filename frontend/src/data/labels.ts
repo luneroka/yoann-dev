@@ -1,10 +1,4 @@
-import type {
-  Company,
-  Industry,
-  LocalizedString,
-  ProductType,
-  Track,
-} from "./types";
+import type { Company, Industry, LocalizedString, ProductType, Track } from "./types";
 
 export const trackLabels = {
   dev: { en: "Dev", fr: "Dev" },
@@ -27,6 +21,5 @@ export const productTypeLabels = {
 
 export const companyLabels = {
   Amazon: { en: "Amazon", fr: "Amazon" },
-  Lidl: { en: "Lidl", fr: "Lidl" },
   Solo: { en: "Solo projects", fr: "Projets solo" },
 } satisfies Record<Company, LocalizedString>;
