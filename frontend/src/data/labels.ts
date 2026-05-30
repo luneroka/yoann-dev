@@ -24,8 +24,8 @@ export const industryLabels = {
 export const productTypeLabels = {
   saas: { en: "SaaS", fr: "SaaS" },
   "internal-tool": { en: "Internal tool", fr: "Outil interne" },
-  dashboard: { en: "Dashboard", fr: "Dashboard" },
   "web-app": { en: "Web app", fr: "Application web" },
+  analysis: { en: "Data Analysis", fr: "Analyse Data" },
 } satisfies Record<ProductType, LocalizedString>;
 
 export const companyLabels = {
@@ -54,6 +54,7 @@ export const technologyLabels = {
   "power-bi": { en: "Power BI", fr: "Power BI" },
   git: { en: "Git", fr: "Git" },
   docker: { en: "Docker", fr: "Docker" },
+  minitab: { en: "Minitab", fr: "Minitab" },
 } satisfies Record<TechnologyId, LocalizedString>;
 
 export const skillLabels = {
@@ -85,6 +86,9 @@ export const skillLabels = {
   },
   "process-optimization": { en: "Process optimization", fr: "Optimisation de processus" },
   communication: { en: "Communication", fr: "Communication" },
+  "project-management": { en: "Project management", fr: "Gestion de projet" },
+  "kpi-design": { en: "KPI design", fr: "Conception de KPI" },
+  reporting: { en: "Reporting", fr: "Reporting" },
 } satisfies Record<SkillId, LocalizedString>;
 
 export const contextMetricTypeLabels = {

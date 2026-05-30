@@ -10,6 +10,7 @@ import { helpInvest } from "./helpInvest";
 import { portfolioRevamp } from "./portfolioRevamp";
 import { amazonAttendanceTool } from "./amazonAttendanceTool";
 import { amazonLaborCost } from "./amazonLaborCost";
+import { amazonPickingPerformance } from "./amazonPickingPerformance";
 
 export const projects = [
   budgetConstruction,
@@ -22,4 +23,5 @@ export const projects = [
   portfolioRevamp,
   amazonAttendanceTool,
   amazonLaborCost,
+  amazonPickingPerformance,
 ] satisfies Project[];

@@ -149,6 +149,14 @@ export const technologies: Technology[] = [
     showAsFilter: true,
   },
   {
+    id: "minitab",
+    label: { en: "Minitab", fr: "Minitab" },
+    icon: BarChart3,
+    category: "data",
+    level: "working",
+    showAsFilter: false,
+  },
+  {
     id: "tableau",
     label: { en: "Tableau", fr: "Tableau" },
     icon: IoLogoTableau,

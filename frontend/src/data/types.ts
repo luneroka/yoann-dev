@@ -14,7 +14,7 @@ export type Track = "dev" | "data";
 
 export type Industry = "logistics" | "retail" | "construction" | "technology";
 
-export type ProductType = "saas" | "internal-tool" | "dashboard" | "web-app";
+export type ProductType = "saas" | "internal-tool" | "web-app" | "analysis";
 
 export type Company = "Amazon" | "Lidl" | "Solo";
 
@@ -37,7 +37,8 @@ export type TechnologyId =
   | "tableau"
   | "power-bi"
   | "git"
-  | "docker";
+  | "docker"
+  | "minitab";
 
 export type SkillId =
   | "data-analysis"

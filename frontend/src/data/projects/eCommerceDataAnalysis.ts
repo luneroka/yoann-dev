@@ -18,7 +18,7 @@ export const eCommerceDataAnalysis = {
 
   track: ["data"],
   industry: "retail",
-  productType: "dashboard",
+  productType: "analysis",
 
   technologies: ["python", "postgresql", "sql", "tableau"],
   skills: ["data-analysis", "data-modeling", "etl", "dashboarding", "process-optimization"],

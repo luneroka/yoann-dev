@@ -16,7 +16,7 @@ export const amazonLaborCost = {
 
   track: ["data"],
   industry: "logistics",
-  productType: "dashboard",
+  productType: "analysis",
 
   technologies: ["python", "excel", "power-query", "vba"],
   skills: [
