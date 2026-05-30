@@ -1,11 +1,10 @@
 import { Info } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { companyLabels, trackLabels } from "@/data/labels";
+import { trackLabels } from "@/data/labels";
 import { skills } from "@/data/skills";
 import { technologies } from "@/data/technologies";
 import type {
-  Company,
   Industry,
   ProductType,
   Project,
@@ -52,9 +51,6 @@ const ExplorerFilters = ({
   const trackOptions = getUniqueValues(projects.flatMap((project) => project.track));
   const industryOptions = getUniqueValues(projects.map((project) => project.industry));
   const productTypeOptions = getUniqueValues(projects.map((project) => project.productType));
-  const companyOptions = getUniqueValues(
-    projects.flatMap((project) => (project.company ? [project.company] : [])),
-  );
   const technologyOptions = getUniqueValues(projects.flatMap((project) => project.technologies));
   const skillOptions = getUniqueValues(projects.flatMap((project) => project.skills));
   const dateBounds = getDateBounds(projects);
@@ -118,26 +114,6 @@ const ExplorerFilters = ({
         activeFilters,
         "productTypes",
         toggleAllValues(activeFilters.productTypes, productTypeOptions),
-      ),
-    );
-  }
-
-  function toggleCompany(company: Company) {
-    onFiltersChange(
-      updateArrayFilter(
-        activeFilters,
-        "companies",
-        toggleArrayValue(activeFilters.companies, company),
-      ),
-    );
-  }
-
-  function toggleAllCompanies() {
-    onFiltersChange(
-      updateArrayFilter(
-        activeFilters,
-        "companies",
-        toggleAllValues(activeFilters.companies, companyOptions),
       ),
     );
   }
@@ -302,18 +278,6 @@ const ExplorerFilters = ({
             active: isSelected(activeFilters.productTypes, productType),
           }))}
           onToggle={toggleProductType}
-        />
-        <ExplorerFilterGroup
-          allLabel={explorerFiltersCopy.all}
-          title={explorerFiltersCopy.company}
-          allActive={companyOptions.every((company) => activeFilters.companies?.includes(company))}
-          onToggleAll={toggleAllCompanies}
-          items={companyOptions.map((company) => ({
-            value: company,
-            label: translate(companyLabels[company], locale),
-            active: isSelected(activeFilters.companies, company),
-          }))}
-          onToggle={toggleCompany}
         />
         <ExplorerSkillsDropdown
           allLabel={explorerFiltersCopy.all}
