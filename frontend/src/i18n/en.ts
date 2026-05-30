@@ -78,7 +78,7 @@ export const en = {
     },
     kpis: {
       hoursInvested: "Hours Invested",
-      systemsBuilt: "Systems Built",
+      systemsBuilt: "Project deliverables",
       skillsDemonstrated: "Skills demonstrated",
       skillsDemonstratedHelper: "Unique skills demonstrated across selected projects",
       contextMetric: "Context Metric",
