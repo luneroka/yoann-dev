@@ -102,9 +102,15 @@ function formatNumber(value: number, locale: Locale) {
   return new Intl.NumberFormat(locale).format(value);
 }
 
+function formatSignedNumber(value: number, locale: Locale) {
+  return new Intl.NumberFormat(locale, { signDisplay: "exceptZero" }).format(value);
+}
+
 function formatContextMetric(project: EnrichedProject, locale: Locale) {
   const unit = project.metrics.context.unit ? translate(project.metrics.context.unit, locale) : "";
-  const value = formatNumber(project.metrics.context.value, locale);
+  const value = project.metrics.context.showPositiveSign
+    ? formatSignedNumber(project.metrics.context.value, locale)
+    : formatNumber(project.metrics.context.value, locale);
 
   return `${value}${unit === "%" ? "%" : unit ? ` ${unit}` : ""}`;
 }

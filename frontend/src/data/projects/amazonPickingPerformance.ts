@@ -31,14 +31,15 @@ export const amazonPickingPerformance = {
     hoursInvested: 240,
     context: {
       label: {
-        en: "Observed productivity increase",
-        fr: "Hausse de productivité observée",
+        en: "Productivity gained",
+        fr: "Gain productivité",
       },
-      value: 2.95,
+      value: +2.95,
       unit: {
         en: "p.p.",
         fr: "p.p.",
       },
+      showPositiveSign: true,
     },
   },
 

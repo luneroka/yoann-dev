@@ -33,13 +33,13 @@ export const amazonEosBridge = {
     hoursInvested: 80,
     context: {
       label: {
-        en: "Avg. time saved",
-        fr: "Gain moyen",
+        en: "Saved a year",
+        fr: "Économisées par an",
       },
-      value: 30,
+      value: 600,
       unit: {
-        en: "min/shift/manager",
-        fr: "min/shift/manager",
+        en: "h",
+        fr: "h",
       },
     },
   },
@@ -80,8 +80,8 @@ export const amazonEosBridge = {
 
   impact: [
     {
-      en: "Removed repetitive manual entry across multiple subprocesses per department, saving managers an average of 30 min/shift.",
-      fr: "Suppression de la saisie manuelle répétitive sur plusieurs sous-processus par département, avec un gain moyen de 30 min/shift/manager.",
+      en: "Removed repetitive manual entry across multiple subprocesses per department, saving managers an average of 30 min/shift or 1,800 managers hours a year.",
+      fr: "Suppression de la saisie manuelle répétitive sur plusieurs sous-processus par département, avec un gain moyen de 15 min/shift/manager soit 600 de heures d'employés cadres par an.",
     },
     {
       en: "Standardized productivity KPIs across Outbound shift reports.",

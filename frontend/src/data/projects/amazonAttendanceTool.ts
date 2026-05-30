@@ -32,10 +32,10 @@ export const amazonAttendanceTool = {
     hoursInvested: 160,
     context: {
       label: {
-        en: "Unplanned absence reduction",
-        fr: "Réduction de l'absence non planifiée",
+        en: "Unplanned absence",
+        fr: "Absence non planifiée",
       },
-      value: 23,
+      value: -23,
       unit: {
         en: "%",
         fr: "%",

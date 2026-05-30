@@ -72,6 +72,7 @@ export interface ContextMetric {
   label: LocalizedString;
   value: number;
   unit?: LocalizedString;
+  showPositiveSign?: boolean;
 }
 
 export interface ProjectMetrics {

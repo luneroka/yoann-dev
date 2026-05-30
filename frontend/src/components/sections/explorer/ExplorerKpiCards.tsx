@@ -160,14 +160,21 @@ function formatNumber(value: number, locale: Locale) {
   return new Intl.NumberFormat(locale).format(value);
 }
 
+function formatSignedNumber(value: number, locale: Locale) {
+  return new Intl.NumberFormat(locale, { signDisplay: "exceptZero" }).format(value);
+}
+
 function formatContextMetricValue(metric: ContextMetric | undefined, locale: Locale) {
   if (!metric) {
     return "0";
   }
 
   const unit = metric.unit ? translate(metric.unit, locale) : "";
+  const value = metric.showPositiveSign
+    ? formatSignedNumber(metric.value, locale)
+    : formatNumber(metric.value, locale);
 
-  return `${formatNumber(metric.value, locale)}${unit === "%" ? "%" : unit ? ` ${unit}` : ""}`;
+  return `${value}${unit === "%" ? "%" : unit ? ` ${unit}` : ""}`;
 }
 
 const ExplorerKpiCards = ({ metrics }: ExplorerKpiCardsProps) => {
@@ -175,7 +182,7 @@ const ExplorerKpiCards = ({ metrics }: ExplorerKpiCardsProps) => {
   const kpis = copy.explorer.kpis;
   const [contextMetricIndex, setContextMetricIndex] = useState(0);
   const contextMetrics = useMemo(
-    () => metrics.contextMetrics.filter((metric) => metric.value > 0),
+    () => metrics.contextMetrics.filter((metric) => metric.value !== 0),
     [metrics.contextMetrics],
   );
   const selectedContextMetric = contextMetrics[contextMetricIndex] ?? contextMetrics[0];
