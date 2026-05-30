@@ -132,8 +132,9 @@ export const budgetConstructionExcel = {
   },
 
   period: {
-    en: "January 2026 — May 2026",
-    fr: "Janvier 2026 — Mai 2026",
+    start: "2026-01",
+    end: "2026-05",
+    precision: "month",
   },
 
   featured: true,

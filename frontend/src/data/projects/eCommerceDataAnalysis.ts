@@ -110,8 +110,9 @@ export const eCommerceDataAnalysis = {
   },
 
   period: {
-    en: "April 2026",
-    fr: "Avril 2026",
+    start: "2026-04",
+    end: "2026-04",
+    precision: "month",
   },
 
   featured: true,

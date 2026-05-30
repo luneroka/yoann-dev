@@ -5,7 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { trackLabels } from "@/data/labels";
 import type { TechnologyId, Track } from "@/data/types";
 import { translate } from "@/i18n/translate";
-import type { EnrichedProject } from "@/lib/queryProjects";
+import { formatProjectPeriod, type EnrichedProject } from "@/lib/queryProjects";
 
 import ProjectDetailsModal from "./ProjectDetailsModal";
 
@@ -278,7 +278,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
                     {translate(project.title, locale)}
                   </p>
                   <p className="mt-2 font-body text-xs font-semibold text-muted-foreground">
-                    {translate(project.period, locale)}
+                    {formatProjectPeriod(project.period, locale)}
                   </p>
                   <div className="mt-4 flex items-center gap-2">
                     {project.track.map((track) => (

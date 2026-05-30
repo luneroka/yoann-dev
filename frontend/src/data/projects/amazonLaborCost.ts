@@ -102,8 +102,9 @@ export const amazonLaborCost = {
   ],
 
   period: {
-    en: "2023",
-    fr: "2023",
+    start: "2023-01",
+    end: "2023-12",
+    precision: "year",
   },
 
   featured: true,

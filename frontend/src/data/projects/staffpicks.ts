@@ -151,8 +151,9 @@ export const staffpicks = {
   },
 
   period: {
-    en: "August 2025 — February 2026",
-    fr: "Août 2025 — Février 2026",
+    start: "2025-08",
+    end: "2026-02",
+    precision: "month",
   },
 
   featured: true,

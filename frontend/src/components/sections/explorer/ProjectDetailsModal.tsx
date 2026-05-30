@@ -19,7 +19,7 @@ import { skills } from "@/data/skills";
 import { technologies } from "@/data/technologies";
 import type { Locale, LocalizedString, Track } from "@/data/types";
 import { translate, translateIndustry, translateProductType } from "@/i18n/translate";
-import type { EnrichedProject } from "@/lib/queryProjects";
+import { formatProjectPeriod, type EnrichedProject } from "@/lib/queryProjects";
 
 type ProjectDetailsModalProps = {
   project: EnrichedProject;
@@ -271,7 +271,7 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               <DetailStat
                 label={copy.period}
-                value={translate(project.period, locale)}
+                value={formatProjectPeriod(project.period, locale)}
                 icon={CalendarDays}
               />
               <DetailStat

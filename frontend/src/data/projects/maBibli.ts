@@ -157,8 +157,9 @@ export const maBibli = {
   },
 
   period: {
-    en: "February 2025 - August 2025",
-    fr: "Février 2025 - Août 2025",
+    start: "2025-02",
+    end: "2025-08",
+    precision: "month",
   },
 
   featured: true,

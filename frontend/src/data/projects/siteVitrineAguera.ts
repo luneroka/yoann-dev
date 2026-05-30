@@ -146,8 +146,9 @@ export const siteVitrineAguera = {
   },
 
   period: {
-    en: "November 2025",
-    fr: "Novembre 2025",
+    start: "2025-11",
+    end: "2025-11",
+    precision: "month",
   },
 
   featured: true,

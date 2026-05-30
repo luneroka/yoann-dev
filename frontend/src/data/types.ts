@@ -79,6 +79,30 @@ export interface ProjectMetrics {
   context: ContextMetric;
 }
 
+export type MonthNumber =
+  | "01"
+  | "02"
+  | "03"
+  | "04"
+  | "05"
+  | "06"
+  | "07"
+  | "08"
+  | "09"
+  | "10"
+  | "11"
+  | "12";
+
+export type YearMonth = `${number}-${MonthNumber}`;
+
+export type ProjectPeriodPrecision = "month" | "year";
+
+export interface ProjectPeriod {
+  start: YearMonth;
+  end: YearMonth | null;
+  precision: ProjectPeriodPrecision;
+}
+
 export type ProjectScreenshot = {
   src: string;
   alt: {
@@ -142,7 +166,7 @@ export interface Project {
     demo?: string;
   };
 
-  period: LocalizedString;
+  period: ProjectPeriod;
 
   featured?: boolean;
 }

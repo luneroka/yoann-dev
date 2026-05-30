@@ -97,8 +97,9 @@ export const budgetConstruction = {
   },
 
   period: {
-    en: "May 2026 — ongoing",
-    fr: "Mai 2026 — en cours",
+    start: "2026-05",
+    end: null,
+    precision: "month",
   },
 
   featured: true,

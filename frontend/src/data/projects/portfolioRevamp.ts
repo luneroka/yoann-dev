@@ -104,8 +104,9 @@ export const portfolioRevamp = {
   },
 
   period: {
-    en: "May 2026",
-    fr: "Mai 2026",
+    start: "2026-05",
+    end: "2026-05",
+    precision: "month",
   },
 
   featured: true,

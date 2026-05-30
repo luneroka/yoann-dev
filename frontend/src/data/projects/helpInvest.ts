@@ -144,8 +144,9 @@ export const helpInvest = {
   },
 
   period: {
-    en: "November 2024 - December 2024",
-    fr: "Novembre 2024 - Décembre 2024",
+    start: "2024-11",
+    end: "2024-12",
+    precision: "month",
   },
 
   featured: true,

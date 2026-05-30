@@ -8,8 +8,10 @@ import { projects } from "@/data/projects";
 import type {
   Company,
   Industry,
+  Locale,
   ProductType,
   Project,
+  ProjectPeriod,
   SkillId,
   TechnologyId,
   Track,
@@ -45,21 +47,6 @@ export type ProjectDateRange = {
   end: number;
 };
 
-const monthIndexByName: Record<string, number> = {
-  january: 0,
-  february: 1,
-  march: 2,
-  april: 3,
-  may: 4,
-  june: 5,
-  july: 6,
-  august: 7,
-  september: 8,
-  october: 9,
-  november: 10,
-  december: 11,
-};
-
 function toMonthSerial(year: number, monthIndex: number) {
   return year * 12 + monthIndex;
 }
@@ -70,36 +57,70 @@ function getCurrentMonthSerial() {
   return toMonthSerial(currentDate.getFullYear(), currentDate.getMonth());
 }
 
-function parseMonthYear(value: string) {
-  const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
-
-  if (!match) {
-    return null;
-  }
-
-  const [, monthName, yearValue] = match;
-  const monthIndex = monthIndexByName[monthName.toLowerCase()];
+function parseYearMonth(value: ProjectPeriod["start"]) {
+  const [yearValue, monthValue] = value.split("-");
   const year = Number(yearValue);
+  const month = Number(monthValue);
 
-  if (monthIndex === undefined || Number.isNaN(year)) {
+  if (Number.isNaN(year) || Number.isNaN(month) || month < 1 || month > 12) {
     return null;
   }
 
-  return toMonthSerial(year, monthIndex);
+  return toMonthSerial(year, month - 1);
+}
+
+function getYearFromMonthSerial(value: number) {
+  return Math.floor(value / 12);
+}
+
+function formatMonthSerial(value: number, locale: Locale) {
+  const year = getYearFromMonthSerial(value);
+  const monthIndex = value % 12;
+
+  return new Intl.DateTimeFormat(locale, {
+    month: "long",
+    year: "numeric",
+  }).format(new Date(year, monthIndex, 1));
+}
+
+export function formatProjectPeriod(period: ProjectPeriod, locale: Locale) {
+  const start = parseYearMonth(period.start);
+  const end = period.end ? parseYearMonth(period.end) : null;
+
+  if (start === null) {
+    return "";
+  }
+
+  if (period.precision === "year") {
+    const startYear = String(getYearFromMonthSerial(start));
+    const endYear = end ? String(getYearFromMonthSerial(end)) : null;
+
+    return !endYear || endYear === startYear ? startYear : `${startYear} — ${endYear}`;
+  }
+
+  const startLabel = formatMonthSerial(start, locale);
+
+  if (end === start) {
+    return startLabel;
+  }
+
+  const endLabel = end
+    ? formatMonthSerial(end, locale)
+    : locale === "fr"
+      ? "en cours"
+      : "ongoing";
+
+  return `${startLabel} — ${endLabel}`;
 }
 
 export function getProjectDateRange(project: Project): ProjectDateRange | null {
-  const [startValue, endValue] = project.period.en.split(/\s+—\s+|\s+-\s+/);
-  const start = startValue ? parseMonthYear(startValue) : null;
+  const start = parseYearMonth(project.period.start);
 
   if (start === null) {
     return null;
   }
 
-  const end =
-    endValue && endValue.toLowerCase() !== "ongoing"
-      ? parseMonthYear(endValue)
-      : getCurrentMonthSerial();
+  const end = project.period.end ? parseYearMonth(project.period.end) : getCurrentMonthSerial();
 
   return {
     start,
