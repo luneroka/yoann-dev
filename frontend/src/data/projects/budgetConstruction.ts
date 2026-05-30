@@ -18,8 +18,14 @@ export const budgetConstruction = {
   industry: "construction",
   productType: "web-app",
 
-  technologies: ["python", "fastapi", "postgresql", "sql", "docker"],
-  skills: ["api-design", "backend-architecture", "database-modeling", "frontend-architecture"],
+  technologies: ["python", "fastapi", "postgresql", "docker"],
+  skills: [
+    "api-design",
+    "backend-architecture",
+    "database-modeling",
+    "frontend-architecture",
+    "sql",
+  ],
 
   metrics: {
     hoursInvested: 160,

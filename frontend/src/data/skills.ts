@@ -22,6 +22,13 @@ export const skills: Skill[] = [
     showAsFilter: true,
   },
   {
+    id: "sql",
+    label: { en: "SQL", fr: "SQL" },
+    category: "data",
+    featured: true,
+    showAsFilter: true,
+  },
+  {
     id: "dashboarding",
     label: { en: "Dashboarding", fr: "Création de dashboards" },
     category: "data",
@@ -46,7 +53,7 @@ export const skills: Skill[] = [
     label: { en: "API design", fr: "Conception d'API" },
     category: "backend",
     featured: true,
-    showAsFilter: true,
+    showAsFilter: false,
   },
   {
     id: "backend-architecture",
@@ -59,7 +66,7 @@ export const skills: Skill[] = [
     id: "database-modeling",
     label: { en: "Database modeling", fr: "Modélisation de base de données" },
     category: "backend",
-    showAsFilter: true,
+    showAsFilter: false,
   },
   {
     id: "frontend-architecture",
@@ -102,6 +109,6 @@ export const skills: Skill[] = [
     id: "communication",
     label: { en: "Communication", fr: "Communication" },
     category: "operations",
-    showAsFilter: true,
+    showAsFilter: false,
   },
 ];

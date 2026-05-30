@@ -51,13 +51,11 @@ const backendTechnologies: TechnologyId[] = [
   "nodejs",
   "postgresql",
   "mongodb",
-  "sql",
   "docker",
 ];
 const backendSkills: SkillId[] = ["api-design", "backend-architecture", "database-modeling"];
 
 const dataTechnologies: TechnologyId[] = [
-  "sql",
   "postgresql",
   "python",
   "excel",
@@ -66,7 +64,7 @@ const dataTechnologies: TechnologyId[] = [
   "tableau",
   "power-bi",
 ];
-const dataSkills: SkillId[] = ["data-analysis", "data-modeling", "etl", "dashboarding"];
+const dataSkills: SkillId[] = ["data-analysis", "data-modeling", "etl", "sql", "dashboarding"];
 
 function dedupe<T>(values: readonly T[]): T[] {
   return [...new Set(values)];

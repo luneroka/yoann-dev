@@ -33,7 +33,15 @@ import {
 const technologyLabelById = new Map(
   technologies.map((technology) => [technology.id, technology.label]),
 );
+const filterableTechnologyIds = new Set(
+  technologies
+    .filter((technology) => technology.showAsFilter !== false)
+    .map((technology) => technology.id),
+);
 const skillLabelById = new Map(skills.map((skill) => [skill.id, skill.label]));
+const filterableSkillIds = new Set(
+  skills.filter((skill) => skill.showAsFilter !== false).map((skill) => skill.id),
+);
 
 type ExplorerFiltersProps = {
   projects: Project[];
@@ -51,8 +59,11 @@ const ExplorerFilters = ({
   const trackOptions = getUniqueValues(projects.flatMap((project) => project.track));
   const industryOptions = getUniqueValues(projects.map((project) => project.industry));
   const productTypeOptions = getUniqueValues(projects.map((project) => project.productType));
-  const technologyOptions = getUniqueValues(projects.flatMap((project) => project.technologies));
-  const skillOptions = getUniqueValues(projects.flatMap((project) => project.skills));
+  const technologyOptions = getUniqueValues(projects.flatMap((project) => project.technologies))
+    .filter((technology) => filterableTechnologyIds.has(technology));
+  const skillOptions = getUniqueValues(projects.flatMap((project) => project.skills)).filter(
+    (skill) => filterableSkillIds.has(skill),
+  );
   const dateBounds = getDateBounds(projects);
   const dateFrom = activeFilters.dateFrom ?? dateBounds?.min;
   const dateTo = activeFilters.dateTo ?? dateBounds?.max;

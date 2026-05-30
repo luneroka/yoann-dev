@@ -64,7 +64,7 @@ export const technologies: Technology[] = [
     label: { en: "Next.js", fr: "Next.js" },
     icon: SiNextdotjs,
     category: "frontend",
-    showAsFilter: true,
+    showAsFilter: false,
   },
   {
     id: "python",
@@ -105,14 +105,6 @@ export const technologies: Technology[] = [
     showAsFilter: true,
   },
   {
-    id: "sql",
-    label: { en: "SQL", fr: "SQL" },
-    icon: Database,
-    category: "data",
-    featured: true,
-    showAsFilter: true,
-  },
-  {
     id: "excel",
     label: { en: "Excel", fr: "Excel" },
     icon: PiMicrosoftExcelLogoFill,
@@ -124,14 +116,14 @@ export const technologies: Technology[] = [
     label: { en: "VBA", fr: "VBA" },
     icon: DiVisualstudio,
     category: "data",
-    showAsFilter: true,
+    showAsFilter: false,
   },
   {
     id: "power-query",
     label: { en: "Power Query", fr: "Power Query" },
     icon: Database,
     category: "data",
-    showAsFilter: true,
+    showAsFilter: false,
   },
   {
     id: "minitab",
