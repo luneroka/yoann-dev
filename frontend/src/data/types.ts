@@ -44,6 +44,8 @@ export type SkillId =
   | "data-modeling"
   | "etl"
   | "dashboarding"
+  | "kpi-design"
+  | "reporting"
   | "api-design"
   | "backend-architecture"
   | "database-modeling"
@@ -52,7 +54,8 @@ export type SkillId =
   | "frontend-architecture"
   | "ux-ui-design"
   | "product-discovery"
-  | "stakeholder-management";
+  | "stakeholder-management"
+  | "project-management";
 
 export type TechnologyCategory = "frontend" | "backend" | "data" | "database" | "tooling";
 

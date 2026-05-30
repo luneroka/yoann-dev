@@ -9,6 +9,7 @@ import { maBibli } from "./maBibli";
 import { helpInvest } from "./helpInvest";
 import { portfolioRevamp } from "./portfolioRevamp";
 import { amazonAttendanceTool } from "./amazonAttendanceTool";
+import { amazonLaborCost } from "./amazonLaborCost";
 
 export const projects = [
   budgetConstruction,
@@ -20,4 +21,5 @@ export const projects = [
   helpInvest,
   portfolioRevamp,
   amazonAttendanceTool,
+  amazonLaborCost,
 ] satisfies Project[];

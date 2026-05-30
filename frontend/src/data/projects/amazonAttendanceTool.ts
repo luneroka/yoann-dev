@@ -10,8 +10,8 @@ export const amazonAttendanceTool = {
 
   company: "Amazon",
   role: {
-    en: "Operations Manager",
-    fr: "Operations Manager",
+    en: "Operations Manager / Project Owner",
+    fr: "Operations Manager / Resp. Projet",
   },
 
   track: ["data"],
@@ -22,6 +22,7 @@ export const amazonAttendanceTool = {
   skills: [
     "data-analysis",
     "dashboarding",
+    "project-management",
     "process-optimization",
     "stakeholder-management",
     "communication",

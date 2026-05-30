@@ -32,6 +32,22 @@ export const skills: Skill[] = [
     showAsFilter: true,
   },
   {
+    id: "kpi-design",
+    label: { en: "KPI design", fr: "Conception de KPI" },
+    category: "data",
+    level: "working",
+    featured: true,
+    showAsFilter: true,
+  },
+  {
+    id: "reporting",
+    label: { en: "Reporting", fr: "Reporting" },
+    category: "data",
+    level: "comfortable",
+    featured: true,
+    showAsFilter: true,
+  },
+  {
     id: "api-design",
     label: { en: "API design", fr: "Conception d'API" },
     category: "backend",
@@ -79,6 +95,13 @@ export const skills: Skill[] = [
   {
     id: "stakeholder-management",
     label: { en: "Stakeholder management", fr: "Gestion des parties prenantes" },
+    category: "operations",
+    level: "working",
+    showAsFilter: true,
+  },
+  {
+    id: "project-management",
+    label: { en: "Project management", fr: "Gestion de projet" },
     category: "operations",
     level: "working",
     showAsFilter: true,
