@@ -11,6 +11,7 @@ import { portfolioRevamp } from "./portfolioRevamp";
 import { amazonAttendanceTool } from "./amazonAttendanceTool";
 import { amazonLaborCost } from "./amazonLaborCost";
 import { amazonPickingPerformance } from "./amazonPickingPerformance";
+import { amazonEosBridge } from "./amazonEosBridge";
 
 export const projects = [
   budgetConstruction,
@@ -24,4 +25,5 @@ export const projects = [
   amazonAttendanceTool,
   amazonLaborCost,
   amazonPickingPerformance,
+  amazonEosBridge,
 ] satisfies Project[];

@@ -23,6 +23,7 @@ export const amazonLaborCost = {
     "data-analysis",
     "kpi-design",
     "reporting",
+    "etl",
     "process-optimization",
     "stakeholder-management",
     "project-management",
