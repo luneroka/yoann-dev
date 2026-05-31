@@ -4,6 +4,7 @@ import { FaAmazon, FaApple } from "react-icons/fa6";
 import { SiLidl } from "react-icons/si";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { handleSectionLinkClick } from "@/lib/scrollToSection";
 
 const journeyIcons = [FaApple, FaAmazon, SiLidl, Code2];
 
@@ -125,6 +126,7 @@ export default function Journey() {
 
       <motion.a
         href="#explorer"
+        onClick={handleSectionLinkClick}
         className="group absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 whitespace-nowrap font-body text-sm font-semibold text-muted-foreground transition-smooth hover:text-primary"
         initial={{ opacity: 0, y: -8 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
 import type { Content } from "@/i18n";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 type NavLink = {
   key: keyof Content["nav"];
@@ -20,14 +21,6 @@ const navLinks: NavLink[] = [
   { key: "contact", href: "#contact" },
 ];
 
-function scrollToSection(href: string) {
-  const element = document.querySelector(href);
-
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
-
 export default function Navbar() {
   const { copy, locale, toggleLocale } = useLanguage();
   const { theme, toggleTheme } = useTheme();
@@ -35,6 +28,11 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  function navigateHome() {
+    navigate("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     function handleScroll() {
@@ -50,8 +48,13 @@ export default function Navbar() {
   function handleNavClick(href: string) {
     setIsMobileMenuOpen(false);
 
+    if (href === "#top") {
+      navigateHome();
+      return;
+    }
+
     if (location.pathname !== "/") {
-      navigate({ pathname: "/", hash: href });
+      navigate("/");
       window.setTimeout(() => scrollToSection(href), 100);
       return;
     }
@@ -62,13 +65,7 @@ export default function Navbar() {
   function handleLogoClick(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     setIsMobileMenuOpen(false);
-
-    if (location.pathname !== "/") {
-      navigate("/");
-      return;
-    }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigateHome();
   }
 
   return (

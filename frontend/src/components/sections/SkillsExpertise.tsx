@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { handleSectionLinkClick } from "@/lib/scrollToSection";
 import { projects } from "@/data/projects";
 import { getSkillsExpertiseCards, type SkillsExpertiseCardData } from "@/lib/skills";
 import { getProjectById, type EnrichedProject } from "@/lib/queryProjects";
@@ -343,6 +344,7 @@ export default function SkillsExpertise() {
 
         <motion.a
           href="#contact"
+          onClick={handleSectionLinkClick}
           className="group absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 whitespace-nowrap font-body text-sm font-semibold text-muted-foreground transition-smooth hover:text-primary"
           initial={{ opacity: 0, y: -8 }}
           whileInView={{ opacity: 1, y: 0 }}

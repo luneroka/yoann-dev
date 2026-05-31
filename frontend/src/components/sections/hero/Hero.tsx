@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { handleSectionLinkClick } from "@/lib/scrollToSection";
 import TopographicBackground from "./TopographicBackground";
 
 const highlightIcons = [BriefcaseBusiness, Building2, Database, Code2];
@@ -124,6 +125,7 @@ export default function Hero() {
             >
               <motion.a
                 href="#explorer"
+                onClick={handleSectionLinkClick}
                 className="group inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 font-body text-sm font-bold text-primary-foreground shadow-medium transition-smooth hover:bg-primary-dark hover:shadow-large"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -134,6 +136,7 @@ export default function Hero() {
 
               <motion.a
                 href="#contact"
+                onClick={handleSectionLinkClick}
                 className="inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-primary bg-background px-6 py-3 font-body text-sm font-bold text-primary shadow-soft transition-smooth hover:bg-primary hover:text-primary-foreground hover:shadow-medium"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -195,6 +198,7 @@ export default function Hero() {
 
       <motion.a
         href="#journey"
+        onClick={handleSectionLinkClick}
         className="group absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 font-body text-sm font-semibold text-muted-foreground transition-smooth hover:text-primary"
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
