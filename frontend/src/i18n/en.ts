@@ -72,7 +72,7 @@ export const en = {
     },
     query: {
       label: "SQL preview",
-      generatedHint: "Generated from filters",
+      generatedHint: "Automatically generated from filters",
       readOnlyLabel: "Read-only SQL query generated from the active filters",
       statement: "SELECT * FROM projects WHERE focus IN ('Dev', 'Data');",
     },

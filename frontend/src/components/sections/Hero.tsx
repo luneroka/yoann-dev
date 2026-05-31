@@ -1,6 +1,5 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -49,7 +48,7 @@ export default function Hero() {
             className="max-w-4xl text-center sm:text-left"
           >
             <motion.p
-              className="mb-5 inline-flex items-center rounded-full border border-border bg-card/70 px-4 py-2 font-body text-sm font-semibold text-accent shadow-soft backdrop-blur"
+              className="mb-5 inline-flex items-center rounded-full border border-border bg-card/70 px-4 py-2 font-body text-base font-semibold text-accent shadow-soft backdrop-blur sm:text-lg"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
@@ -58,7 +57,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.h1
-              className="mb-5 max-w-4xl font-heading text-5xl font-bold leading-tight text-foreground sm:text-6xl lg:text-7xl"
+              className="mb-5 max-w-4xl font-heading text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -109,39 +108,6 @@ export default function Hero() {
                 {copy.hero.ctaSecondary}
               </motion.a>
             </motion.div>
-
-            <motion.div
-              className="flex justify-center gap-5 sm:justify-start"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-            >
-              <motion.a
-                href="https://www.linkedin.com/in/robertyoann/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-100 ease-linear hover:border-primary hover:text-primary"
-                aria-label={copy.hero.linkedinLabel}
-                whileHover={{ scale: 1.06, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "tween", duration: 0.1, ease: "linear" }}
-              >
-                <FaLinkedin className="h-5 w-5" aria-hidden="true" />
-              </motion.a>
-
-              <motion.a
-                href="https://github.com/luneroka"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-100 ease-linear hover:border-primary hover:text-primary"
-                aria-label={copy.hero.githubLabel}
-                whileHover={{ scale: 1.06, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "tween", duration: 0.1, ease: "linear" }}
-              >
-                <FaGithub className="h-5 w-5" aria-hidden="true" />
-              </motion.a>
-            </motion.div>
           </motion.div>
 
           <motion.div
@@ -165,8 +131,8 @@ export default function Hero() {
                   transition={{ type: "tween", duration: 0.1, ease: "linear" }}
                 >
                   <p
-                    className={`font-heading text-xl font-bold leading-tight ${
-                      isAccentCard ? "text-accent" : "text-primary"
+                    className={`font-heading font-bold leading-tight ${
+                      isAccentCard ? "text-2xl text-accent" : "text-xl text-primary"
                     }`}
                   >
                     {card.value}
