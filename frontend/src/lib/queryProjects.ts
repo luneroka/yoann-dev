@@ -38,7 +38,7 @@ export type ProjectFilters = {
 export type ProjectSortKey = "date-desc" | "date-asc" | "hours-desc" | "systems-desc";
 
 export type EnrichedProject = Project & {
-  systemsBuiltCount: number;
+  deliverablesCount: number;
   technologiesCount: number;
 };
 
@@ -104,11 +104,7 @@ export function formatProjectPeriod(period: ProjectPeriod, locale: Locale) {
     return startLabel;
   }
 
-  const endLabel = end
-    ? formatMonthSerial(end, locale)
-    : locale === "fr"
-      ? "en cours"
-      : "ongoing";
+  const endLabel = end ? formatMonthSerial(end, locale) : locale === "fr" ? "en cours" : "ongoing";
 
   return `${startLabel} — ${endLabel}`;
 }
@@ -178,7 +174,7 @@ export function getProjects(): Project[] {
 export function enrichProject(project: Project): EnrichedProject {
   return {
     ...project,
-    systemsBuiltCount: project.systemsBuilt.length,
+    deliverablesCount: project.deliverables.length,
     technologiesCount: project.technologies.length,
   };
 }
@@ -219,7 +215,7 @@ export function sortProjects(
     }
 
     if (sortKey === "systems-desc") {
-      return projectB.systemsBuilt.length - projectA.systemsBuilt.length;
+      return projectB.deliverables.length - projectA.deliverables.length;
     }
 
     const dateA = getProjectDateRange(projectA)?.end ?? 0;

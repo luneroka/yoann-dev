@@ -49,7 +49,7 @@ export const helpInvest = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Complete personal investment portfolio management workflow covering investments, encrypted transactions and asset allocation tracking",
       fr: "Workflow complet de gestion de portefeuille d'investissement personnel couvrant les investissements, les transactions chiffrées et le suivi de répartition des actifs",

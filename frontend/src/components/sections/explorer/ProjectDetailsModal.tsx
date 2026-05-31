@@ -34,63 +34,6 @@ type DetailStatProps = {
   accent?: boolean;
 };
 
-const modalCopy = {
-  en: {
-    close: "Close project details",
-    closeButton: "Close",
-    previousImage: "Previous image",
-    nextImage: "Next image",
-    imageCounter: "Image",
-    overview: "Overview",
-    gallery: "Gallery",
-    details: "Details",
-    company: "Company",
-    role: "Role",
-    period: "Period",
-    domain: "Domain",
-    metrics: "Metrics",
-    skillsUsed: "Skills used",
-    hours: "Hours",
-    systems: "Deliverables",
-    technologies: "Technologies",
-    problem: "Problem",
-    solution: "Solution",
-    impact: "Impact",
-    systemsBuilt: "Systems built",
-    viewSystemsBuilt: "View project deliverables",
-    noImages: "No screenshots available for this project yet.",
-    liveDemo: "Live Demo",
-    github: "GitHub",
-  },
-  fr: {
-    close: "Fermer les détails du projet",
-    closeButton: "Fermer",
-    previousImage: "Image précédente",
-    nextImage: "Image suivante",
-    imageCounter: "Image",
-    overview: "Vue d'ensemble",
-    gallery: "Galerie",
-    details: "Détails",
-    company: "Entreprise",
-    role: "Rôle",
-    period: "Période",
-    domain: "Domaine",
-    metrics: "Métriques",
-    skillsUsed: "Compétences utilisées",
-    hours: "Heures",
-    systems: "Livrables",
-    technologies: "Technologies",
-    problem: "Problème",
-    solution: "Solution",
-    impact: "Impact",
-    systemsBuilt: "Solutions développées",
-    viewSystemsBuilt: "Voir les livrables du projet",
-    noImages: "Aucune capture disponible pour ce projet pour le moment.",
-    liveDemo: "Live Demo",
-    github: "GitHub",
-  },
-} satisfies Record<Locale, Record<string, string>>;
-
 const skillLabelById = new Map(skills.map((skill) => [skill.id, skill.label]));
 const technologyById = new Map(technologies.map((technology) => [technology.id, technology]));
 const trackBadgeClasses: Record<Track, string> = {
@@ -161,8 +104,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => {
-  const { locale } = useLanguage();
-  const copy = modalCopy[locale];
+  const { copy: content, locale } = useLanguage();
+  const copy = content.explorer.projectDetailsModal;
   const titleId = useId();
   const screenshots = project.screenshots ?? [];
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -171,9 +114,9 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
 
   const title = translate(project.title, locale);
   const summary = translate(project.summary, locale);
-  const systemsBuilt = useMemo(
-    () => getLocalizedList(project.systemsBuilt, locale),
-    [locale, project.systemsBuilt],
+  const deliverables = useMemo(
+    () => getLocalizedList(project.deliverables, locale),
+    [locale, project.deliverables],
   );
 
   useEffect(() => {
@@ -404,21 +347,21 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
 
                 <details className="group rounded-md border border-border bg-background">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3 py-3 font-heading text-base font-bold text-foreground focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
-                    <span>{copy.viewSystemsBuilt}</span>
+                    <span>{copy.viewDeliverables}</span>
                     <ChevronDown
                       className="h-4 w-4 shrink-0 text-primary transition-transform group-open:rotate-180"
                       aria-hidden="true"
                     />
                   </summary>
                   <div className="border-t border-border px-3 py-3">
-                    <p className="sr-only">{copy.systemsBuilt}</p>
+                    <p className="sr-only">{copy.deliverables}</p>
                     <ul className="space-y-2">
-                      {systemsBuilt.map((system) => (
+                      {deliverables.map((deliverable) => (
                         <li
-                          key={system}
+                          key={deliverable}
                           className="rounded-md bg-muted px-3 py-2 font-body text-sm leading-5 text-muted-foreground"
                         >
-                          {system}
+                          {deliverable}
                         </li>
                       ))}
                     </ul>
@@ -448,8 +391,8 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
                         accent
                       />
                       <DetailStat
-                        label={copy.systems}
-                        value={formatNumber(project.systemsBuiltCount, locale)}
+                        label={copy.deliverables}
+                        value={formatNumber(project.deliverablesCount, locale)}
                         icon={Boxes}
                         accent
                       />

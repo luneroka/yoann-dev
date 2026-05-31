@@ -41,7 +41,7 @@ export const siteVitrineAguera = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Responsive showcase website for an independent renovation contractor",
       fr: "Site vitrine responsive pour un artisan indépendant du bâtiment",

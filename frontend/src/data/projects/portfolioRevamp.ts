@@ -36,7 +36,7 @@ export const portfolioRevamp = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Interactive portfolio structured as a business intelligence-style dashboard instead of a classic static profile page",
       fr: "Portfolio interactif structuré comme un dashboard de type business intelligence plutôt qu'une page profil statique classique",

@@ -41,7 +41,7 @@ export const budgetConstructionExcel = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Structured Excel budget workbook",
       fr: "Classeur Excel structuré pour le suivi budgétaire",

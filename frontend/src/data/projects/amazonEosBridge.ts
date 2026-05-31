@@ -44,7 +44,7 @@ export const amazonEosBridge = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "VBA workflow pulling subprocess-level performance data into Excel",
       fr: "Workflow VBA important les données de performance par sous-processus dans Excel",

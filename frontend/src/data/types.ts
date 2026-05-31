@@ -154,7 +154,7 @@ export interface Project {
   skills: SkillId[];
 
   metrics: ProjectMetrics;
-  systemsBuilt: LocalizedString[];
+  deliverables: LocalizedString[];
 
   summary: LocalizedString;
   problem?: LocalizedString;

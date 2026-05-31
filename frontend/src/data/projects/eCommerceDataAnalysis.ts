@@ -38,7 +38,7 @@ export const eCommerceDataAnalysis = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Python raw data ingestion workflow",
       fr: "Workflow d'ingestion des données brutes avec Python",

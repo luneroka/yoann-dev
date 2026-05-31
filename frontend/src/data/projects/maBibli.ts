@@ -51,7 +51,7 @@ export const maBibli = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Book search and discovery experience through search bar and barcode scan, connected to external book database API.",
       fr: "Expérience de recherche et découverte de livres via barre de recherche et scan du code-barre, connectée à une base de donnée de livres via API.",

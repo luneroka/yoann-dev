@@ -3,7 +3,7 @@ import type { ContextMetric, Project, SkillId } from "./types";
 
 export interface ExplorerMetricSummary {
   hoursInvested: number;
-  systemsBuilt: number;
+  deliverables: number;
   skillsDemonstrated: number;
   skills: SkillId[];
   contextMetrics: ContextMetric[];
@@ -13,8 +13,8 @@ export function getTotalHours(projects: Project[]): number {
   return projects.reduce((sum, project) => sum + project.metrics.hoursInvested, 0);
 }
 
-export function getTotalSystemsBuilt(projects: Project[]): number {
-  return projects.reduce((sum, project) => sum + project.systemsBuilt.length, 0);
+export function getTotalDeliverables(projects: Project[]): number {
+  return projects.reduce((sum, project) => sum + project.deliverables.length, 0);
 }
 
 export function getUniqueSkills(projects: Project[]): SkillId[] {
@@ -34,7 +34,7 @@ export function getExplorerMetricSummary(projects: Project[]): ExplorerMetricSum
 
   return {
     hoursInvested: getTotalHours(projects),
-    systemsBuilt: getTotalSystemsBuilt(projects),
+    deliverables: getTotalDeliverables(projects),
     skillsDemonstrated: skills.length,
     skills,
     contextMetrics: getContextMetrics(projects),

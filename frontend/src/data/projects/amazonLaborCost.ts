@@ -44,7 +44,7 @@ export const amazonLaborCost = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Python data extraction pipeline feeding Excel Power Query datasets",
       fr: "Pipeline d'extraction de données Python alimentant les jeux de données Power Query Excel",

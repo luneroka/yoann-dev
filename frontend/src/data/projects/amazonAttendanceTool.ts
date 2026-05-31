@@ -43,7 +43,7 @@ export const amazonAttendanceTool = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Data import and transformation workflow converting raw HR exports into a standardized reporting dataset",
       fr: "Workflow d'import et de transformation des exports RH bruts vers un jeu de données standardisé pour le reporting",

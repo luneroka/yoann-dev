@@ -42,7 +42,7 @@ export const budgetConstruction = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "FastAPI backend for construction budget tracking",
       fr: "Backend FastAPI pour le suivi budgétaire de construction",

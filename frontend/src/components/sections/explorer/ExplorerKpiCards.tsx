@@ -208,8 +208,8 @@ const ExplorerKpiCards = ({ metrics }: ExplorerKpiCardsProps) => {
     },
     {
       id: "systems-built",
-      label: kpis.systemsBuilt,
-      value: formatNumber(metrics.systemsBuilt, locale),
+      label: kpis.deliverables,
+      value: formatNumber(metrics.deliverables, locale),
       icon: Boxes,
     },
     {

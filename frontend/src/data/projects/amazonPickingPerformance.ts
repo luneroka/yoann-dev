@@ -37,7 +37,7 @@ export const amazonPickingPerformance = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Controlled field test comparing two operational procedures",
       fr: "Test terrain contrôlé comparant deux procédures opérationnelles",

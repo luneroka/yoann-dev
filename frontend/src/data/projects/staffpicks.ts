@@ -59,7 +59,7 @@ export const staffpicks = {
     },
   },
 
-  systemsBuilt: [
+  deliverables: [
     {
       en: "Librarian recommendation management interface",
       fr: "Interface de gestion des recommandations libraires",
