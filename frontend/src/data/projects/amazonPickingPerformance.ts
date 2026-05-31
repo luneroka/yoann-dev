@@ -95,8 +95,8 @@ export const amazonPickingPerformance = {
   ],
 
   period: {
-    start: "2023-01",
-    end: "2023-12",
+    start: "2018-01",
+    end: "2018-12",
     precision: "year",
   },
 

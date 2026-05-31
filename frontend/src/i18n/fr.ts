@@ -1,30 +1,42 @@
 export const fr = {
   hero: {
-    eyebrow: "FULL-STACK | DATA",
+    eyebrow: "DÉVELOPPEUR FULL-STACK | DATA ANALYST",
     name: "Yoann R.",
-    title: "Création d’outils pilotés par la donnée avec les technologies web modernes.",
-    subtitle:
-      "Ancien professionnel des opérations en transition vers le développement logiciel et la data, avec une approche centrée sur les usages métiers réels.",
+    subtitle: {
+      intro: "Explorez mon parcours entre opérations, ",
+      firstHighlight: "data",
+      middle: " et ",
+      secondHighlight: "développement",
+      end: ".",
+    },
+    description:
+      "Un CV interactif regroupant mes projets, compétences et réalisations professionnelles.",
     ctaPrimary: "Explorer les projets",
     ctaSecondary: "Contactez-moi",
+    discoverExplorer: "Découvrir l’explorateur de projets",
+    highlightsLabel: "Points forts techniques",
     linkedinLabel: "Voir le profil LinkedIn de Yoann Robert",
     githubLabel: "Voir le profil GitHub de Yoann Robert",
     highlightCards: [
       {
-        value: "7+",
-        label: "Années en environnements opérationnels",
+        value: "9+",
+        label: "Ans en environnements opérationnels",
+        detail: "Compréhension des enjeux métiers",
       },
       {
         value: "4",
         label: "Industries explorées",
+        detail: "Retail, Logistique, Construction, Services",
       },
       {
         value: "SQL + Python",
         label: "Stack analytique principale",
+        detail: "Données, analyses, automatisation",
       },
       {
         value: "React + FastAPI",
         label: "Architecture full-stack",
+        detail: "APIs robustes & interfaces modernes",
       },
     ],
   },
