@@ -1,7 +1,7 @@
 export const en = {
   hero: {
     eyebrow: "FULL-STACK DEVELOPER | DATA ANALYTICS",
-    name: "Yoann Robert",
+    name: "Yoann R.",
     title: "Building data-driven tools with modern web technologies.",
     subtitle:
       "Former operations professional transitioning into software engineering and data, building practical systems focused on real-world business workflows.",
@@ -126,6 +126,8 @@ export const en = {
       featuredProjects: "Featured projects",
       industries: "Industries",
       projectTypes: "Project types",
+      seeDetails: "See details",
+      hideDetails: "Hide details",
     },
     projectCountLabel: "projects mapped",
     emptyState: "No matching project data yet.",

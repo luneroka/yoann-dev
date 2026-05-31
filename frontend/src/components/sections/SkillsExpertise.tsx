@@ -196,16 +196,12 @@ export default function SkillsExpertise() {
                   ref={(element) => {
                     cardRefs.current[card.id] = element;
                   }}
-                  className="scroll-mt-24 flex flex-col overflow-hidden rounded-lg border border-border bg-card shadow-soft"
+                  className={`scroll-mt-24 flex flex-col overflow-hidden rounded-lg border bg-card shadow-soft ${
+                    isDomainCard ? "border-accent/40" : "border-primary/40"
+                  }`}
                   variants={skillCardVariants}
                 >
-                  <button
-                    type="button"
-                    className="group flex w-full cursor-pointer items-start gap-4 p-5 text-left transition-smooth hover:bg-muted/40 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring sm:p-6"
-                    aria-expanded={isExpanded}
-                    aria-controls={contentId}
-                    onClick={() => toggleCard(card.id)}
-                  >
+                  <div className="flex items-start gap-4 p-5 sm:p-6">
                     <span
                       className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg ${
                         isDomainCard ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"
@@ -222,13 +218,7 @@ export default function SkillsExpertise() {
                         {cardCopy.description}
                       </p>
                     </div>
-                    <ChevronDown
-                      className={`mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-hover:text-primary ${
-                        isExpanded ? "rotate-180" : ""
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </button>
+                  </div>
 
                   <div className="px-5 pb-5 sm:px-6 sm:pb-6">
                     <CardSection title={copy.skillsExpertise.labels.capabilities}>
@@ -310,6 +300,30 @@ export default function SkillsExpertise() {
                       </motion.div>
                     ) : null}
                   </AnimatePresence>
+
+                  <button
+                    type="button"
+                    className={`group mt-auto flex w-full cursor-pointer items-center justify-center gap-2 border-t px-5 py-3 font-body text-sm font-bold transition-smooth focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                      isDomainCard
+                        ? "border-accent/40 text-accent hover:bg-accent/10"
+                        : "border-primary/40 text-primary hover:bg-primary/10"
+                    }`}
+                    aria-expanded={isExpanded}
+                    aria-controls={contentId}
+                    onClick={() => toggleCard(card.id)}
+                  >
+                    <span>
+                      {isExpanded
+                        ? copy.skillsExpertise.labels.hideDetails
+                        : copy.skillsExpertise.labels.seeDetails}
+                    </span>
+                    <ChevronDown
+                      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                        isExpanded ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
                 </motion.article>
               );
             })}
