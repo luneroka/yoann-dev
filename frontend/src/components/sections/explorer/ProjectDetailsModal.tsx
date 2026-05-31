@@ -51,7 +51,7 @@ const modalCopy = {
     metrics: "Metrics",
     skillsUsed: "Skills used",
     hours: "Hours",
-    systems: "Systems",
+    systems: "Deliverables",
     technologies: "Technologies",
     problem: "Problem",
     solution: "Solution",
@@ -78,7 +78,7 @@ const modalCopy = {
     metrics: "Métriques",
     skillsUsed: "Compétences utilisées",
     hours: "Heures",
-    systems: "Systèmes",
+    systems: "Livrables",
     technologies: "Technologies",
     problem: "Problème",
     solution: "Solution",
@@ -440,18 +440,20 @@ const ProjectDetailsModal = ({ project, onClose }: ProjectDetailsModalProps) => 
 
                 <Section title={copy.metrics}>
                   <div className="grid grid-cols-1 gap-3">
-                    <DetailStat
-                      label={copy.hours}
-                      value={`${formatNumber(project.metrics.hoursInvested, locale)}h`}
-                      icon={Clock3}
-                      accent
-                    />
-                    <DetailStat
-                      label={copy.systems}
-                      value={formatNumber(project.systemsBuiltCount, locale)}
-                      icon={Boxes}
-                      accent
-                    />
+                    <div className="grid grid-cols-2 gap-3">
+                      <DetailStat
+                        label={copy.hours}
+                        value={`${formatNumber(project.metrics.hoursInvested, locale)}h`}
+                        icon={Clock3}
+                        accent
+                      />
+                      <DetailStat
+                        label={copy.systems}
+                        value={formatNumber(project.systemsBuiltCount, locale)}
+                        icon={Boxes}
+                        accent
+                      />
+                    </div>
                     <DetailStat
                       label={copy.skillsUsed}
                       value={formatNumber(project.skills.length, locale)}
