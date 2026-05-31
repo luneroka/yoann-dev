@@ -66,6 +66,7 @@ export default function Contact() {
         <h2 className="font-heading text-3xl font-bold leading-tight text-foreground sm:text-4xl">
           {copy.contact.title}
         </h2>
+        <span className="mt-5 block h-1 w-12 rounded-full bg-accent" />
         <p className="mt-4 max-w-2xl font-body text-base leading-7 text-muted-foreground sm:text-lg">
           {copy.contact.phrase}
         </p>

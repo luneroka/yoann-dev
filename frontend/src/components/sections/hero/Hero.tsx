@@ -48,10 +48,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden bg-linear-to-br from-background via-background to-primary/5 px-4 pb-32 pt-32 sm:pt-36"
+      className="relative flex min-h-screen items-center overflow-hidden bg-linear-to-b from-background via-background to-transparent px-4 pb-32 pt-32 sm:pt-36"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_42%,hsl(var(--primary)/0.08),transparent_30%),radial-gradient(circle_at_15%_78%,hsl(var(--primary)/0.08),transparent_26%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_42%,hsl(var(--primary)/0.08),transparent_30%),radial-gradient(circle_at_15%_78%,hsl(var(--primary)/0.08),transparent_26%)] [mask-image:linear-gradient(to_bottom,black_0%,black_76%,transparent_100%)]"
         aria-hidden="true"
       />
       <TopographicBackground />
@@ -194,7 +194,7 @@ export default function Hero() {
       </div>
 
       <motion.a
-        href="#explorer"
+        href="#journey"
         className="group absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 font-body text-sm font-semibold text-muted-foreground transition-smooth hover:text-primary"
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -209,7 +209,7 @@ export default function Hero() {
             aria-hidden="true"
           />
         </motion.span>
-        {copy.hero.discoverExplorer}
+        {copy.hero.discoverJourney}
       </motion.a>
     </section>
   );

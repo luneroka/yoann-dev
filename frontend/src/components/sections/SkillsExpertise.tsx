@@ -1,6 +1,13 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { BarChart3, BriefcaseBusiness, ChevronDown, Code2, ServerCog } from "lucide-react";
+import {
+  BarChart3,
+  BriefcaseBusiness,
+  ChevronDown,
+  ChevronsDown,
+  Code2,
+  ServerCog,
+} from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import { projects } from "@/data/projects";
@@ -165,12 +172,16 @@ export default function SkillsExpertise() {
 
   return (
     <>
-      <section id="skills" className="relative px-4 py-24 sm:py-28">
+      <section
+        id="skills"
+        className="relative flex min-h-screen flex-col justify-center px-4 pb-32 pt-24 sm:pt-28"
+      >
         <div className="container relative mx-auto max-w-6xl">
           <div className="mx-auto mb-10 max-w-3xl text-center">
             <h2 className="font-heading text-3xl font-bold leading-tight text-foreground sm:text-4xl">
               {copy.skillsExpertise.title}
             </h2>
+            <span className="mx-auto mt-5 block h-1 w-12 rounded-full bg-accent" />
             <p className="mt-4 font-body text-base leading-7 text-muted-foreground sm:text-lg">
               {copy.skillsExpertise.intro}
             </p>
@@ -329,6 +340,26 @@ export default function SkillsExpertise() {
             })}
           </motion.div>
         </div>
+
+        <motion.a
+          href="#contact"
+          className="group absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 whitespace-nowrap font-body text-sm font-semibold text-muted-foreground transition-smooth hover:text-primary"
+          initial={{ opacity: 0, y: -8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <motion.span
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity }}
+          >
+            <ChevronsDown
+              className="h-7 w-7 transition-smooth group-hover:text-primary"
+              aria-hidden="true"
+            />
+          </motion.span>
+          {copy.skillsExpertise.discoverContact}
+        </motion.a>
       </section>
 
       {selectedProject ? (

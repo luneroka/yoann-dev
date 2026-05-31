@@ -13,13 +13,13 @@ export const fr = {
       "Un CV interactif regroupant mes projets, compétences et réalisations professionnelles.",
     ctaPrimary: "Explorer les projets",
     ctaSecondary: "Contactez-moi",
-    discoverExplorer: "Découvrir l’explorateur de projets",
+    discoverJourney: "Découvrir mon parcours",
     highlightsLabel: "Points forts techniques",
     linkedinLabel: "Voir le profil LinkedIn de Yoann Robert",
     githubLabel: "Voir le profil GitHub de Yoann Robert",
     highlightCards: [
       {
-        value: "9+",
+        value: "8+",
         label: "Ans en environnements opérationnels",
         detail: "Compréhension des enjeux métiers",
       },
@@ -41,9 +41,39 @@ export const fr = {
     ],
   },
 
+  journey: {
+    title: "Mon parcours",
+    subtitle: "De la data opérationnelle au développement.",
+    timelineLabel: "Parcours professionnel",
+    discoverExplorer: "Découvrir l’explorateur de projets",
+    steps: [
+      {
+        period: "2016 – 2017",
+        title: "Apple",
+        highlights: ["Support client", "Diagnostic technique", "Opérations retail"],
+      },
+      {
+        period: "2017 – 2023",
+        title: "Amazon",
+        highlights: ["Opérations", "Analyse de performance", "Amélioration continue"],
+      },
+      {
+        period: "2024",
+        title: "Lidl",
+        highlights: ["Opérations retail", "Gestion de magasin", "Expérience client"],
+      },
+      {
+        period: "2024 – Aujourd’hui",
+        title: "Web & Data",
+        highlights: ["Développement full-stack", "Data analytics", "Création de produits"],
+      },
+    ],
+  },
+
   nav: {
     home: "Accueil",
-    explorer: "Explorateur",
+    journey: "Parcours",
+    explorer: "Projets",
     skills: "Compétences",
     contact: "Contact",
   },
@@ -61,6 +91,7 @@ export const fr = {
     title: "Explorateur de projets interactif",
     subtitle:
       "Explorez mes projets comme un tableau de bord analytique : filtrez, comparez et mettez en évidence les expériences les plus pertinentes.",
+    discoverSkills: "Voir mes compétences",
     emptyState: "Aucun élément ne correspond aux filtres.",
     filters: {
       title: "Filtres",
@@ -132,6 +163,7 @@ export const fr = {
     title: "Compétences & expertise",
     intro:
       "Une synthèse des compétences démontrées à travers mes projets, entre développement full-stack, analyse de données et logique produit orientée métier.",
+    discoverContact: "Me contacter",
     labels: {
       capabilities: "Capacités",
       coreTools: "Outils clés",

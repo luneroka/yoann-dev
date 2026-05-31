@@ -13,13 +13,13 @@ export const en = {
       "An interactive résumé showcasing my projects, skills, and professional achievements.",
     ctaPrimary: "Explore projects",
     ctaSecondary: "Contact me",
-    discoverExplorer: "Discover the project explorer",
+    discoverJourney: "Discover my journey",
     highlightsLabel: "Technical highlights",
     linkedinLabel: "Visit Yoann Robert on LinkedIn",
     githubLabel: "Visit Yoann Robert on GitHub",
     highlightCards: [
       {
-        value: "9+",
+        value: "8+",
         label: "Years in operational environments",
         detail: "Understanding business challenges",
       },
@@ -41,9 +41,39 @@ export const en = {
     ],
   },
 
+  journey: {
+    title: "My journey",
+    subtitle: "From data-driven operations to software development.",
+    timelineLabel: "Professional journey",
+    discoverExplorer: "Discover the project explorer",
+    steps: [
+      {
+        period: "2016 – 2017",
+        title: "Apple",
+        highlights: ["Customer support", "Technical diagnostics", "Retail operations"],
+      },
+      {
+        period: "2017 – 2023",
+        title: "Amazon",
+        highlights: ["Operations", "Performance analytics", "Process improvement"],
+      },
+      {
+        period: "2024",
+        title: "Lidl",
+        highlights: ["Retail operations", "Store management", "Customer experience"],
+      },
+      {
+        period: "2024 – Present",
+        title: "Web & Data",
+        highlights: ["Full-stack development", "Data analytics", "Product building"],
+      },
+    ],
+  },
+
   nav: {
     home: "Home",
-    explorer: "Explorer",
+    journey: "Journey",
+    explorer: "Projects",
     skills: "Skills",
     contact: "Contact",
   },
@@ -61,6 +91,7 @@ export const en = {
     title: "Interactive Projects Explorer",
     subtitle:
       "Explore projects like an analytics dashboard: filter, compare, and highlight the experiences most relevant to your interests.",
+    discoverSkills: "See my skills",
     emptyState: "No profile item matches your filters.",
     filters: {
       title: "Filters",
@@ -132,6 +163,7 @@ export const en = {
     title: "Skills & Expertise",
     intro:
       "A compact view of the capabilities demonstrated across my projects, combining full-stack development, data analysis, and business-oriented product thinking.",
+    discoverContact: "Contact me",
     labels: {
       capabilities: "Capabilities",
       coreTools: "Core tools",

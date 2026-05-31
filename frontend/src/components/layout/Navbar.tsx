@@ -14,6 +14,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { key: "home", href: "#top" },
+  { key: "journey", href: "#journey" },
   { key: "explorer", href: "#explorer" },
   { key: "skills", href: "#skills" },
   { key: "contact", href: "#contact" },
