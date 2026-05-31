@@ -15,8 +15,8 @@ export const budgetConstructionExcel = {
 
   company: "Solo",
   role: {
-    en: "Freelance",
-    fr: "Freelance",
+    en: "Personal Data Project",
+    fr: "Projet Data Personnel",
   },
 
   track: ["data"],
@@ -70,8 +70,8 @@ export const budgetConstructionExcel = {
   },
 
   problem: {
-    en: "Managing construction expenses across dozens of categories and suppliers quickly became difficult with manual tracking and fragmented spreadsheets.",
-    fr: "Le suivi des dépenses de construction réparties sur des dizaines de catégories et fournisseurs est rapidement devenu difficile avec un suivi manuel et des tableurs fragmentés.",
+    en: "A relative preparing to build their house plans to manage the project directly: compare quotes, hire contractors and track expenses across every stage of construction. They needed a reliable way to keep the budget under control without relying on fragmented spreadsheets.",
+    fr: "Un proche préparant la construction de sa maison prévoit de piloter directement le projet : comparer les devis, sélectionner les artisans et suivre les dépenses à chaque étape du chantier. Il avait besoin d'un outil fiable pour maîtriser son budget sans dépendre de tableurs fragmentés.",
   },
 
   solution: {
@@ -81,18 +81,16 @@ export const budgetConstructionExcel = {
 
   impact: [
     {
-      en: "Provided a real-world functional prototype later used as the foundation for the web application architecture.",
-      fr: "Création d'un prototype fonctionnel réel ayant servi de base à l'architecture de l'application web.",
-    },
-
-    {
       en: "Improved visibility over projected budget, signed quotes, paid invoices and remaining construction costs.",
       fr: "Amélioration de la visibilité sur le budget prévisionnel, les devis signés, les factures payées et les coûts restants.",
     },
-
     {
-      en: "Automated reporting and reduced manual reconciliation work across multiple budget sources.",
-      fr: "Automatisation du reporting et réduction du travail manuel de rapprochement entre plusieurs sources budgétaires.",
+      en: "Estimated 50% time saving on budget tracking and reporting compared with a manual spreadsheet workflow.",
+      fr: "Gain de temps estimé à 50 % sur le suivi budgétaire et le reporting par rapport à une gestion manuelle sous tableur classique.",
+    },
+    {
+      en: "Reduced administrative friction through automated imports, consolidation and reporting, allowing the user to focus on managing the construction project.",
+      fr: "Réduction des contraintes administratives grâce à l'automatisation des imports, de la consolidation et du reporting, permettant à l'utilisateur de se concentrer sur le pilotage du chantier.",
     },
   ],
 

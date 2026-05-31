@@ -30,8 +30,8 @@ export const helpInvest = {
     "api-design",
     "backend-architecture",
     "database-modeling",
+    "sql",
     "frontend-architecture",
-    "ux-ui-design",
   ],
 
   metrics: {
@@ -51,42 +51,30 @@ export const helpInvest = {
 
   systemsBuilt: [
     {
-      en: "Personal investment portfolio management platform",
-      fr: "Plateforme de gestion de portefeuille d'investissement personnel",
+      en: "Complete personal investment portfolio management workflow covering investments, encrypted transactions and asset allocation tracking",
+      fr: "Workflow complet de gestion de portefeuille d'investissement personnel couvrant les investissements, les transactions chiffrées et le suivi de répartition des actifs",
     },
     {
-      en: "Interactive dashboard with portfolio allocation visualizations",
-      fr: "Dashboard interactif avec visualisations de répartition du portefeuille",
+      en: "Interactive dashboards and charts visualizing portfolio composition across savings, real estate and stock market assets",
+      fr: "Dashboards et graphiques interactifs permettant de visualiser la composition du portefeuille entre épargne, immobilier et marché actions",
     },
     {
-      en: "Investment and encrypted transaction tracking system",
-      fr: "Système de suivi des investissements et transactions encryptées",
-    },
-    {
-      en: "Risk profile management workflow",
-      fr: "Workflow de gestion du profil de risque utilisateur",
-    },
-    {
-      en: "Secure authentication and account management system",
-      fr: "Système sécurisé d'authentification et de gestion de compte",
+      en: "Secure authentication and account management system using Firebase",
+      fr: "Système sécurisé d'authentification et de gestion de compte via Firebase",
     },
     {
       en: "REST API powered by Flask and PostgreSQL",
       fr: "API REST développée avec Flask et PostgreSQL",
     },
     {
-      en: "Containerized development environment using Docker Compose",
-      fr: "Environnement de développement conteneurisé avec Docker Compose",
-    },
-    {
-      en: "Responsive portfolio monitoring experience",
-      fr: "Expérience responsive de suivi de portefeuille",
+      en: "Application containerized with Docker to streamline development and deployment workflows",
+      fr: "Application conteneurisée avec Docker afin de simplifier les workflows de développement et de déploiement",
     },
   ],
 
   summary: {
     en: "Full-stack investment portfolio visualization platform allowing users to track assets, transactions and portfolio allocation through interactive dashboards.",
-    fr: "Plateforme full-stack de visualisation de portefeuille d'investissement permettant de suivre actifs, transactions et répartition du portefeuille via des dashboards interactifs.",
+    fr: "Plateforme full-stack de visualisation de portefeuille d'investissement permettant de suivre ses actifs, ses transactions et la répartition du portefeuille via des dashboards interactifs.",
   },
 
   problem: {
@@ -95,30 +83,18 @@ export const helpInvest = {
   },
 
   solution: {
-    en: "Designed and developed a full-stack application combining portfolio management, transaction tracking, risk profiling and interactive visual analytics in a single platform.",
-    fr: "Conception et développement d'une application full-stack combinant gestion de portefeuille, suivi des transactions, profil de risque et analyse visuelle interactive dans une seule plateforme.",
+    en: "Designed and developed a full-stack application combining portfolio management, transaction tracking, risk profiling and interactive visual analytics in a single platform, then completed and presented it as the final project for Harvard's CS50 program.",
+    fr: "Conception et développement d'une application full-stack combinant gestion de portefeuille, suivi des transactions, profil de risque et analyse visuelle interactive dans une seule plateforme, puis réalisation et présentation du projet final pour le programme CS50 de Harvard.",
   },
 
   impact: [
     {
-      en: "Built a complete portfolio management workflow covering investments, transactions and asset allocation tracking.",
-      fr: "Création d'un workflow complet de gestion de portefeuille couvrant investissements, transactions et suivi de répartition des actifs.",
+      en: "Actively used by 1 user for personal investment tracking.",
+      fr: "Utilisée activement par 1 utilisateur pour le suivi de ses investissements personnels.",
     },
     {
-      en: "Developed interactive dashboards and charts to visualize portfolio composition across savings, real estate and stock market assets.",
-      fr: "Développement de dashboards et graphiques interactifs permettant de visualiser la composition du portefeuille entre épargne, immobilier et marché actions.",
-    },
-    {
-      en: "Implemented secure authentication using Firebase alongside a Flask and PostgreSQL backend architecture.",
-      fr: "Mise en place d'une authentification sécurisée via Firebase associée à une architecture backend Flask et PostgreSQL.",
-    },
-    {
-      en: "Containerized the entire application with Docker and Docker Compose to streamline development and deployment workflows.",
-      fr: "Conteneurisation complète de l'application avec Docker et Docker Compose afin de simplifier les workflows de développement et de déploiement.",
-    },
-    {
-      en: "Completed and presented as the final project for Harvard's CS50 program.",
-      fr: "Réalisé et présenté comme projet final du programme CS50 de Harvard.",
+      en: "Completed and presented as the final project for Harvard's CS50 program, unlocking completion certificate.",
+      fr: "Réalisé et présenté comme projet final du programme CS50 de Harvard, ayant permis l'obtention de la certification.",
     },
   ],
 

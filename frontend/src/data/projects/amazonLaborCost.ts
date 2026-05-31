@@ -4,8 +4,8 @@ export const amazonLaborCost = {
   id: "amazon-cost-reduction",
 
   title: {
-    en: "Labour Cost Analytics & Optimization",
-    fr: "Analyse et optimisation des coûts de main-d'œuvre",
+    en: "Labour Cost Analysis",
+    fr: "Analyse des coûts de main-d'œuvre",
   },
 
   company: "Amazon",
@@ -27,7 +27,6 @@ export const amazonLaborCost = {
     "process-optimization",
     "stakeholder-management",
     "project-management",
-    "communication",
   ],
 
   metrics: {
@@ -47,16 +46,16 @@ export const amazonLaborCost = {
 
   systemsBuilt: [
     {
-      en: "Workforce utilization and overtime tracking KPI",
-      fr: "Indicateur de suivi de l'utilisation des effectifs et des heures supplémentaires",
-    },
-    {
       en: "Python data extraction pipeline feeding Excel Power Query datasets",
       fr: "Pipeline d'extraction de données Python alimentant les jeux de données Power Query Excel",
     },
     {
-      en: "Automated weekly reporting workflow for UK fulfilment centers",
-      fr: "Workflow automatisé de reporting hebdomadaire pour les centres logistiques UK",
+      en: "Workforce utilization and overtime tracking KPI",
+      fr: "Indicateur de suivi de l'utilisation des effectifs et des heures supplémentaires",
+    },
+    {
+      en: "Automated weekly reporting workflow",
+      fr: "Workflow automatisé de reporting hebdomadaire",
     },
     {
       en: "Operational performance review framework for site-level optimization opportunities",

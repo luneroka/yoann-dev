@@ -10,8 +10,8 @@ export const budgetConstruction = {
 
   company: "Solo",
   role: {
-    en: "Freelance",
-    fr: "Freelance",
+    en: "Personal Full-Stack Project",
+    fr: "Projet Full-Stack Personnel",
   },
 
   track: ["dev"],
@@ -52,8 +52,8 @@ export const budgetConstruction = {
       fr: "Modèle de données PostgreSQL pour produits, transactions et suivi budget",
     },
     {
-      en: "Quote, invoice and DIY estimate tracking workflow",
-      fr: "Workflow de suivi des devis, factures et estimations DIY",
+      en: "Quote, invoice and DIY estimate import and tracking workflow",
+      fr: "Workflow d'ajout et de suivi des devis, factures et estimations DIY",
     },
     {
       en: "Dockerized application runtime",
@@ -63,7 +63,7 @@ export const budgetConstruction = {
 
   summary: {
     en: "Full-stack web application to track quotes, invoices, DIY estimates and actual construction expenses.",
-    fr: "Application web full-stack pour suivre devis, factures, estimations DIY et dépenses réelles de construction ou rénovation immobilière.",
+    fr: "Application web full-stack pour suivre devis, estimations DIY et factures de dépenses réelles de construction ou rénovation immobilière.",
   },
 
   problem: {
@@ -88,15 +88,7 @@ export const budgetConstruction = {
     },
   ],
 
-  screenshots: [
-    // {
-    //   src: dashboardScreenshot,
-    //   alt: {
-    //     en: "Construction budget tool dashboard",
-    //     fr: "Tableau de bord de l'outil de suivi budgétaire",
-    //   },
-    // },
-  ],
+  screenshots: [],
 
   links: {
     github: "https://github.com/luneroka/budget_construction",

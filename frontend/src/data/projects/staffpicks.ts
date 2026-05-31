@@ -24,13 +24,11 @@ export const staffpicks = {
   productType: "saas",
 
   technologies: [
-    "javascript",
     "typescript",
     "react",
     "tailwindcss",
     "nodejs",
     "nextjs",
-    "postgresql",
     "mongodb",
     "git",
     "docker",
@@ -90,13 +88,13 @@ export const staffpicks = {
   },
 
   problem: {
-    en: "Book recommendations created by librarians in physical stores often lack visibility, discoverability and measurable customer engagement.",
-    fr: "Les recommandations littéraires proposées en magasin manquent souvent de visibilité, de découvrabilité et de suivi de l'engagement client.",
+    en: "Book recommendations created by librarians in physical stores mainly rely on printed materials. They often lack visibility, discoverability and measurable customer engagement.",
+    fr: "Les recommandations littéraires proposées en magasin reposent majoritairement sur de l'affichage papier et manquent souvent de visibilité et de suivi de l'engagement client.",
   },
 
   solution: {
-    en: "Designed and developed a platform allowing bookstores to expose curated selections through QR codes, tablets and personalized recommendation flows.",
-    fr: "Conception et développement d'une plateforme permettant aux librairies de valoriser leurs sélections via QR codes, tablettes et parcours de recommandations personnalisés.",
+    en: "Designed and developed a platform allowing bookstores to expose curated selections through QR codes, tablets and personalized recommendation flows. Test phase carried out in a very busy bookstore in Geneva, Switzerland.",
+    fr: "Conception et développement d'une plateforme permettant aux librairies de valoriser leurs sélections via QR codes, tablettes et parcours de recommandations personnalisés. Phase de test réalisée dans une librairie très achalandée de Genève, Suisse.",
   },
 
   impact: [
@@ -106,11 +104,15 @@ export const staffpicks = {
     },
     {
       en: "Achieved an 85% quiz completion rate across 633 recommendation quizzes started.",
-      fr: "Taux de complétion de 85% sur 633 quiz de recommandations démarrés.",
+      fr: "Taux de complétion du quiz de 85% sur 633 quiz de recommandations démarrés.",
     },
     {
       en: "Generated 177 purchase-intent interactions and maintained a 4.2/5 customer satisfaction score.",
       fr: "177 interactions d'intention d'achat générées avec une satisfaction client maintenue à 4.2/5.",
+    },
+    {
+      en: "Active engagement of in-store leadership team and 8 librarians responsible for handling content.",
+      fr: "Implication active de l'équipe de direction en magasin et de 8 libraires chargés de la gestion du contenu.",
     },
   ],
 

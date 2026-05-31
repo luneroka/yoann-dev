@@ -71,8 +71,8 @@ export const amazonAttendanceTool = {
   ],
 
   summary: {
-    en: "Internal Excel/VBA reporting tool built at Amazon to standardize attendance reporting, improve daily visibility on unplanned absence and help Operations, HR and Senior Leadership act faster on workforce trends.",
-    fr: "Outil interne de reporting Excel/VBA conçu chez Amazon pour standardiser le suivi de l'absentéisme, améliorer la visibilité quotidienne sur les absences non planifiées et aider les équipes Operations, RH et Senior Leadership à réagir plus rapidement aux tendances terrain.",
+    en: "Internal Excel reporting tool built to standardize attendance reporting, improve daily visibility on unplanned absence and help Operations, HR and Senior Leadership act faster on workforce trends.",
+    fr: "Outil interne de reporting Excel conçu pour standardiser le suivi de l'absentéisme, améliorer la visibilité quotidienne sur les absences non planifiées et aider les équipes Operations, RH et Senior Leadership à réagir plus rapidement aux tendances terrain.",
   },
 
   problem: {
@@ -91,8 +91,8 @@ export const amazonAttendanceTool = {
       fr: "Standardisation du reporting absentéisme sur l'ensemble des shifts, couvrant les opérations Inbound et Outbound.",
     },
     {
-      en: "Reduced unplanned absence from 5.2% to 4% within five weeks of implementation.",
-      fr: "Réduction de l'absence non planifiée de 5,2 % à 4 % dans les cinq semaines suivant le déploiement.",
+      en: "Reduced unplanned absence by 1.2 percentage points, a 23% relative decrease, within five weeks of implementation.",
+      fr: "Réduction de l'absence non planifiée de 1,2 point de pourcentage, soit une baisse relative de 23 %, dans les cinq semaines suivant le déploiement.",
     },
     {
       en: "Reduced missed critical attendance follow-up conversations from three per week to one per month.",

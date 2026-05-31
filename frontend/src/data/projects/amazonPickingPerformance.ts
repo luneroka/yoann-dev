@@ -4,14 +4,14 @@ export const amazonPickingPerformance = {
   id: "amazon-picking-performance",
 
   title: {
-    en: "Picking Performance Optimization Study",
-    fr: "Étude d'optimisation de la performance Picking",
+    en: "Picking Performance Optimization",
+    fr: "Optimisation de la performance Picking",
   },
 
   company: "Amazon",
   role: {
     en: "Area Manager / Project Owner",
-    fr: "Area Manager / Resp. Project",
+    fr: "Area Manager / Resp. Projet",
   },
 
   track: ["data"],
@@ -19,13 +19,7 @@ export const amazonPickingPerformance = {
   productType: "analysis",
 
   technologies: ["excel", "minitab"],
-  skills: [
-    "data-analysis",
-    "reporting",
-    "process-optimization",
-    "stakeholder-management",
-    "communication",
-  ],
+  skills: ["data-analysis", "process-optimization", "reporting", "stakeholder-management"],
 
   metrics: {
     hoursInvested: 240,
@@ -58,7 +52,7 @@ export const amazonPickingPerformance = {
     },
     {
       en: "Performance segmentation by associate category to identify where the process created value",
-      fr: "Segmentation de la performance par catégorie d'associés afin d'identifier où la procédure créait de la valeur",
+      fr: "Segmentation de la performance par catégorie d'opérateurs afin d'identifier où la procédure créait de la valeur",
     },
     {
       en: "Operational recommendation balancing statistical evidence, business impact and deployment risk",
@@ -77,8 +71,8 @@ export const amazonPickingPerformance = {
   },
 
   solution: {
-    en: "Built the test protocol, analyzed 106 observations in Minitab, segmented the impact by associate performance level, and recommended the procedure as optional guidance: high upside for lower performers, limited disruption for top performers.",
-    fr: "Construction du protocole de test, analyse de 106 observations dans Minitab, segmentation de l'impact par niveau de performance et recommandation d'une adoption optionnelle : fort potentiel pour les opérateurs en difficulté, faible perturbation pour les meilleurs performeurs.",
+    en: "Built the test protocol, analyzed 106 observations in Minitab and segmented the impact by associate performance level. Recommended the procedure as optional guidance based on the statistical analysis: high upside for lower performers, limited disruption for top performers.",
+    fr: "Construction du protocole de test, analyse de 106 observations dans Minitab et segmentation de l'impact par niveau de performance. Recommandation d'une adoption optionnelle basée sur les résultats statistiques : fort potentiel pour les opérateurs en difficulté, faible perturbation pour les meilleurs performeurs.",
   },
 
   impact: [

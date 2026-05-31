@@ -21,7 +21,7 @@ export const eCommerceDataAnalysis = {
   productType: "analysis",
 
   technologies: ["python", "postgresql", "tableau"],
-  skills: ["data-analysis", "data-modeling", "etl", "dashboarding", "sql", "process-optimization"],
+  skills: ["data-analysis", "data-modeling", "etl", "dashboarding", "sql"],
 
   metrics: {
     hoursInvested: 20,

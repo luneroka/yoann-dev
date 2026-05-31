@@ -53,36 +53,24 @@ export const maBibli = {
 
   systemsBuilt: [
     {
-      en: "Personal library management platform",
-      fr: "Plateforme de gestion de bibliothèque personnelle",
+      en: "Book search and discovery experience through search bar and barcode scan, connected to external book database API.",
+      fr: "Expérience de recherche et découverte de livres via barre de recherche et scan du code-barre, connectée à une base de donnée de livres via API.",
     },
     {
-      en: "Reading tracker with reading history, favorites and wishlist",
-      fr: "Suivi de lecture avec historique, favoris et liste d'envies",
+      en: "Built a complete CRUD workflow covering the full lifecycle of a personal book collection.",
+      fr: "Création d'un workflow CRUD complet couvrant l'ensemble du cycle de vie d'une bibliothèque personnelle.",
     },
     {
-      en: "Book search and discovery experience",
-      fr: "Expérience de recherche et découverte de livres",
-    },
-    {
-      en: "Detailed book pages with author exploration",
-      fr: "Pages détaillées avec exploration des œuvres d'un auteur",
-    },
-    {
-      en: "Secure authentication and account management system",
-      fr: "Système sécurisé d'authentification et de gestion de compte",
-    },
-    {
-      en: "Responsive dashboard for library management and reading activity",
-      fr: "Dashboard responsive pour la gestion de bibliothèque et le suivi de lecture",
+      en: "Implemented reading tracking features including read status, favorites and wishlist management.",
+      fr: "Mise en place de fonctionnalités de suivi de lecture incluant statut de lecture, favoris et liste d'envies.",
     },
     {
       en: "REST API connected to MongoDB for persistent user data",
       fr: "API REST connectée à MongoDB pour la persistance des données utilisateur",
     },
     {
-      en: "Cloud-based image management workflow",
-      fr: "Workflow de gestion d'images basé sur le cloud",
+      en: "Integrated Firebase Authentication, JWT security and Cloudinary image management.",
+      fr: "Intégration de Firebase Authentication, de la sécurité JWT et de la gestion d'images Cloudinary.",
     },
   ],
 
@@ -97,26 +85,18 @@ export const maBibli = {
   },
 
   solution: {
-    en: "Designed and developed a complete library management platform combining collection management, reading tracking, authentication, search and personalized organization features.",
-    fr: "Conception et développement d'une plateforme complète de gestion de bibliothèque combinant gestion de collection, suivi de lecture, authentification, recherche et outils d'organisation personnalisés.",
+    en: "At the request of a friend, designed and developed a complete library management platform combining collection management, reading tracking, authentication, search and dynamic dashboard.",
+    fr: "Sur demande d'un ami lecteur, conception et développement d'une plateforme complète de gestion de bibliothèque combinant authentification, gestion de collection, suivi de lecture, recherche et tableau de bord dynamique.",
   },
 
   impact: [
     {
-      en: "Built a complete CRUD workflow covering the full lifecycle of a personal book collection.",
-      fr: "Création d'un workflow CRUD complet couvrant l'ensemble du cycle de vie d'une bibliothèque personnelle.",
+      en: "3 active users beneficiating from the app.",
+      fr: "Utilisation active par 3 utilisateurs.",
     },
     {
-      en: "Implemented reading tracking features including read status, favorites and wishlist management.",
-      fr: "Mise en place de fonctionnalités de suivi de lecture incluant statut de lecture, favoris et liste d'envies.",
-    },
-    {
-      en: "Developed a modern React frontend connected to a Node.js and MongoDB backend architecture.",
-      fr: "Développement d'un frontend React moderne connecté à une architecture backend Node.js et MongoDB.",
-    },
-    {
-      en: "Integrated Firebase Authentication, JWT security and Cloudinary image management.",
-      fr: "Intégration de Firebase Authentication, de la sécurité JWT et de la gestion d'images Cloudinary.",
+      en: "300+ books added and tracked.",
+      fr: "+300 livres ajoutés et bénéficiant du suivi de lecture.",
     },
   ],
 
