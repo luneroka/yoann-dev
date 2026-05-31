@@ -1,4 +1,5 @@
 import { useEffect, useState, type MouseEvent } from "react";
+import { FR, US } from "country-flag-icons/react/3x2";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -133,7 +134,11 @@ export default function Navbar() {
             className="inline-flex h-10 min-w-10 cursor-pointer items-center justify-center rounded-full px-3 font-body text-sm font-semibold text-foreground transition-smooth hover:bg-muted"
             aria-label={`Switch language to ${locale === "fr" ? "English" : "French"}`}
           >
-            {locale === "fr" ? "🇺🇸" : "🇫🇷"}
+            {locale === "fr" ? (
+              <US className="h-4 w-6 rounded-[2px]" aria-hidden="true" />
+            ) : (
+              <FR className="h-4 w-6 rounded-[2px]" aria-hidden="true" />
+            )}
           </button>
 
           <button
