@@ -1,4 +1,4 @@
-# Yoann Robert Portfolio
+# Yoann's Portfolio
 
 > Interactive analytics-inspired portfolio showcasing Full-Stack development, Data Analytics, and operational impact through a modern dashboard experience.
 
@@ -233,7 +233,7 @@ Each project or experience can expose:
 
 ## 👨‍💻 Author
 
-**Yoann Robert**
+**Yoann R.**
 
 Full-Stack Developer & Data Analytics Enthusiast
 
