@@ -87,7 +87,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.span
-              className="my-7 block h-1 w-16 rounded-full bg-accent"
+              className="mx-auto my-7 block h-1 w-16 rounded-full bg-accent sm:mx-0"
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ delay: 0.28, duration: 0.5 }}

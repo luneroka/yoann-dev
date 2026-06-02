@@ -212,7 +212,7 @@ const ExplorerFilters = ({
             <span
               id="explorer-filters-tooltip"
               role="tooltip"
-              className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-80 max-w-[calc(100vw-2rem)] rounded-md border border-border bg-popover px-3 py-2 font-body text-xs leading-5 text-popover-foreground opacity-0 shadow-soft transition-opacity group-focus-within:opacity-100 group-hover:opacity-100 sm:w-96"
+              className="pointer-events-none absolute right-0 top-full z-50 mt-2 w-80 max-w-[calc(100vw-2rem)] rounded-md border border-border bg-popover px-3 py-2 font-body text-xs leading-5 text-popover-foreground opacity-0 shadow-soft transition-opacity group-focus-within:opacity-100 group-hover:opacity-100 sm:w-96 lg:left-0 lg:right-auto"
             >
               <span className="flex flex-col gap-1.5">
                 {explorerFiltersCopy.helpSteps.map((step, index) => (
