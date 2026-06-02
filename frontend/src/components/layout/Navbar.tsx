@@ -180,7 +180,19 @@ export default function Navbar() {
               aria-label="Navigation menu"
             >
               <div className="mb-8 flex items-center justify-between">
-                <span className="font-heading text-xl font-bold text-foreground">YR</span>
+                <motion.a
+                  href="/"
+                  onClick={handleLogoClick}
+                  className="cursor-pointer"
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  <img
+                    src="/profile/avatar.png"
+                    alt="Yoann Robert"
+                    className="h-9 w-9 rounded-full object-cover ring-1 ring-border"
+                  />
+                </motion.a>
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
