@@ -144,7 +144,7 @@ const ExplorerCharts = ({ projects }: ExplorerChartsProps) => {
     0,
   );
   const technologyDonutGradient = getDonutGradient(technologyGroups);
-  const sortedProjectsByHours = projects.toSorted(
+  const sortedProjectsByHours = [...projects].sort(
     (projectA, projectB) => projectB.metrics.hoursInvested - projectA.metrics.hoursInvested,
   );
   const latestTimelineProjects = projects.slice(0, 2);
