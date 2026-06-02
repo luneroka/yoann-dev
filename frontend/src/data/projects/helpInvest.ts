@@ -24,7 +24,7 @@ export const helpInvest = {
 
   productType: "web-app",
 
-  technologies: ["javascript", "react", "python", "flask", "postgresql", "docker", "git"],
+  technologies: ["figma", "postgresql", "python", "flask", "javascript", "react", "git", "docker"],
 
   skills: [
     "api-design",

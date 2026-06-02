@@ -37,6 +37,7 @@ export type TechnologyId =
   | "power-bi"
   | "git"
   | "docker"
+  | "figma"
   | "minitab";
 
 export type SkillId =

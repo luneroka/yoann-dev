@@ -18,7 +18,7 @@ export const budgetConstruction = {
   industry: "construction",
   productType: "web-app",
 
-  technologies: ["python", "fastapi", "postgresql", "docker"],
+  technologies: ["figma", "postgresql", "python", "fastapi", "git", "docker"],
   skills: [
     "api-design",
     "backend-architecture",

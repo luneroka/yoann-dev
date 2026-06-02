@@ -5,6 +5,7 @@ import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
 import {
   SiDocker,
   SiFastapi,
+  SiFigma,
   SiFlask,
   SiGit,
   SiJavascript,
@@ -157,6 +158,13 @@ export const technologies: Technology[] = [
     id: "docker",
     label: { en: "Docker", fr: "Docker" },
     icon: SiDocker,
+    category: "tooling",
+    showAsFilter: true,
+  },
+  {
+    id: "figma",
+    label: { en: "Figma", fr: "Figma" },
+    icon: SiFigma,
     category: "tooling",
     showAsFilter: true,
   },

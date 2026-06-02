@@ -23,7 +23,7 @@ export const siteVitrineAguera = {
   industry: "construction",
   productType: "web-app",
 
-  technologies: ["typescript", "react", "nextjs", "tailwindcss", "git"],
+  technologies: ["figma", "tailwindcss", "nextjs", "typescript", "react", "git"],
   skills: ["process-optimization", "communication", "ux-ui-design", "product-discovery"],
 
   metrics: {

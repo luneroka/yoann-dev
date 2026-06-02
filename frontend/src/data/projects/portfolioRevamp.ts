@@ -18,7 +18,7 @@ export const portfolioRevamp = {
   industry: "technology",
   productType: "web-app",
 
-  technologies: ["typescript", "react", "tailwindcss", "git"],
+  technologies: ["figma", "tailwindcss", "typescript", "react", "git"],
   skills: ["ux-ui-design", "product-discovery", "communication", "process-optimization"],
 
   metrics: {

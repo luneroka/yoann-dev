@@ -24,12 +24,12 @@ export const staffpicks = {
   productType: "saas",
 
   technologies: [
+    "figma",
+    "tailwindcss",
+    "mongodb",
+    "nextjs",
     "typescript",
     "react",
-    "tailwindcss",
-    "nodejs",
-    "nextjs",
-    "mongodb",
     "git",
     "docker",
   ],

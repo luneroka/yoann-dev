@@ -26,7 +26,7 @@ export const maBibli = {
 
   productType: "web-app",
 
-  technologies: ["javascript", "react", "nodejs", "mongodb", "tailwindcss", "git"],
+  technologies: ["figma", "tailwindcss", "mongodb", "nodejs", "javascript", "react", "git"],
 
   skills: [
     "api-design",
