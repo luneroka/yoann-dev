@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useLanguage } from "@/context/LanguageContext";
 
 const CONTACT_LINKS = {
-  email: "mailto:contact@yoannrobert.com",
+  email: "mailto:luneroka@gmail.com",
   linkedin: "https://www.linkedin.com/in/robertyoann/",
   github: "https://github.com/luneroka",
 } as const;
