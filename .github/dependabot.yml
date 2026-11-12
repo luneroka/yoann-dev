@@ -1,0 +1,16 @@
+# Dependency updates, once a week. Minor and patch bumps come grouped in one
+# pull request; each major comes on its own, since it is a migration to read,
+# not a routine bump. Triaged with /deps-all from ~/dev.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /frontend
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Europe/Paris
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5
