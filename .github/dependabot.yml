@@ -1,6 +1,10 @@
-# Dependency updates, once a week. Minor and patch bumps come grouped in one
-# pull request; each major comes on its own, since it is a migration to read,
-# not a routine bump. Triaged with /deps-all from ~/dev.
+# Dependency updates, once a week. Triaged with /deps-all from ~/dev.
+#
+# Packages that only work together are paired in one group each, majors
+# included, so they land in a single pull request instead of several that
+# conflict on the same lockfile lines. Every other minor and patch bump goes
+# into the catch-all minor-and-patch group. Majors outside the paired groups
+# come on their own, since each is a migration to read, not a routine bump.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -10,7 +14,53 @@ updates:
       day: monday
       time: '06:00'
       timezone: Europe/Paris
+    open-pull-requests-limit: 5
+    ignore:
+      # Parked until typescript-eslint supports TypeScript 7. Remove this entry
+      # once it does; TypeScript 6.x updates still come through the
+      # typescript group.
+      - dependency-name: typescript
+        versions: ['>=7']
     groups:
+      react:
+        patterns:
+          - react
+          - react-dom
+          - '@types/react'
+          - '@types/react-dom'
+      vite:
+        patterns:
+          - vite
+          - '@vitejs/*'
+      eslint:
+        patterns:
+          - eslint
+          - '@eslint/*'
+          - eslint-plugin-*
+          - typescript-eslint
+          - globals
+      typescript:
+        patterns:
+          - typescript
+          - '@types/node'
       minor-and-patch:
         update-types: [minor, patch]
-    open-pull-requests-limit: 5
+        patterns: ['*']
+        exclude-patterns:
+          # Already in a paired group above.
+          - react
+          - react-dom
+          - '@types/react'
+          - '@types/react-dom'
+          - vite
+          - '@vitejs/*'
+          - eslint
+          - '@eslint/*'
+          - eslint-plugin-*
+          - typescript-eslint
+          - globals
+          - typescript
+          - '@types/node'
+          # 0.x direct dependencies: under 1.0 a minor bump can break, so
+          # these come on their own pull request.
+          - eslint-plugin-react-refresh
