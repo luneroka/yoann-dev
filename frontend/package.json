@@ -11,15 +11,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hookform/resolvers": "^7.0.5",
+    "@hookform/resolvers": "^7.0.6",
     "@tailwindcss/vite": "^4.3.5",
     "@vercel/analytics": "^2.0.1",
     "country-flag-icons": "^1.6.20",
-    "framer-motion": "^14.11.1",
-    "lucide-react": "^1.70.0",
+    "framer-motion": "^14.13.0",
+    "lucide-react": "^1.72.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-hook-form": "^7.91.0",
+    "react-hook-form": "^7.92.0",
     "react-icons": "^5.7.0",
     "react-router-dom": "^7.18.5",
     "recharts": "^3.10.1",
@@ -38,6 +38,6 @@
     "globals": "^17.14.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.72.2",
-    "vite": "^8.3.7"
+    "vite": "^8.3.8"
   }
 }
