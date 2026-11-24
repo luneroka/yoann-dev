@@ -55,7 +55,7 @@ export const en = {
       {
         period: "2017 – 2023",
         title: "Amazon",
-        highlights: ["Operations", "Performance analytics", "Process improvement"],
+        highlights: ["Logistics operations", "Performance analytics", "Process improvement"],
       },
       {
         period: "2024",
@@ -219,7 +219,7 @@ export const en = {
         capabilities: [
           "Business process understanding",
           "Operational workflows",
-          "Internal tools",
+          "AI-assisted development & agent workflows",
           "SaaS/product thinking",
           "Data-driven decision support",
         ],

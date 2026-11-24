@@ -58,7 +58,7 @@ export default function Journey() {
         </motion.div>
 
         <motion.div
-          className="relative grid gap-7 md:grid-cols-4 md:gap-5"
+          className="relative grid gap-7 lg:grid-cols-4 lg:gap-3 xl:gap-5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -66,7 +66,7 @@ export default function Journey() {
           aria-label={copy.journey.timelineLabel}
         >
           <div
-            className="absolute bottom-0 left-6 top-0 w-0.5 bg-linear-to-b from-accent via-accent to-primary md:bottom-auto md:left-0 md:right-0 md:top-7 md:h-0.5 md:w-auto md:bg-linear-to-r"
+            className="absolute bottom-0 left-6 top-0 w-0.5 bg-linear-to-b from-accent via-accent to-primary lg:bottom-auto lg:left-0 lg:right-0 lg:top-7 lg:h-0.5 lg:w-auto lg:bg-linear-to-r"
             aria-hidden="true"
           />
 
@@ -77,7 +77,7 @@ export default function Journey() {
             return (
               <motion.article
                 key={`journey-step-${index}`}
-                className="relative grid grid-cols-[48px_minmax(0,1fr)] gap-4 md:block"
+                className="relative grid grid-cols-[48px_minmax(0,1fr)] gap-4 lg:block"
                 variants={itemVariants}
               >
                 <div
@@ -89,7 +89,7 @@ export default function Journey() {
                 </div>
 
                 <div
-                  className={`rounded-xl border bg-card/85 p-5 shadow-soft backdrop-blur transition-smooth md:mt-5 ${
+                  className={`rounded-xl border bg-card/85 p-5 shadow-soft backdrop-blur transition-smooth lg:mt-5 lg:p-4 xl:p-5 ${
                     isCurrent ? "border-primary/25 hover:border-primary/50" : "border-accent/20 hover:border-accent/40"
                   }`}
                 >
@@ -105,7 +105,7 @@ export default function Journey() {
                     {step.highlights.map((highlight) => (
                       <li
                         key={highlight}
-                        className="flex items-start gap-2 font-body text-sm leading-5 text-muted-foreground"
+                        className="flex items-start gap-2 lg:gap-1.5 xl:gap-2 font-body text-sm leading-5 text-muted-foreground"
                       >
                         <CircleCheck
                           className={`mt-0.5 h-4 w-4 shrink-0 ${

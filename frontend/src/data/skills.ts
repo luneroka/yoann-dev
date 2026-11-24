@@ -111,4 +111,17 @@ export const skills: Skill[] = [
     category: "operations",
     showAsFilter: false,
   },
+  {
+    id: "ai-assisted-development",
+    label: { en: "AI-assisted development", fr: "Développement assisté par IA" },
+    category: "ai",
+    featured: true,
+    showAsFilter: true,
+  },
+  {
+    id: "agent-workflows",
+    label: { en: "Agent workflows & harnessing", fr: "Workflows d'agents IA" },
+    category: "ai",
+    showAsFilter: true,
+  },
 ];

@@ -271,7 +271,7 @@ The context metric can represent values such as:
 
 The explorer currently registers 12 project records:
 
-1. Construction Budget Platform;
+1. Bâti Budget (Construction Budget App);
 2. Construction Budget Excel Tool;
 3. StaffPicks;
 4. E-Commerce Data Analysis;

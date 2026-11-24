@@ -133,7 +133,6 @@ export const maBibli = {
 
   links: {
     github: "https://github.com/luneroka/ma-bibli",
-    demo: "https://www.ma-bibli.com",
   },
 
   period: {
