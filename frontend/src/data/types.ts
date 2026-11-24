@@ -38,7 +38,8 @@ export type TechnologyId =
   | "git"
   | "docker"
   | "figma"
-  | "minitab";
+  | "minitab"
+  | "claude-code";
 
 export type SkillId =
   | "data-analysis"
@@ -57,11 +58,19 @@ export type SkillId =
   | "ux-ui-design"
   | "product-discovery"
   | "stakeholder-management"
-  | "project-management";
+  | "project-management"
+  | "ai-assisted-development"
+  | "agent-workflows";
 
 export type TechnologyCategory = "frontend" | "backend" | "data" | "database" | "tooling";
 
-export type SkillCategory = "data" | "backend" | "frontend" | "business-analysis" | "operations";
+export type SkillCategory =
+  | "data"
+  | "backend"
+  | "frontend"
+  | "business-analysis"
+  | "operations"
+  | "ai";
 
 /*
 |--------------------------------------------------------------------------

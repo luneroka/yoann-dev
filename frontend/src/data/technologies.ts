@@ -3,6 +3,7 @@ import { DiVisualstudio } from "react-icons/di";
 import { IoLogoTableau } from "react-icons/io5";
 import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
 import {
+  SiClaude,
   SiDocker,
   SiFastapi,
   SiFigma,
@@ -165,6 +166,13 @@ export const technologies: Technology[] = [
     id: "figma",
     label: { en: "Figma", fr: "Figma" },
     icon: SiFigma,
+    category: "tooling",
+    showAsFilter: true,
+  },
+  {
+    id: "claude-code",
+    label: { en: "Claude Code", fr: "Claude Code" },
+    icon: SiClaude,
     category: "tooling",
     showAsFilter: true,
   },
